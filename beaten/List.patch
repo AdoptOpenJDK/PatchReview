@@ -1,0 +1,33 @@
+diff -r f62077973f9b src/share/classes/java/awt/List.java
+--- a/src/share/classes/java/awt/List.java	Tue Feb 14 11:47:41 2012 +0000
++++ b/src/share/classes/java/awt/List.java	Tue Feb 14 21:30:50 2012 +0000
+@@ -490,9 +490,9 @@
+     public synchronized int[] getSelectedIndexes() {
+         ListPeer peer = (ListPeer)this.peer;
+         if (peer != null) {
+-            selected = ((ListPeer)peer).getSelectedIndexes();
++            selected = peer.getSelectedIndexes();
+         }
+-        return (int[])selected.clone();
++        return selected.clone();
+     }
+ 
+     /**
+@@ -908,7 +908,7 @@
+      * @since 1.4
+      */
+     public synchronized ItemListener[] getItemListeners() {
+-        return (ItemListener[])(getListeners(ItemListener.class));
++        return getListeners(ItemListener.class);
+     }
+ 
+     /**
+@@ -975,7 +975,7 @@
+      * @since 1.4
+      */
+     public synchronized ActionListener[] getActionListeners() {
+-        return (ActionListener[])(getListeners(ActionListener.class));
++        return getListeners(ActionListener.class);
+     }
+ 
+     /**

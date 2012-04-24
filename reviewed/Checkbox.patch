@@ -1,0 +1,12 @@
+diff -r f62077973f9b src/share/classes/java/awt/Checkbox.java
+--- a/src/share/classes/java/awt/Checkbox.java	Tue Feb 14 11:47:41 2012 +0000
++++ b/src/share/classes/java/awt/Checkbox.java	Tue Feb 14 22:04:10 2012 +0000
+@@ -470,7 +470,7 @@
+      * @since 1.4
+      */
+     public synchronized ItemListener[] getItemListeners() {
+-        return (ItemListener[]) (getListeners(ItemListener.class));
++        return getListeners(ItemListener.class);
+     }
+ 
+     /**

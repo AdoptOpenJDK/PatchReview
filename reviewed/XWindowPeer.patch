@@ -1,0 +1,45 @@
+diff -r 27e746e6f3fe src/solaris/classes/sun/awt/X11/XWindowPeer.java
+--- a/src/solaris/classes/sun/awt/X11/XWindowPeer.java	Sun Feb 12 21:09:09 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11/XWindowPeer.java	Mon Feb 13 01:11:33 2012 +0000
+@@ -290,7 +290,7 @@
+ 
+     public void updateIconImages() {
+         Window target = (Window)this.target;
+-        java.util.List<Image> iconImages = ((Window)target).getIconImages();
++        java.util.List<Image> iconImages = target.getIconImages();
+         XWindowPeer ownerPeer = getOwnerPeer();
+         winAttr.icons = new ArrayList<XIconInfo>();
+         if (iconImages.size() != 0) {
+@@ -462,8 +462,8 @@
+     public void updateMinimumSize() {
+         //This function only saves minimumSize value in XWindowPeer
+         //Setting WMSizeHints is implemented in XDecoratedPeer
+-        targetMinimumSize = (((Component)target).isMinimumSizeSet()) ?
+-            ((Component)target).getMinimumSize() : null;
++        targetMinimumSize = target.isMinimumSizeSet() ?
++            target.getMinimumSize() : null;
+     }
+ 
+     public Dimension getTargetMinimumSize() {
+@@ -718,10 +718,10 @@
+         Runnable dc = new Runnable() {
+             public void run() {
+                 AWTAccessor.getComponentAccessor().
+-                    setGraphicsConfiguration((Component)target, gc);
++                    setGraphicsConfiguration(target, gc);
+             }
+         };
+-        SunToolkit.executeOnEventHandlerThread((Component)target, dc);
++        SunToolkit.executeOnEventHandlerThread(target, dc);
+     }
+ 
+     /**
+@@ -1049,7 +1049,7 @@
+                 XUnmapEvent unmap = new XUnmapEvent();
+                 unmap.set_window(window);
+                 unmap.set_event(XToolkit.getDefaultRootWindow());
+-                unmap.set_type((int)XConstants.UnmapNotify);
++                unmap.set_type(XConstants.UnmapNotify);
+                 unmap.set_from_configure(false);
+                 XlibWrapper.XSendEvent(XToolkit.getDisplay(), XToolkit.getDefaultRootWindow(),
+                         false, XConstants.SubstructureNotifyMask | XConstants.SubstructureRedirectMask,
