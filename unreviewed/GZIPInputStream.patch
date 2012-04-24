@@ -1,0 +1,12 @@
+diff -r 1980be18d0f8 src/share/classes/java/util/zip/GZIPInputStream.java
+--- a/src/share/classes/java/util/zip/GZIPInputStream.java	Sun Apr 22 21:22:17 2012 +0100
++++ b/src/share/classes/java/util/zip/GZIPInputStream.java	Mon Apr 23 19:36:16 2012 +0100
+@@ -252,7 +252,7 @@
+      */
+     private int readUShort(InputStream in) throws IOException {
+         int b = readUByte(in);
+-        return ((int)readUByte(in) << 8) | b;
++        return ( readUByte(in) << 8) | b;
+     }
+ 
+     /*
