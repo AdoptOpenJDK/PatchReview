@@ -1,0 +1,30 @@
+diff -r 134d9f4f9498 src/share/classes/java/awt/image/DataBufferByte.java
+--- a/src/share/classes/java/awt/image/DataBufferByte.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/java/awt/image/DataBufferByte.java	Mon Mar 12 23:16:19 2012 +0000
+@@ -156,7 +156,7 @@
+      */
+     public DataBufferByte(byte dataArray[][], int size) {
+         super(UNTRACKABLE, TYPE_BYTE, size, dataArray.length);
+-        bankdata = (byte[][]) dataArray.clone();
++        bankdata = dataArray.clone();
+         data = bankdata[0];
+     }
+ 
+@@ -181,7 +181,7 @@
+      */
+     public DataBufferByte(byte dataArray[][], int size, int offsets[]) {
+         super(UNTRACKABLE, TYPE_BYTE, size, dataArray.length, offsets);
+-        bankdata = (byte[][]) dataArray.clone();
++        bankdata = dataArray.clone();
+         data = bankdata[0];
+     }
+ 
+@@ -228,7 +228,7 @@
+      */
+     public byte[][] getBankData() {
+         theTrackable.setUntrackable();
+-        return (byte[][]) bankdata.clone();
++        return bankdata.clone();
+     }
+ 
+     /**

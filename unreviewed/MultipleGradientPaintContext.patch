@@ -1,0 +1,21 @@
+diff -r 134d9f4f9498 src/share/classes/java/awt/MultipleGradientPaintContext.java
+--- a/src/share/classes/java/awt/MultipleGradientPaintContext.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/java/awt/MultipleGradientPaintContext.java	Mon Mar 12 23:16:23 2012 +0000
+@@ -665,7 +665,7 @@
+     {
+         if (cm == cachedModel) {
+             if (cached != null) {
+-                Raster ras = (Raster) cached.get();
++                Raster ras = cached.get();
+                 if (ras != null &&
+                     ras.getWidth() >= w &&
+                     ras.getHeight() >= h)
+@@ -687,7 +687,7 @@
+                                                      Raster ras)
+     {
+         if (cached != null) {
+-            Raster cras = (Raster) cached.get();
++            Raster cras = cached.get();
+             if (cras != null) {
+                 int cw = cras.getWidth();
+                 int ch = cras.getHeight();

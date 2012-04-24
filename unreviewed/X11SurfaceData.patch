@@ -1,0 +1,45 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/java2d/x11/X11SurfaceData.java
+--- a/src/solaris/classes/sun/java2d/x11/X11SurfaceData.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/java2d/x11/X11SurfaceData.java	Mon Mar 12 23:16:58 2012 +0000
+@@ -214,13 +214,13 @@
+        if (!isX11SurfaceDataInitialized() &&
+            !GraphicsEnvironment.isHeadless()) {
+             // If a screen magnifier is present, don't attempt to use DGA
+-            String magPresent = (String) java.security.AccessController.doPrivileged
++            String magPresent = java.security.AccessController.doPrivileged
+                 (new sun.security.action.GetPropertyAction("javax.accessibility.screen_magnifier_present"));
+             boolean tryDGA = magPresent == null || !"true".equals(magPresent);
+ 
+             initIDs(XORComposite.class, tryDGA);
+ 
+-            String xtextpipe = (String) java.security.AccessController.doPrivileged
++            String xtextpipe = java.security.AccessController.doPrivileged
+                 (new sun.security.action.GetPropertyAction("sun.java2d.xtextpipe"));
+             if (xtextpipe == null || "true".startsWith(xtextpipe)) {
+                 if ("true".equals(xtextpipe)) {
+@@ -264,8 +264,7 @@
+             if (GraphicsEnvironment.isHeadless()) {
+                 accelerationEnabled = Boolean.FALSE;
+             } else {
+-                String prop =
+-                    (String) java.security.AccessController.doPrivileged(
++                String prop = java.security.AccessController.doPrivileged(
+                         new sun.security.action.GetPropertyAction("sun.java2d.pmoffscreen"));
+                 if (prop != null) {
+                     // true iff prop==true, false otherwise
+@@ -516,6 +515,7 @@
+         return getSurfaceType(gc, transparency, false);
+     }
+ 
++    @SuppressWarnings("fallthrough")
+     public static SurfaceType getSurfaceType(X11GraphicsConfig gc,
+                                              int transparency,
+                                              boolean pixmapSurface)
+@@ -544,6 +544,7 @@
+                 break;
+             }
+             // Fall through for 32 bit case
++        
+         case 32:
+             if (cm instanceof DirectColorModel) {
+                 if (((SunToolkit)java.awt.Toolkit.getDefaultToolkit()

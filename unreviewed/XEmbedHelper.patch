@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/awt/X11/XEmbedHelper.java
+--- a/src/solaris/classes/sun/awt/X11/XEmbedHelper.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11/XEmbedHelper.java	Mon Mar 12 23:16:51 2012 +0000
+@@ -95,7 +95,7 @@
+     }
+     void sendMessage(long window, int message, long detail, long data1, long data2) {
+         XClientMessageEvent msg = new XClientMessageEvent();
+-        msg.set_type((int)XConstants.ClientMessage);
++        msg.set_type(XConstants.ClientMessage);
+         msg.set_window(window);
+         msg.set_message_type(XEmbed.getAtom());
+         msg.set_format(32);

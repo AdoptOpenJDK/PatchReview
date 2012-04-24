@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/awt/X11/XBaseMenuWindow.java
+--- a/src/solaris/classes/sun/awt/X11/XBaseMenuWindow.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11/XBaseMenuWindow.java	Mon Mar 12 23:16:47 2012 +0000
+@@ -288,7 +288,7 @@
+      */
+     XMenuItemPeer[] copyItems() {
+         synchronized(getMenuTreeLock()) {
+-            return (XMenuItemPeer[])items.toArray(new XMenuItemPeer[] {});
++            return items.toArray(new XMenuItemPeer[] {});
+         }
+     }
+ 

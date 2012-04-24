@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/share/classes/com/sun/imageio/plugins/bmp/BMPImageWriter.java
+--- a/src/share/classes/com/sun/imageio/plugins/bmp/BMPImageWriter.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/com/sun/imageio/plugins/bmp/BMPImageWriter.java	Mon Mar 12 23:16:07 2012 +0000
+@@ -582,7 +582,7 @@
+             imageSize = embedded_stream.size();
+ 
+             long endPos = stream.getStreamPosition();
+-            fileSize = (int)(offset + imageSize);
++            fileSize = (offset + imageSize);
+             stream.seek(headPos);
+             writeSize(fileSize, 2);
+             stream.seek(headPos);

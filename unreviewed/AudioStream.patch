@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/share/classes/sun/audio/AudioStream.java
+--- a/src/share/classes/sun/audio/AudioStream.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/sun/audio/AudioStream.java	Mon Mar 12 23:16:38 2012 +0000
+@@ -135,7 +135,7 @@
+                           ais.getFormat().getFrameSize() );
+ 
+         } else if ( midiformat != null ) {
+-            return (int) midiformat.getByteLength();
++            return midiformat.getByteLength();
+ 
+         } else {
+             return -1;

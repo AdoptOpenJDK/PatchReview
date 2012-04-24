@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/awt/X11/XEmbedServerTester.java
+--- a/src/solaris/classes/sun/awt/X11/XEmbedServerTester.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11/XEmbedServerTester.java	Mon Mar 12 23:16:51 2012 +0000
+@@ -669,7 +669,7 @@
+             }
+         } else {
+             synchronized(EVENT_LOCK) {
+-                int eventID = (int)ev.get_type() | SYSTEM_EVENT_MASK;
++                int eventID = ev.get_type() | SYSTEM_EVENT_MASK;
+                 events.add(eventID);
+ 
+                 xembedLog.finer("Tester is waiting for " + XEmbedHelper.msgidToString(eventWaited) + ", but we received " + ev + "(" + XEmbedHelper.msgidToString(eventID) + ")");

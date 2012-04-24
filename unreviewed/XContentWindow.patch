@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/awt/X11/XContentWindow.java
+--- a/src/solaris/classes/sun/awt/X11/XContentWindow.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11/XContentWindow.java	Mon Mar 12 23:16:49 2012 +0000
+@@ -135,7 +135,7 @@
+     // NOTE: This method may be called by privileged threads.
+     //       DO NOT INVOKE CLIENT CODE ON THIS THREAD!
+     public void handleResize(Rectangle bounds) {
+-        AWTAccessor.getComponentAccessor().setSize((Component)target, bounds.width, bounds.height);
++        AWTAccessor.getComponentAccessor().setSize(target, bounds.width, bounds.height);
+         postEvent(new ComponentEvent(target, ComponentEvent.COMPONENT_RESIZED));
+     }
+ 

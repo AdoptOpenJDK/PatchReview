@@ -1,0 +1,30 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/awt/X11/XDropTargetEventProcessor.java
+--- a/src/solaris/classes/sun/awt/X11/XDropTargetEventProcessor.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11/XDropTargetEventProcessor.java	Mon Mar 12 23:16:50 2012 +0000
+@@ -43,7 +43,7 @@
+     private XDropTargetEventProcessor() {}
+ 
+     private boolean doProcessEvent(XEvent ev) {
+-        if (ev.get_type() == (int)XConstants.DestroyNotify &&
++        if (ev.get_type() == XConstants.DestroyNotify &&
+             protocol != null &&
+             ev.get_xany().get_window() == protocol.getSourceWindow()) {
+             protocol.cleanup();
+@@ -51,7 +51,7 @@
+             return false;
+         }
+ 
+-        if (ev.get_type() == (int)XConstants.PropertyNotify) {
++        if (ev.get_type() == XConstants.PropertyNotify) {
+             XPropertyEvent xproperty = ev.get_xproperty();
+             if (xproperty.get_atom() ==
+                 MotifDnDConstants.XA_MOTIF_DRAG_RECEIVER_INFO.getAtom()) {
+@@ -60,7 +60,7 @@
+             }
+         }
+ 
+-        if (ev.get_type() != (int)XConstants.ClientMessage) {
++        if (ev.get_type() != XConstants.ClientMessage) {
+             return false;
+         }
+ 

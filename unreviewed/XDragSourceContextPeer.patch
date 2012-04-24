@@ -1,0 +1,21 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/awt/X11/XDragSourceContextPeer.java
+--- a/src/solaris/classes/sun/awt/X11/XDragSourceContextPeer.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11/XDragSourceContextPeer.java	Mon Mar 12 23:16:50 2012 +0000
+@@ -538,7 +538,7 @@
+             return false;
+         }
+ 
+-        if (ev.get_type() != (int)XConstants.ClientMessage) {
++        if (ev.get_type() != XConstants.ClientMessage) {
+             return false;
+         }
+ 
+@@ -612,7 +612,7 @@
+                                                        xkey.get_keycode(), 0);
+             switch ((int)keysym) {
+             case (int)XKeySymConstants.XK_Escape: {
+-                if (ev.get_type() == (int)XConstants.KeyRelease) {
++                if (ev.get_type() == XConstants.KeyRelease) {
+                     cleanup(xkey.get_time());
+                 }
+                 break;

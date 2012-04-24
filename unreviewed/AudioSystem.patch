@@ -1,0 +1,13 @@
+diff -r 134d9f4f9498 src/share/classes/javax/sound/sampled/AudioSystem.java
+--- a/src/share/classes/javax/sound/sampled/AudioSystem.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/javax/sound/sampled/AudioSystem.java	Mon Mar 12 23:16:35 2012 +0000
+@@ -1607,8 +1607,7 @@
+         Mixer.Info[] allInfos;  // for all mixers
+ 
+         for(int i = 0; i < providers.size(); i++ ) {
+-            someInfos = (Mixer.Info[])
+-                ((MixerProvider)providers.get(i)).getMixerInfo();
++            someInfos = ((MixerProvider)providers.get(i)).getMixerInfo();
+ 
+             for (int j = 0; j < someInfos.length; j++) {
+                 infos.add(someInfos[j]);

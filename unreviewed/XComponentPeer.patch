@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/awt/X11/XComponentPeer.java
+--- a/src/solaris/classes/sun/awt/X11/XComponentPeer.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11/XComponentPeer.java	Mon Mar 12 23:16:48 2012 +0000
+@@ -340,7 +340,7 @@
+                   return rejectFocusRequestHelper("Waiting for asynchronous processing of the request");
+               }
+               return XKeyboardFocusManagerPeer.deliverFocus(lightweightChild,
+-                                                            (Component)target,
++                                                            target,
+                                                             temporary,
+                                                             focusedWindowChangeAllowed,
+                                                             time, cause);

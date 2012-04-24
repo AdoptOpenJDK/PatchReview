@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/share/classes/sun/java2d/cmm/CMSManager.java
+--- a/src/share/classes/sun/java2d/cmm/CMSManager.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/sun/java2d/cmm/CMSManager.java	Mon Mar 12 23:16:42 2012 +0000
+@@ -78,7 +78,7 @@
+         }
+ 
+         GetPropertyAction gpa = new GetPropertyAction("sun.java2d.cmm.trace");
+-        String cmmTrace = (String)AccessController.doPrivileged(gpa);
++        String cmmTrace = AccessController.doPrivileged(gpa);
+         if (cmmTrace != null) {
+             cmmImpl = new CMMTracer(cmmImpl);
+         }

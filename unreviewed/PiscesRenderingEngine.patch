@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/share/classes/sun/java2d/pisces/PiscesRenderingEngine.java
+--- a/src/share/classes/sun/java2d/pisces/PiscesRenderingEngine.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/sun/java2d/pisces/PiscesRenderingEngine.java	Mon Mar 12 23:16:44 2012 +0000
+@@ -462,7 +462,7 @@
+             float[] tmp = new float[6];
+             int type = this.currentSegment(tmp);
+             for (int i = 0; i < 6; i++) {
+-                coords[i] = (float) tmp[i];
++                coords[i] = tmp[i];
+             }
+             return type;
+         }

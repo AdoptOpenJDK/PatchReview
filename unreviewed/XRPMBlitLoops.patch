@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/java2d/xr/XRPMBlitLoops.java
+--- a/src/solaris/classes/sun/java2d/xr/XRPMBlitLoops.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/java2d/xr/XRPMBlitLoops.java	Mon Mar 12 23:16:58 2012 +0000
+@@ -212,7 +212,7 @@
+                                                                                  * ?
+                                                                                  * ?
+                                                                                  */
+-            x11sdDst.maskBuffer.compositeBlit(x11sdSrc, x11sdDst, (int) sx1, (int) sy1, (int) dx1, (int) dy1, (int) (dx2 - dx1), (int) (dy2 - dy1));
++            x11sdDst.maskBuffer.compositeBlit(x11sdSrc, x11sdDst, sx1, sy1, (int) dx1, (int) dy1, (int) (dx2 - dx1), (int) (dy2 - dy1));
+         } finally {
+             SunToolkit.awtUnlock();
+         }

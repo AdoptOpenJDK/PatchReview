@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/share/classes/sun/font/CompositeFont.java
+--- a/src/share/classes/sun/font/CompositeFont.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/sun/font/CompositeFont.java	Mon Mar 12 23:16:40 2012 +0000
+@@ -447,7 +447,7 @@
+     }
+ 
+     public String toString() {
+-        String ls = (String)java.security.AccessController.doPrivileged(
++        String ls = java.security.AccessController.doPrivileged(
+                 new sun.security.action.GetPropertyAction("line.separator"));
+         String componentsStr = "";
+         for (int i=0; i<numSlots; i++) {

@@ -1,0 +1,13 @@
+diff -r 134d9f4f9498 src/share/classes/com/oracle/net/Sdp.java
+--- a/src/share/classes/com/oracle/net/Sdp.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/com/oracle/net/Sdp.java	Mon Mar 12 23:16:06 2012 +0000
+@@ -56,8 +56,7 @@
+     private static final Constructor<ServerSocket> serverSocketCtor;
+     static {
+         try {
+-            serverSocketCtor = (Constructor<ServerSocket>)
+-                ServerSocket.class.getDeclaredConstructor(SocketImpl.class);
++            serverSocketCtor = ServerSocket.class.getDeclaredConstructor(SocketImpl.class);
+             setAccessible(serverSocketCtor);
+         } catch (NoSuchMethodException e) {
+             throw new AssertionError(e);

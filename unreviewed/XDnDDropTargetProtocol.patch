@@ -1,0 +1,39 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/awt/X11/XDnDDropTargetProtocol.java
+--- a/src/solaris/classes/sun/awt/X11/XDnDDropTargetProtocol.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11/XDnDDropTargetProtocol.java	Mon Mar 12 23:16:50 2012 +0000
+@@ -748,7 +748,7 @@
+                                                 long data3, long data4) {
+         XClientMessageEvent enter = new XClientMessageEvent();
+         try {
+-            enter.set_type((int)XConstants.ClientMessage);
++            enter.set_type(XConstants.ClientMessage);
+             enter.set_window(toplevel);
+             enter.set_format(32);
+             enter.set_message_type(XDnDConstants.XA_XdndEnter.getAtom());
+@@ -774,7 +774,7 @@
+                                                   long sourceWindow) {
+         XClientMessageEvent leave = new XClientMessageEvent();
+         try {
+-            leave.set_type((int)XConstants.ClientMessage);
++            leave.set_type(XConstants.ClientMessage);
+             leave.set_window(toplevel);
+             leave.set_format(32);
+             leave.set_message_type(XDnDConstants.XA_XdndLeave.getAtom());
+@@ -804,7 +804,7 @@
+ 
+         XClientMessageEvent msg = new XClientMessageEvent();
+         try {
+-            msg.set_type((int)XConstants.ClientMessage);
++            msg.set_type(XConstants.ClientMessage);
+             msg.set_window(xclient.get_data(0));
+             msg.set_format(32);
+             msg.set_message_type(XDnDConstants.XA_XdndStatus.getAtom());
+@@ -892,7 +892,7 @@
+ 
+         XClientMessageEvent msg = new XClientMessageEvent();
+         try {
+-            msg.set_type((int)XConstants.ClientMessage);
++            msg.set_type(XConstants.ClientMessage);
+             msg.set_window(xclient.get_data(0));
+             msg.set_format(32);
+             msg.set_message_type(XDnDConstants.XA_XdndFinished.getAtom());

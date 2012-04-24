@@ -1,0 +1,21 @@
+diff -r 134d9f4f9498 src/share/classes/sun/font/TrueTypeFont.java
+--- a/src/share/classes/sun/font/TrueTypeFont.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/sun/font/TrueTypeFont.java	Mon Mar 12 23:16:42 2012 +0000
+@@ -698,7 +698,7 @@
+ 
+         if (FontUtilities.isWindows) {
+             defaultCodePage =
+-                (String)java.security.AccessController.doPrivileged(
++                java.security.AccessController.doPrivileged(
+                    new sun.security.action.GetPropertyAction("file.encoding"));
+         } else {
+             if (languages.length != codePages.length) {
+@@ -1493,7 +1493,7 @@
+ 
+         String key = locale.toString();
+         while (!"".equals(key)) {
+-            Short lcidObject = (Short) lcidMap.get(key);
++            Short lcidObject = lcidMap.get(key);
+             if (lcidObject != null) {
+                 return lcidObject.shortValue();
+             }

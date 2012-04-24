@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/share/classes/java/awt/image/PackedColorModel.java
+--- a/src/share/classes/java/awt/image/PackedColorModel.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/java/awt/image/PackedColorModel.java	Mon Mar 12 23:16:22 2012 +0000
+@@ -252,7 +252,7 @@
+      *         representation contain the color or alpha samples.
+      */
+     final public int[] getMasks() {
+-        return (int[]) maskArray.clone();
++        return maskArray.clone();
+     }
+ 
+     /*

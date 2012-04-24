@@ -1,0 +1,26 @@
+diff -r 134d9f4f9498 src/share/classes/java/awt/Cursor.java
+--- a/src/share/classes/java/awt/Cursor.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/java/awt/Cursor.java	Mon Mar 12 23:16:17 2012 +0000
+@@ -170,7 +170,7 @@
+     private static final String systemCustomCursorDirPrefix = initCursorDir();
+ 
+     private static String initCursorDir() {
+-        String jhome =  (String) java.security.AccessController.doPrivileged(
++        String jhome = java.security.AccessController.doPrivileged(
+                new sun.security.action.GetPropertyAction("java.home"));
+         return jhome +
+             File.separator + "lib" + File.separator + "images" +
+@@ -307,11 +307,11 @@
+             final String fileName =
+                 systemCustomCursorProperties.getProperty(key);
+ 
+-            String localized = (String)systemCustomCursorProperties.getProperty(prefix + DotNameSuffix);
++            String localized = systemCustomCursorProperties.getProperty(prefix + DotNameSuffix);
+ 
+             if (localized == null) localized = name;
+ 
+-            String hotspot = (String)systemCustomCursorProperties.getProperty(prefix + DotHotspotSuffix);
++            String hotspot = systemCustomCursorProperties.getProperty(prefix + DotHotspotSuffix);
+ 
+             if (hotspot == null)
+                 throw new AWTException("no hotspot property defined for cursor: " + name);

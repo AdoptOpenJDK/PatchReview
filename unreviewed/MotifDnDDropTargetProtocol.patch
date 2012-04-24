@@ -1,0 +1,39 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/awt/X11/MotifDnDDropTargetProtocol.java
+--- a/src/solaris/classes/sun/awt/X11/MotifDnDDropTargetProtocol.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11/MotifDnDDropTargetProtocol.java	Mon Mar 12 23:16:47 2012 +0000
+@@ -118,7 +118,7 @@
+              *     CARD32       heap_offset B32;
+              * } xmDragReceiverInfoStruct;
+              */
+-            if (status == (int)XConstants.Success && wpg.getData() != 0 &&
++            if (status == XConstants.Success && wpg.getData() != 0 &&
+                 wpg.getActualType() != 0 && wpg.getActualFormat() == 8 &&
+                 wpg.getNumberOfItems() >=
+                 MotifDnDConstants.MOTIF_RECEIVER_INFO_SIZE) {
+@@ -220,7 +220,7 @@
+                  *     CARD32   heap_offset B32;
+                  * } xmDragReceiverInfoStruct;
+                  */
+-                if (status == (int)XConstants.Success && wpg.getData() != 0 &&
++                if (status == XConstants.Success && wpg.getData() != 0 &&
+                     wpg.getActualType() != 0 && wpg.getActualFormat() == 8 &&
+                     wpg.getNumberOfItems() >=
+                     MotifDnDConstants.MOTIF_RECEIVER_INFO_SIZE) {
+@@ -292,7 +292,7 @@
+              *     CARD32       heap_offset B32;
+              * } xmDragReceiverInfoStruct;
+              */
+-            if (status == (int)XConstants.Success && wpg.getData() != 0 &&
++            if (status == XConstants.Success && wpg.getData() != 0 &&
+                 wpg.getActualType() != 0 && wpg.getActualFormat() == 8 &&
+                 wpg.getNumberOfItems() >=
+                 MotifDnDConstants.MOTIF_RECEIVER_INFO_SIZE) {
+@@ -327,7 +327,7 @@
+         try {
+             int status = wpg.execute(XErrorHandler.IgnoreBadWindowHandler.getInstance());
+ 
+-            if (status == (int)XConstants.Success && wpg.getData() != 0 &&
++            if (status == XConstants.Success && wpg.getData() != 0 &&
+                 wpg.getActualType() != 0 && wpg.getActualFormat() == 8 &&
+                 wpg.getNumberOfItems() >=
+                 MotifDnDConstants.MOTIF_RECEIVER_INFO_SIZE) {

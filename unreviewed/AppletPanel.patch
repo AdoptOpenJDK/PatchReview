@@ -1,0 +1,14 @@
+diff -r 134d9f4f9498 src/share/classes/sun/applet/AppletPanel.java
+--- a/src/share/classes/sun/applet/AppletPanel.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/sun/applet/AppletPanel.java	Mon Mar 12 23:16:37 2012 +0000
+@@ -1222,8 +1222,8 @@
+         synchronized(appletClass)  {
+             // Determine if the JDK level of an applet has been
+             // checked before.
+-            Boolean jdk11Target = (Boolean) loader.isJDK11Target(appletClass);
+-            Boolean jdk12Target = (Boolean) loader.isJDK12Target(appletClass);
++            Boolean jdk11Target = loader.isJDK11Target(appletClass);
++            Boolean jdk12Target = loader.isJDK12Target(appletClass);
+ 
+             // if applet JDK level has been checked before, retrieve
+             // value and return.

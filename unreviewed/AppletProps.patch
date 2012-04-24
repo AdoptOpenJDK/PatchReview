@@ -1,0 +1,19 @@
+diff -r 134d9f4f9498 src/share/classes/sun/applet/AppletProps.java
+--- a/src/share/classes/sun/applet/AppletProps.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/sun/applet/AppletProps.java	Mon Mar 12 23:16:37 2012 +0000
+@@ -75,12 +75,12 @@
+         if (security != null)
+             security.reset();
+ 
+-        String proxyhost = (String) AccessController.doPrivileged(
++        String proxyhost = AccessController.doPrivileged(
+                 new GetPropertyAction("http.proxyHost"));
+-        String proxyport = (String)  AccessController.doPrivileged(
++        String proxyport = AccessController.doPrivileged(
+                 new GetPropertyAction("http.proxyPort"));
+ 
+-        Boolean tmp = (Boolean) AccessController.doPrivileged(
++        Boolean tmp = AccessController.doPrivileged(
+                 new GetBooleanAction("package.restrict.access.sun"));
+ 
+         boolean packageRestrict = tmp.booleanValue();

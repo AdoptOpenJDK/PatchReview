@@ -1,0 +1,13 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/print/UnixPrintJob.java
+--- a/src/solaris/classes/sun/print/UnixPrintJob.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/print/UnixPrintJob.java	Mon Mar 12 23:16:59 2012 +0000
+@@ -309,8 +309,7 @@
+             }
+         }
+ 
+-        if ((PrinterIsAcceptingJobs)(service.getAttribute(
+-                         PrinterIsAcceptingJobs.class)) ==
++        if ((service.getAttribute(PrinterIsAcceptingJobs.class)) ==
+                          PrinterIsAcceptingJobs.NOT_ACCEPTING_JOBS) {
+             throw new PrintException("Printer is not accepting job.");
+         }

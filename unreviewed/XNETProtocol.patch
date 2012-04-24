@@ -1,0 +1,21 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/awt/X11/XNETProtocol.java
+--- a/src/solaris/classes/sun/awt/X11/XNETProtocol.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11/XNETProtocol.java	Mon Mar 12 23:16:54 2012 +0000
+@@ -98,7 +98,7 @@
+                   return;
+             }
+             if (log.isLoggable(PlatformLogger.FINE)) log.fine("Requesting state on " + window + " for " + state);
+-            req.set_type((int)XConstants.ClientMessage);
++            req.set_type(XConstants.ClientMessage);
+             req.set_window(window.getWindow());
+             req.set_message_type(XA_NET_WM_STATE.getAtom());
+             req.set_format(32);
+@@ -171,7 +171,7 @@
+     public void requestState(XWindow window, XAtom state, boolean isAdd) {
+         XClientMessageEvent req = new XClientMessageEvent();
+         try {
+-            req.set_type((int)XConstants.ClientMessage);
++            req.set_type(XConstants.ClientMessage);
+             req.set_window(window.getWindow());
+             req.set_message_type(XA_NET_WM_STATE.getAtom());
+             req.set_format(32);

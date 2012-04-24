@@ -1,0 +1,21 @@
+diff -r 134d9f4f9498 src/share/classes/sun/java2d/opengl/OGLUtilities.java
+--- a/src/share/classes/sun/java2d/opengl/OGLUtilities.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/sun/java2d/opengl/OGLUtilities.java	Mon Mar 12 23:16:43 2012 +0000
+@@ -201,7 +201,7 @@
+         }
+ 
+         SunGraphics2D sg2d = (SunGraphics2D)g;
+-        SurfaceData sData = (SurfaceData)sg2d.surfaceData;
++        SurfaceData sData = sg2d.surfaceData;
+ 
+         // this is the upper-left origin of the region to be painted,
+         // relative to the upper-left origin of the surface
+@@ -242,7 +242,7 @@
+         }
+ 
+         SunGraphics2D sg2d = (SunGraphics2D)g;
+-        SurfaceData sData = (SurfaceData)sg2d.surfaceData;
++        SurfaceData sData = sg2d.surfaceData;
+         Region r = sg2d.getCompClip();
+         if (!r.isRectangular()) {
+             // caller probably doesn't know how to handle shape clip

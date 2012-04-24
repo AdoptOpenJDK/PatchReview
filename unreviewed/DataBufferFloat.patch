@@ -1,0 +1,30 @@
+diff -r 134d9f4f9498 src/share/classes/java/awt/image/DataBufferFloat.java
+--- a/src/share/classes/java/awt/image/DataBufferFloat.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/java/awt/image/DataBufferFloat.java	Mon Mar 12 23:16:20 2012 +0000
+@@ -156,7 +156,7 @@
+      */
+     public DataBufferFloat(float dataArray[][], int size) {
+         super(UNTRACKABLE, TYPE_FLOAT, size, dataArray.length);
+-        bankdata = (float[][]) dataArray.clone();
++        bankdata = dataArray.clone();
+         data = bankdata[0];
+     }
+ 
+@@ -180,7 +180,7 @@
+      */
+     public DataBufferFloat(float dataArray[][], int size, int offsets[]) {
+         super(UNTRACKABLE, TYPE_FLOAT, size,dataArray.length, offsets);
+-        bankdata = (float[][]) dataArray.clone();
++        bankdata = dataArray.clone();
+         data = bankdata[0];
+     }
+ 
+@@ -227,7 +227,7 @@
+      */
+     public float[][] getBankData() {
+         theTrackable.setUntrackable();
+-        return (float[][]) bankdata.clone();
++        return bankdata.clone();
+     }
+ 
+     /**

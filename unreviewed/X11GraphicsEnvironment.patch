@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/awt/X11GraphicsEnvironment.java
+--- a/src/solaris/classes/sun/awt/X11GraphicsEnvironment.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11GraphicsEnvironment.java	Mon Mar 12 23:16:57 2012 +0000
+@@ -222,7 +222,7 @@
+             return true;
+         }
+ 
+-        String isRemote = (String)java.security.AccessController.doPrivileged(
++        String isRemote = java.security.AccessController.doPrivileged(
+             new sun.security.action.GetPropertyAction("sun.java2d.remote"));
+         if (isRemote != null) {
+             return isRemote.equals("false");

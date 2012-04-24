@@ -1,0 +1,14 @@
+diff -r 134d9f4f9498 src/share/classes/sun/font/Decoration.java
+--- a/src/share/classes/sun/font/Decoration.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/sun/font/Decoration.java	Mon Mar 12 23:16:41 2012 +0000
+@@ -157,8 +157,8 @@
+                        Underline stdUnderline,
+                        Underline imUnderline) {
+ 
+-            fgPaint = (Paint) foreground;
+-            bgPaint = (Paint) background;
++            fgPaint = foreground;
++            bgPaint = background;
+ 
+             this.swapColors = swapColors;
+             this.strikethrough = strikethrough;

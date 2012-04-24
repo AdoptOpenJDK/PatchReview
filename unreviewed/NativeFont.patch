@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/font/NativeFont.java
+--- a/src/solaris/classes/sun/font/NativeFont.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/font/NativeFont.java	Mon Mar 12 23:16:57 2012 +0000
+@@ -343,7 +343,7 @@
+                     pos++;
+             }
+         }
+-        String sizeStr = Integer.toString((int)Math.abs(ptSize)*10);
++        String sizeStr = Integer.toString(Math.abs(ptSize)*10);
+         StringBuilder sb = new StringBuilder(platName);
+         /* work backwards so as to not invalidate the positions. */
+         sb.replace(hPos[11]+1, hPos[12], "*");

@@ -1,0 +1,10 @@
+diff -r 134d9f4f9498 src/share/classes/sunw/util/EventListener.java
+--- a/src/share/classes/sunw/util/EventListener.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/sunw/util/EventListener.java	Mon Mar 12 23:16:45 2012 +0000
+@@ -50,5 +50,6 @@
+  * @see java.util.EventListener
+  */
+ 
++@Deprecated
+ public interface EventListener extends java.util.EventListener {
+ }

@@ -1,0 +1,44 @@
+diff -r 134d9f4f9498 src/share/classes/sun/applet/AppletMessageHandler.java
+--- a/src/share/classes/sun/applet/AppletMessageHandler.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/sun/applet/AppletMessageHandler.java	Mon Mar 12 23:16:37 2012 +0000
+@@ -53,11 +53,11 @@
+     }
+ 
+     String getMessage(String key) {
+-        return (String)rb.getString(getQualifiedKey(key));
++        return rb.getString(getQualifiedKey(key));
+     }
+ 
+     String getMessage(String key, Object arg){
+-        String basemsgfmt = (String)rb.getString(getQualifiedKey(key));
++        String basemsgfmt = rb.getString(getQualifiedKey(key));
+         MessageFormat msgfmt = new MessageFormat(basemsgfmt);
+         Object msgobj[] = new Object[1];
+         if (arg == null) {
+@@ -68,7 +68,7 @@
+     }
+ 
+     String getMessage(String key, Object arg1, Object arg2) {
+-        String basemsgfmt = (String)rb.getString(getQualifiedKey(key));
++        String basemsgfmt = rb.getString(getQualifiedKey(key));
+         MessageFormat msgfmt = new MessageFormat(basemsgfmt);
+         Object msgobj[] = new Object[2];
+         if (arg1 == null) {
+@@ -83,7 +83,7 @@
+     }
+ 
+     String getMessage(String key, Object arg1, Object arg2, Object arg3) {
+-        String basemsgfmt = (String)rb.getString(getQualifiedKey(key));
++        String basemsgfmt = rb.getString(getQualifiedKey(key));
+         MessageFormat msgfmt = new MessageFormat(basemsgfmt);
+         Object msgobj[] = new Object[3];
+         if (arg1 == null) {
+@@ -102,7 +102,7 @@
+     }
+ 
+     String getMessage(String key, Object arg[]) {
+-        String basemsgfmt = (String)rb.getString(getQualifiedKey(key));
++        String basemsgfmt = rb.getString(getQualifiedKey(key));
+         MessageFormat msgfmt = new MessageFormat(basemsgfmt);
+         return msgfmt.format(arg);
+     }

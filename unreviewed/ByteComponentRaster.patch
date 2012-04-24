@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/share/classes/sun/awt/image/ByteComponentRaster.java
+--- a/src/share/classes/sun/awt/image/ByteComponentRaster.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/sun/awt/image/ByteComponentRaster.java	Mon Mar 12 23:16:39 2012 +0000
+@@ -207,7 +207,7 @@
+      * band.
+      */
+     public int[] getDataOffsets() {
+-        return (int[]) dataOffsets.clone();
++        return dataOffsets.clone();
+     }
+ 
+     /**

@@ -1,0 +1,21 @@
+diff -r 134d9f4f9498 src/share/classes/java/awt/image/DataBuffer.java
+--- a/src/share/classes/java/awt/image/DataBuffer.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/java/awt/image/DataBuffer.java	Mon Mar 12 23:16:19 2012 +0000
+@@ -277,7 +277,7 @@
+         this.banks = numBanks;
+         this.size = size;
+         this.offset = offsets[0];
+-        this.offsets = (int[])offsets.clone();
++        this.offsets = offsets.clone();
+     }
+ 
+     /**  Returns the data type of this DataBuffer.
+@@ -305,7 +305,7 @@
+      *  @return the offsets of all banks.
+      */
+     public int[] getOffsets() {
+-        return (int[])offsets.clone();
++        return offsets.clone();
+     }
+ 
+     /** Returns the number of banks in this DataBuffer.

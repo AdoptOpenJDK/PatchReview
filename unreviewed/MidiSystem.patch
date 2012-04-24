@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/share/classes/javax/sound/midi/MidiSystem.java
+--- a/src/share/classes/javax/sound/midi/MidiSystem.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/javax/sound/midi/MidiSystem.java	Mon Mar 12 23:16:33 2012 +0000
+@@ -467,7 +467,7 @@
+             } catch (MidiUnavailableException e) {
+                 // something went wrong with synth
+                 if (e instanceof MidiUnavailableException) {
+-                    mue = (MidiUnavailableException) e;
++                    mue = e;
+                 }
+             }
+             if (rec == null) {

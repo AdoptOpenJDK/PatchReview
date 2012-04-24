@@ -1,0 +1,23 @@
+diff -r 134d9f4f9498 src/share/classes/java/awt/datatransfer/DataFlavor.java
+--- a/src/share/classes/java/awt/datatransfer/DataFlavor.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/java/awt/datatransfer/DataFlavor.java	Mon Mar 12 23:16:17 2012 +0000
+@@ -280,7 +280,7 @@
+         params.set("class", representationClass.getName());
+ 
+         if (humanPresentableName == null) {
+-            humanPresentableName = (String)params.get("humanPresentableName");
++            humanPresentableName = params.get("humanPresentableName");
+ 
+             if (humanPresentableName == null)
+                 humanPresentableName = primaryType + "/" + subType;
+@@ -671,8 +671,8 @@
+         }
+ 
+         DataFlavor bestFlavor =
+-            (DataFlavor)Collections.max(Arrays.asList(availableFlavors),
+-                                        textFlavorComparator);
++            Collections.max(Arrays.asList(availableFlavors),
++                            textFlavorComparator);
+ 
+         if (!bestFlavor.isFlavorTextType()) {
+             return null;

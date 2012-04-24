@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/awt/UNIXToolkit.java
+--- a/src/solaris/classes/sun/awt/UNIXToolkit.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/awt/UNIXToolkit.java	Mon Mar 12 23:16:46 2012 +0000
+@@ -49,7 +49,7 @@
+     private BufferedImage tmpImage = null;
+ 
+     public static int getDatatransferTimeout() {
+-        Integer dt = (Integer)AccessController.doPrivileged(
++        Integer dt = AccessController.doPrivileged(
+                 new GetIntegerAction("sun.awt.datatransfer.timeout"));
+         if (dt == null || dt <= 0) {
+             return DEFAULT_DATATRANSFER_TIMEOUT;

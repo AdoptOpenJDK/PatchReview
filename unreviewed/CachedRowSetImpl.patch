@@ -1,0 +1,35 @@
+diff -r 134d9f4f9498 src/share/classes/com/sun/rowset/CachedRowSetImpl.java
+--- a/src/share/classes/com/sun/rowset/CachedRowSetImpl.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/com/sun/rowset/CachedRowSetImpl.java	Mon Mar 12 23:16:13 2012 +0000
+@@ -2039,6 +2039,7 @@
+      *            the cursor is not on a valid row, or this method fails
+      * @deprecated
+      */
++    @Deprecated
+     public BigDecimal getBigDecimal(int columnIndex, int scale) throws SQLException {
+         Object value;
+         BigDecimal bDecimal, retVal;
+@@ -2374,6 +2375,7 @@
+      * @throws SQLException if an error occurs
+      * @deprecated
+      */
++    @Deprecated
+     public java.io.InputStream getUnicodeStream(int columnIndex) throws SQLException {
+         // always free an old stream
+         unicodeStream = null;
+@@ -2643,6 +2645,7 @@
+      * @deprecated Use the <code>getBigDecimal(String columnName)</code>
+      *             method instead
+      */
++    @Deprecated
+     public BigDecimal getBigDecimal(String columnName, int scale) throws SQLException {
+         return getBigDecimal(getColIdxByName(columnName), scale);
+     }
+@@ -2774,6 +2777,7 @@
+      *            this rowset's rows or its insert row
+      * @deprecated use the method <code>getCharacterStream</code> instead
+      */
++    @Deprecated
+     public java.io.InputStream getUnicodeStream(String columnName) throws SQLException {
+         return getUnicodeStream(getColIdxByName(columnName));
+     }

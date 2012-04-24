@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/awt/X11/XFileDialogPeer.java
+--- a/src/solaris/classes/sun/awt/X11/XFileDialogPeer.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11/XFileDialogPeer.java	Mon Mar 12 23:16:52 2012 +0000
+@@ -766,7 +766,7 @@
+     // 03/02/2005 b5097243 Pressing 'ESC' on a file dlg does not dispose the dlg on Xtoolkit
+     public void setVisible(boolean b){
+         if (fileDialog == null) {
+-            init((FileDialog)target);
++            init(target);
+         }
+ 
+         if (savedDir != null || userDir != null) {

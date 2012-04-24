@@ -1,0 +1,14 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/awt/X11/XGlobalCursorManager.java
+--- a/src/solaris/classes/sun/awt/X11/XGlobalCursorManager.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11/XGlobalCursorManager.java	Mon Mar 12 23:16:52 2012 +0000
+@@ -153,8 +153,8 @@
+                                           XlibWrapper.larg6,
+                                           XlibWrapper.larg7);
+ 
+-                p.x = (int) XlibWrapper.unsafe.getInt(XlibWrapper.larg3);
+-                p.y = (int) XlibWrapper.unsafe.getInt(XlibWrapper.larg4);
++                p.x = XlibWrapper.unsafe.getInt(XlibWrapper.larg3);
++                p.y = XlibWrapper.unsafe.getInt(XlibWrapper.larg4);
+             } finally {
+                 XToolkit.awtUnlock();
+             }

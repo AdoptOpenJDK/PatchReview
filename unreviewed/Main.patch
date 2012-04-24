@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/share/classes/sun/applet/Main.java
+--- a/src/share/classes/sun/applet/Main.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/sun/applet/Main.java	Mon Mar 12 23:16:38 2012 +0000
+@@ -369,7 +369,7 @@
+         Properties sysProps = System.getProperties();
+         for (Enumeration e = sysProps.propertyNames(); e.hasMoreElements(); ) {
+             String key = (String) e.nextElement();
+-            String val = (String) sysProps.getProperty(key);
++            String val = sysProps.getProperty(key);
+             String oldVal;
+             if ((oldVal = (String) avProps.setProperty(key, val)) != null)
+                 System.err.println(lookup("main.warn.prop.overwrite", key,

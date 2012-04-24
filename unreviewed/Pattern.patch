@@ -1,0 +1,43 @@
+diff -r 134d9f4f9498 src/share/classes/java/util/regex/Pattern.java
+--- a/src/share/classes/java/util/regex/Pattern.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/java/util/regex/Pattern.java	Mon Mar 12 23:16:27 2012 +0000
+@@ -2018,6 +2018,7 @@
+         }
+     }
+ 
++    @SuppressWarnings("fallthrough")
+     /**
+      * Parsing of sequences between alternations.
+      */
+@@ -2110,6 +2111,7 @@
+                     break LOOP;
+                 }
+                 // Fall through
++          
+             default:
+                 node = atom();
+                 break;
+@@ -2132,6 +2134,7 @@
+         return head;
+     }
+ 
++    @SuppressWarnings("fallthrough")
+     /**
+      * Parse and add a new Single or Slice.
+      */
+@@ -2268,6 +2271,7 @@
+             return new BackRef(refNum);
+     }
+ 
++    @SuppressWarnings("fallthrough")
+     /**
+      * Parses an escape sequence to determine the actual value that needs
+      * to be matched.
+@@ -2427,6 +2431,7 @@
+             if (inclass) break;
+             if (create) root = new End();
+             return -1;
++        
+         default:
+             return ch;
+         }

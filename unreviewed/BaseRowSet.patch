@@ -1,0 +1,11 @@
+diff -r 134d9f4f9498 src/share/classes/javax/sql/rowset/BaseRowSet.java
+--- a/src/share/classes/javax/sql/rowset/BaseRowSet.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/javax/sql/rowset/BaseRowSet.java	Mon Mar 12 23:16:35 2012 +0000
+@@ -2390,6 +2390,7 @@
+      * @see #getParams
+      */
+ 
++    @Deprecated
+     public void setUnicodeStream(int parameterIndex, java.io.InputStream x, int length) throws SQLException {
+         Object unicodeStream[];
+         checkParamIndex(parameterIndex);

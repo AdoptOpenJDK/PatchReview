@@ -1,0 +1,22 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/print/UnixPrintServiceLookup.java
+--- a/src/solaris/classes/sun/print/UnixPrintServiceLookup.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/print/UnixPrintServiceLookup.java	Mon Mar 12 23:16:59 2012 +0000
+@@ -190,7 +190,7 @@
+         if (printServices == null) {
+             return new PrintService[0];
+         } else {
+-            return (PrintService[])printServices.clone();
++            return printServices.clone();
+         }
+     }
+ 
+@@ -392,8 +392,7 @@
+              * initialised.
+              */
+ 
+-            PrinterName defName =
+-                (PrinterName)defService.getAttribute(PrinterName.class);
++            PrinterName defName = defService.getAttribute(PrinterName.class);
+ 
+             if (defName != null && name.equals(defName)) {
+                 if (matchesAttributes(defService, serviceSet)) {

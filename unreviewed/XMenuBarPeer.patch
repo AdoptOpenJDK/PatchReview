@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/awt/X11/XMenuBarPeer.java
+--- a/src/solaris/classes/sun/awt/X11/XMenuBarPeer.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11/XMenuBarPeer.java	Mon Mar 12 23:16:53 2012 +0000
+@@ -537,7 +537,7 @@
+         if (isEventDisabled(xev)) {
+             return;
+         }
+-        final Component currentSource = (Component)getEventSource();
++        final Component currentSource = getEventSource();
+         //This is the only difference from XWindow.handleKeyPress
+         //Ancestor's function can invoke handleF10KeyPress here
+         handleKeyPress(xkey);

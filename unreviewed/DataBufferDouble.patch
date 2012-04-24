@@ -1,0 +1,30 @@
+diff -r 134d9f4f9498 src/share/classes/java/awt/image/DataBufferDouble.java
+--- a/src/share/classes/java/awt/image/DataBufferDouble.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/java/awt/image/DataBufferDouble.java	Mon Mar 12 23:16:20 2012 +0000
+@@ -154,7 +154,7 @@
+      */
+     public DataBufferDouble(double dataArray[][], int size) {
+         super(UNTRACKABLE, TYPE_DOUBLE, size, dataArray.length);
+-        bankdata = (double[][]) dataArray.clone();
++        bankdata = dataArray.clone();
+         data = bankdata[0];
+     }
+ 
+@@ -178,7 +178,7 @@
+      */
+     public DataBufferDouble(double dataArray[][], int size, int offsets[]) {
+         super(UNTRACKABLE, TYPE_DOUBLE, size, dataArray.length, offsets);
+-        bankdata = (double[][]) dataArray.clone();
++        bankdata = dataArray.clone();
+         data = bankdata[0];
+     }
+ 
+@@ -225,7 +225,7 @@
+      */
+     public double[][] getBankData() {
+         theTrackable.setUntrackable();
+-        return (double[][]) bankdata.clone();
++        return bankdata.clone();
+     }
+ 
+     /**

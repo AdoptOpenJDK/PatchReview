@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/awt/X11FontManager.java
+--- a/src/solaris/classes/sun/awt/X11FontManager.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11FontManager.java	Mon Mar 12 23:16:56 2012 +0000
+@@ -715,7 +715,7 @@
+         if (FontUtilities.isLinux) {
+             fontConfigDirs.add(jreLibDirName+File.separator+"oblique-fonts");
+         }
+-        fontdirs = (String[])fontConfigDirs.toArray(new String[0]);
++        fontdirs = fontConfigDirs.toArray(new String[0]);
+     }
+ 
+     // Implements SunGraphicsEnvironment.createFontConfiguration.

@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/share/classes/sun/awt/image/VSyncedBSManager.java
+--- a/src/share/classes/sun/awt/image/VSyncedBSManager.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/sun/awt/image/VSyncedBSManager.java	Mon Mar 12 23:16:40 2012 +0000
+@@ -36,7 +36,7 @@
+     private static VSyncedBSManager theInstance;
+ 
+     private static final boolean vSyncLimit =
+-        Boolean.valueOf((String)java.security.AccessController.doPrivileged(
++        Boolean.valueOf(java.security.AccessController.doPrivileged(
+                 new sun.security.action.GetPropertyAction(
+                     "sun.java2d.vsynclimit", "true")));
+ 

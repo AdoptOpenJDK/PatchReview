@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/awt/X11/XIconInfo.java
+--- a/src/solaris/classes/sun/awt/X11/XIconInfo.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11/XIconInfo.java	Mon Mar 12 23:16:52 2012 +0000
+@@ -182,7 +182,7 @@
+     private static long[] intArrayToLongArray(int[] intData) {
+         long[] longData = new long[intData.length];
+         for (int i = 0; i < intData.length; i++) {
+-            longData[i] = (int)intData[i];
++            longData[i] = intData[i];
+         }
+         return longData;
+     }

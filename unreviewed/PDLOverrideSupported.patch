@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/share/classes/javax/print/attribute/standard/PDLOverrideSupported.java
+--- a/src/share/classes/javax/print/attribute/standard/PDLOverrideSupported.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/javax/print/attribute/standard/PDLOverrideSupported.java	Mon Mar 12 23:16:33 2012 +0000
+@@ -88,7 +88,7 @@
+      * Returns the string table for class PDLOverrideSupported.
+      */
+     protected String[] getStringTable() {
+-        return (String[])myStringTable.clone();
++        return myStringTable.clone();
+     }
+ 
+     /**

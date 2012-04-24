@@ -1,0 +1,36 @@
+diff -r 134d9f4f9498 src/share/classes/javax/accessibility/AccessibleRelationSet.java
+--- a/src/share/classes/javax/accessibility/AccessibleRelationSet.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/javax/accessibility/AccessibleRelationSet.java	Mon Mar 12 23:16:27 2012 +0000
+@@ -194,8 +194,7 @@
+         } else {
+             int len = relations.size();
+             for (int i = 0; i < len; i++) {
+-                AccessibleRelation relation =
+-                    (AccessibleRelation)relations.elementAt(i);
++                AccessibleRelation relation = relations.elementAt(i);
+                 if (relation != null && relation.getKey().equals(key)) {
+                     return relation;
+                 }
+@@ -215,7 +214,7 @@
+             AccessibleRelation[] relationArray
+                 = new AccessibleRelation[relations.size()];
+             for (int i = 0; i < relationArray.length; i++) {
+-                relationArray[i] = (AccessibleRelation) relations.elementAt(i);
++                relationArray[i] = relations.elementAt(i);
+             }
+             return relationArray;
+         }
+@@ -231,11 +230,9 @@
+     public String toString() {
+         String ret = "";
+         if ((relations != null) && (relations.size() > 0)) {
+-            ret = ((AccessibleRelation) (relations.elementAt(0))).toDisplayString();
++            ret = (relations.elementAt(0)).toDisplayString();
+             for (int i = 1; i < relations.size(); i++) {
+-                ret = ret + ","
+-                        + ((AccessibleRelation) (relations.elementAt(i))).
+-                                              toDisplayString();
++                ret = ret + "," + relations.elementAt(i).toDisplayString();
+             }
+         }
+         return ret;

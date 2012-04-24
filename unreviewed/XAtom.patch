@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/awt/X11/XAtom.java
+--- a/src/solaris/classes/sun/awt/X11/XAtom.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11/XAtom.java	Mon Mar 12 23:16:47 2012 +0000
+@@ -681,7 +681,7 @@
+                 return emptyList;
+             }
+ 
+-            int count = (int)getter.getNumberOfItems();
++            int count = getter.getNumberOfItems();
+             if (count == 0) {
+                 return emptyList;
+             }

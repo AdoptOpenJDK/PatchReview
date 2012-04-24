@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/awt/X11/XMenuWindow.java
+--- a/src/solaris/classes/sun/awt/X11/XMenuWindow.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11/XMenuWindow.java	Mon Mar 12 23:16:54 2012 +0000
+@@ -250,7 +250,7 @@
+         }
+         //Item rectangles
+         for (int i = 0; i < itemCnt; i++) {
+-            XMenuItemPeer item = (XMenuItemPeer)itemVector[i];
++            XMenuItemPeer item = itemVector[i];
+             XMenuItemPeer.TextMetrics metrics = itemMetrics[i];
+             Dimension dim = metrics.getTextDimension();
+             if (dim != null) {

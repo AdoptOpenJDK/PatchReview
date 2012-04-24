@@ -1,0 +1,48 @@
+diff -r 134d9f4f9498 src/share/classes/java/awt/image/DataBufferUShort.java
+--- a/src/share/classes/java/awt/image/DataBufferUShort.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/java/awt/image/DataBufferUShort.java	Mon Mar 12 23:16:21 2012 +0000
+@@ -174,7 +174,7 @@
+             }
+         }
+ 
+-        bankdata = (short[][]) dataArray.clone();
++        bankdata = dataArray.clone();
+         data = bankdata[0];
+     }
+ 
+@@ -213,7 +213,7 @@
+             }
+ 
+         }
+-        bankdata = (short[][]) dataArray.clone();
++        bankdata = dataArray.clone();
+         data = bankdata[0];
+     }
+ 
+@@ -260,7 +260,7 @@
+      */
+     public short[][] getBankData() {
+         theTrackable.setUntrackable();
+-        return (short[][]) bankdata.clone();
++        return bankdata.clone();
+     }
+ 
+     /**
+@@ -272,7 +272,7 @@
+      * @see #setElem(int, int, int)
+      */
+     public int getElem(int i) {
+-        return (int)(data[i+offset]&0xffff);
++        return (data[i+offset]&0xffff);
+     }
+ 
+     /**
+@@ -285,7 +285,7 @@
+      * @see #setElem(int, int, int)
+      */
+     public int getElem(int bank, int i) {
+-        return (int)(bankdata[bank][i+offsets[bank]]&0xffff);
++        return (bankdata[bank][i+offsets[bank]]&0xffff);
+     }
+ 
+     /**

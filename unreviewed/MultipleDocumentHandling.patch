@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/share/classes/javax/print/attribute/standard/MultipleDocumentHandling.java
+--- a/src/share/classes/javax/print/attribute/standard/MultipleDocumentHandling.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/javax/print/attribute/standard/MultipleDocumentHandling.java	Mon Mar 12 23:16:32 2012 +0000
+@@ -228,7 +228,7 @@
+      * Returns the string table for class MultipleDocumentHandling.
+      */
+     protected String[] getStringTable() {
+-        return (String[])myStringTable.clone();
++        return myStringTable.clone();
+     }
+ 
+     /**

@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/share/classes/java/text/AttributedString.java
+--- a/src/share/classes/java/text/AttributedString.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/java/text/AttributedString.java	Mon Mar 12 23:16:25 2012 +0000
+@@ -761,7 +761,7 @@
+             this.currentIndex = beginIndex;
+             updateRunInfo();
+             if (attributes != null) {
+-                relevantAttributes = (Attribute[]) attributes.clone();
++                relevantAttributes = attributes.clone();
+             }
+         }
+ 

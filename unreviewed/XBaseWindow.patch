@@ -1,0 +1,21 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/awt/X11/XBaseWindow.java
+--- a/src/solaris/classes/sun/awt/X11/XBaseWindow.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11/XBaseWindow.java	Mon Mar 12 23:16:48 2012 +0000
+@@ -283,7 +283,7 @@
+         params.putIfNull(BOUNDS, new Rectangle(DEF_LOCATION, DEF_LOCATION, MIN_SIZE, MIN_SIZE));
+         params.putIfNull(DEPTH, Integer.valueOf((int)XConstants.CopyFromParent));
+         params.putIfNull(VISUAL, Long.valueOf(XConstants.CopyFromParent));
+-        params.putIfNull(VISUAL_CLASS, Integer.valueOf((int)XConstants.InputOnly));
++        params.putIfNull(VISUAL_CLASS, Integer.valueOf(XConstants.InputOnly));
+         params.putIfNull(VALUE_MASK, Long.valueOf(XConstants.CWEventMask));
+         Rectangle bounds = (Rectangle)params.get(BOUNDS);
+         bounds.width = Math.max(MIN_SIZE, bounds.width);
+@@ -540,7 +540,7 @@
+             }
+             flags |= XUtilConstants.PWinGravity;
+             hints.set_flags(flags);
+-            hints.set_win_gravity((int)XConstants.NorthWestGravity);
++            hints.set_win_gravity(XConstants.NorthWestGravity);
+             if (insLog.isLoggable(PlatformLogger.FINER)) insLog.finer("Setting hints, resulted flags " + XlibWrapper.hintsToString(flags) +
+                                                              ", values " + hints);
+             XlibWrapper.XSetWMNormalHints(XToolkit.getDisplay(), getWindow(), hints.pData);

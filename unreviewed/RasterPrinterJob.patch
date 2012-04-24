@@ -1,0 +1,67 @@
+diff -r 134d9f4f9498 src/share/classes/sun/print/RasterPrinterJob.java
+--- a/src/share/classes/sun/print/RasterPrinterJob.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/sun/print/RasterPrinterJob.java	Mon Mar 12 23:16:44 2012 +0000
+@@ -172,7 +172,7 @@
+          * pipeline or the pdl pipeline can be forced.
+          */
+         String forceStr =
+-           (String)java.security.AccessController.doPrivileged(
++           java.security.AccessController.doPrivileged(
+                    new sun.security.action.GetPropertyAction(FORCE_PIPE_PROP));
+ 
+         if (forceStr != null) {
+@@ -184,7 +184,7 @@
+         }
+ 
+         String shapeTextStr =
+-           (String)java.security.AccessController.doPrivileged(
++           java.security.AccessController.doPrivileged(
+                    new sun.security.action.GetPropertyAction(SHAPE_TEXT_PROP));
+ 
+         if (shapeTextStr != null) {
+@@ -502,11 +502,10 @@
+         } else {
+             // Check the list of services.  This service may have been
+             // deleted already
+-            PrinterState prnState = (PrinterState)service.getAttribute(
+-                                                  PrinterState.class);
++            PrinterState prnState = service.getAttribute(PrinterState.class);
+             if (prnState == PrinterState.STOPPED) {
+                 PrinterStateReasons prnStateReasons =
+-                    (PrinterStateReasons)service.getAttribute(
++                    service.getAttribute(
+                                                  PrinterStateReasons.class);
+                 if ((prnStateReasons != null) &&
+                     (prnStateReasons.containsKey(PrinterStateReason.SHUTDOWN)))
+@@ -1307,11 +1306,9 @@
+ 
+         // Check the list of services.  This service may have been
+         // deleted already
+-        PrinterState prnState = (PrinterState)psvc.getAttribute(
+-                                                  PrinterState.class);
++        PrinterState prnState = psvc.getAttribute(PrinterState.class);
+         if (prnState == PrinterState.STOPPED) {
+-            PrinterStateReasons prnStateReasons =
+-                    (PrinterStateReasons)psvc.getAttribute(
++            PrinterStateReasons prnStateReasons = psvc.getAttribute(
+                                                  PrinterStateReasons.class);
+                 if ((prnStateReasons != null) &&
+                     (prnStateReasons.containsKey(PrinterStateReason.SHUTDOWN)))
+@@ -1320,7 +1317,7 @@
+                 }
+         }
+ 
+-        if ((PrinterIsAcceptingJobs)(psvc.getAttribute(
++        if ((psvc.getAttribute(
+                          PrinterIsAcceptingJobs.class)) ==
+                          PrinterIsAcceptingJobs.NOT_ACCEPTING_JOBS) {
+             throw new PrinterException("Printer is not accepting job.");
+@@ -1910,7 +1907,7 @@
+          * fact that we can only create 24 bit per pixel 3 byte BGR
+          * BufferedImages. FIX.
+          */
+-        int bandHeight = (int)(MAX_BAND_SIZE / bandWidth / 3);
++        int bandHeight = (MAX_BAND_SIZE / bandWidth / 3);
+ 
+         int deviceLeft = (int)Math.rint(paper.getImageableX() * xScale);
+         int deviceTop  = (int)Math.rint(paper.getImageableY() * yScale);

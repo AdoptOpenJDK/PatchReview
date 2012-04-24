@@ -1,0 +1,30 @@
+diff -r 134d9f4f9498 src/share/classes/javax/swing/MenuSelectionManager.java
+--- a/src/share/classes/javax/swing/MenuSelectionManager.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/javax/swing/MenuSelectionManager.java	Mon Mar 12 23:16:35 2012 +0000
+@@ -246,7 +246,7 @@
+         selectionSize = tmp.size();
+         boolean success = false;
+         for (i=selectionSize - 1;i >= 0 && success == false; i--) {
+-            menuElement = (MenuElement) tmp.elementAt(i);
++            menuElement = tmp.elementAt(i);
+             subElements = menuElement.getSubElements();
+ 
+             path = null;
+@@ -277,7 +277,7 @@
+                     if(path == null) {
+                         path = new MenuElement[i+2];
+                         for(k=0;k<=i;k++)
+-                            path[k] = (MenuElement)tmp.elementAt(k);
++                            path[k] = tmp.elementAt(k);
+                     }
+                     path[i+1] = subElements[j];
+                     MenuElement currentSelection[] = getSelectedPath();
+@@ -388,7 +388,7 @@
+         tmp = (Vector<MenuElement>)selection.clone();
+         selectionSize = tmp.size();
+         for(i=selectionSize - 1 ; i >= 0 ; i--) {
+-            menuElement = (MenuElement) tmp.elementAt(i);
++            menuElement = tmp.elementAt(i);
+             subElements = menuElement.getSubElements();
+ 
+             for(j = 0, d = subElements.length ; j < d ; j++) {

@@ -1,0 +1,21 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/awt/X11/XTextAreaPeer.java
+--- a/src/solaris/classes/sun/awt/X11/XTextAreaPeer.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11/XTextAreaPeer.java	Mon Mar 12 23:16:55 2012 +0000
+@@ -107,7 +107,7 @@
+         //ComponentAccessor.enableEvents(target,AWTEvent.MOUSE_WHEEL_EVENT_MASK);
+ 
+         firstChangeSkipped = false;
+-        String text = ((TextArea)target).getText();
++        String text = target.getText();
+         jtext = new AWTTextArea(text, this);
+         jtext.setWrapStyleWord(true);
+         jtext.getDocument().addDocumentListener(jtext);
+@@ -352,7 +352,7 @@
+ 
+     void handleJavaInputMethodEvent(InputMethodEvent e) {
+         if (jtext != null)
+-            jtext.processInputMethodEventPublic((InputMethodEvent)e);
++            jtext.processInputMethodEventPublic(e);
+     }
+ 
+     /**

@@ -1,0 +1,15 @@
+diff -r 134d9f4f9498 src/share/classes/java/awt/ScrollPaneAdjustable.java
+--- a/src/share/classes/java/awt/ScrollPaneAdjustable.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/java/awt/ScrollPaneAdjustable.java	Mon Mar 12 23:16:24 2012 +0000
+@@ -418,9 +418,8 @@
+      * @since 1.4
+      */
+     public synchronized AdjustmentListener[] getAdjustmentListeners() {
+-        return (AdjustmentListener[])(AWTEventMulticaster.getListeners(
+-                                      adjustmentListener,
+-                                      AdjustmentListener.class));
++        return AWTEventMulticaster.getListeners(adjustmentListener,
++                                                AdjustmentListener.class);
+     }
+ 
+     /**

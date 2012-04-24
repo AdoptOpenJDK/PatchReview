@@ -1,0 +1,23 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/font/XRGlyphCacheEntry.java
+--- a/src/solaris/classes/sun/font/XRGlyphCacheEntry.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/font/XRGlyphCacheEntry.java	Mon Mar 12 23:16:58 2012 +0000
+@@ -48,8 +48,8 @@
+         this.glyphInfoPtr = glyphInfoPtr;
+ 
+         /* TODO: Does it make sence to cache results? */
+-        xOff = (int) Math.round(getXAdvance());
+-        yOff = (int) Math.round(getYAdvance());
++        xOff = Math.round(getXAdvance());
++        yOff = Math.round(getYAdvance());
+     }
+ 
+     public int getXOff() {
+@@ -69,7 +69,7 @@
+     }
+ 
+     public static int getGlyphID(long glyphInfoPtr) {
+-        return (int) StrikeCache.unsafe.getInt(glyphInfoPtr + StrikeCache.cacheCellOffset);
++        return StrikeCache.unsafe.getInt(glyphInfoPtr + StrikeCache.cacheCellOffset);
+     }
+ 
+     public static void setGlyphID(long glyphInfoPtr, int id) {

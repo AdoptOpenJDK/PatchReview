@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/share/classes/sun/font/Underline.java
+--- a/src/share/classes/sun/font/Underline.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/sun/font/Underline.java	Mon Mar 12 23:16:42 2012 +0000
+@@ -299,7 +299,7 @@
+             return null;
+         }
+ 
+-        return (Underline) UNDERLINES.get(value);
++        return UNDERLINES.get(value);
+     }
+ 
+     static Underline getUnderline(int index) {

@@ -1,0 +1,24 @@
+diff -r 134d9f4f9498 src/share/classes/com/sun/media/sound/AuFileWriter.java
+--- a/src/share/classes/com/sun/media/sound/AuFileWriter.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/com/sun/media/sound/AuFileWriter.java	Mon Mar 12 23:16:11 2012 +0000
+@@ -318,17 +318,17 @@
+         while( (bytesRead = fileStream.read( buffer )) >= 0 ) {
+             if (maxLength>0) {
+                 if( bytesRead < maxLength ) {
+-                    out.write( buffer, 0, (int)bytesRead );
++                    out.write( buffer, 0, bytesRead );
+                     bytesWritten += bytesRead;
+                     maxLength -= bytesRead;
+                 } else {
+-                    out.write( buffer, 0, (int)maxLength );
++                    out.write( buffer, 0, maxLength );
+                     bytesWritten += maxLength;
+                     maxLength = 0;
+                     break;
+                 }
+             } else {
+-                out.write( buffer, 0, (int)bytesRead );
++                out.write( buffer, 0, bytesRead );
+                 bytesWritten += bytesRead;
+             }
+         }

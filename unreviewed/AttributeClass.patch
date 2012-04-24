@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/print/AttributeClass.java
+--- a/src/solaris/classes/sun/print/AttributeClass.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/print/AttributeClass.java	Mon Mar 12 23:16:58 2012 +0000
+@@ -260,7 +260,7 @@
+     }
+ 
+     private int unsignedByteToInt(byte b) {
+-        return (int) (b & 0xff);
++        return (b & 0xff);
+     }
+ 
+     private int convertToInt(byte[] buf) {

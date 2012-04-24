@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/awt/X11/XAWTFormatter.java
+--- a/src/solaris/classes/sun/awt/X11/XAWTFormatter.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11/XAWTFormatter.java	Mon Mar 12 23:16:47 2012 +0000
+@@ -43,7 +43,7 @@
+ 
+     // Line separator string.  This is the value of the line.separator
+     // property at the moment that the SimpleFormatter was created.
+-    private String lineSeparator = (String) java.security.AccessController.doPrivileged(
++    private String lineSeparator = java.security.AccessController.doPrivileged(
+                new sun.security.action.GetPropertyAction("line.separator"));
+ 
+     boolean displayFullRecord = false;

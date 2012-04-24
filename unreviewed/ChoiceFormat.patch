@@ -1,0 +1,14 @@
+diff -r 134d9f4f9498 src/share/classes/java/text/ChoiceFormat.java
+--- a/src/share/classes/java/text/ChoiceFormat.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/java/text/ChoiceFormat.java	Mon Mar 12 23:16:26 2012 +0000
+@@ -457,8 +457,8 @@
+     {
+         ChoiceFormat other = (ChoiceFormat) super.clone();
+         // for primitives or immutables, shallow clone is enough
+-        other.choiceLimits = (double[]) choiceLimits.clone();
+-        other.choiceFormats = (String[]) choiceFormats.clone();
++        other.choiceLimits = choiceLimits.clone();
++        other.choiceFormats = choiceFormats.clone();
+         return other;
+     }
+ 

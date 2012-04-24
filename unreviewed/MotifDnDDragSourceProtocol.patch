@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/awt/X11/MotifDnDDragSourceProtocol.java
+--- a/src/solaris/classes/sun/awt/X11/MotifDnDDragSourceProtocol.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11/MotifDnDDragSourceProtocol.java	Mon Mar 12 21:36:46 2012 +0000
+@@ -201,7 +201,7 @@
+              *     CARD32       heap_offset B32;
+              * } xmDragReceiverInfoStruct;
+              */
+-            if (status == (int)XConstants.Success && wpg.getData() != 0 &&
++            if (status == XConstants.Success && wpg.getData() != 0 &&
+                 wpg.getActualType() != 0 && wpg.getActualFormat() == 8 &&
+                 wpg.getNumberOfItems() >=
+                 MotifDnDConstants.MOTIF_RECEIVER_INFO_SIZE) {

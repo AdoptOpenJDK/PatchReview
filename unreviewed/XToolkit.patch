@@ -1,0 +1,23 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/awt/X11/XToolkit.java
+--- a/src/solaris/classes/sun/awt/X11/XToolkit.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11/XToolkit.java	Mon Mar 12 23:16:55 2012 +0000
+@@ -723,8 +723,8 @@
+                 XWindowAttributes pattr = new XWindowAttributes();
+                 try {
+                     XlibWrapper.XGetWindowAttributes(XToolkit.getDisplay(), XToolkit.getDefaultRootWindow(), pattr.pData);
+-                    screenWidth  = (int) pattr.get_width();
+-                    screenHeight = (int) pattr.get_height();
++                    screenWidth  = pattr.get_width();
++                    screenHeight = pattr.get_height();
+                 } finally {
+                     pattr.dispose();
+                 }
+@@ -2132,7 +2132,7 @@
+     }
+ 
+     private static void setBackingStoreType() {
+-        String prop = (String)AccessController.doPrivileged(
++        String prop = AccessController.doPrivileged(
+                 new sun.security.action.GetPropertyAction("sun.awt.backingStore"));
+ 
+         if (prop == null) {

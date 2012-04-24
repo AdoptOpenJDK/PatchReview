@@ -1,0 +1,38 @@
+diff -r 134d9f4f9498 src/share/classes/java/text/MessageFormat.java
+--- a/src/share/classes/java/text/MessageFormat.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/java/text/MessageFormat.java	Mon Mar 12 23:16:26 2012 +0000
+@@ -411,7 +411,7 @@
+         return locale;
+     }
+ 
+-
++    @SuppressWarnings("fallthrough")
+     /**
+      * Sets the pattern used by this message format.
+      * The method parses the pattern and creates a list of subformats
+@@ -496,6 +496,7 @@
+                         case '\'':
+                             inQuote = true;
+                             // fall through, so we keep quotes in other parts
++                        
+                         default:
+                             segments[part].append(ch);
+                             break;
+@@ -1074,14 +1075,14 @@
+         MessageFormat other = (MessageFormat) super.clone();
+ 
+         // clone arrays. Can't do with utility because of bug in Cloneable
+-        other.formats = (Format[]) formats.clone(); // shallow clone
++        other.formats = formats.clone(); // shallow clone
+         for (int i = 0; i < formats.length; ++i) {
+             if (formats[i] != null)
+                 other.formats[i] = (Format)formats[i].clone();
+         }
+         // for primitives or immutables, shallow clone is enough
+-        other.offsets = (int[]) offsets.clone();
+-        other.argumentNumbers = (int[]) argumentNumbers.clone();
++        other.offsets = offsets.clone();
++        other.argumentNumbers = argumentNumbers.clone();
+ 
+         return other;
+     }

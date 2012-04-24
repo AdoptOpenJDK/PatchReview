@@ -1,0 +1,21 @@
+diff -r 134d9f4f9498 src/share/classes/java/awt/BasicStroke.java
+--- a/src/share/classes/java/awt/BasicStroke.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/java/awt/BasicStroke.java	Mon Mar 12 23:16:14 2012 +0000
+@@ -223,7 +223,7 @@
+         this.join       = join;
+         this.miterlimit = miterlimit;
+         if (dash != null) {
+-            this.dash = (float []) dash.clone();
++            this.dash = dash.clone();
+         }
+         this.dash_phase = dash_phase;
+     }
+@@ -357,7 +357,7 @@
+             return null;
+         }
+ 
+-        return (float[]) dash.clone();
++        return dash.clone();
+     }
+ 
+     /**

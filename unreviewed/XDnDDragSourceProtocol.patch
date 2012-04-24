@@ -1,0 +1,39 @@
+diff -r 134d9f4f9498 src/solaris/classes/sun/awt/X11/XDnDDragSourceProtocol.java
+--- a/src/solaris/classes/sun/awt/X11/XDnDDragSourceProtocol.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11/XDnDDragSourceProtocol.java	Mon Mar 12 23:16:49 2012 +0000
+@@ -283,7 +283,7 @@
+ 
+         XClientMessageEvent msg = new XClientMessageEvent();
+         try {
+-            msg.set_type((int)XConstants.ClientMessage);
++            msg.set_type(XConstants.ClientMessage);
+             msg.set_window(getTargetWindow());
+             msg.set_format(32);
+             msg.set_message_type(XDnDConstants.XA_XdndEnter.getAtom());
+@@ -311,7 +311,7 @@
+ 
+         XClientMessageEvent msg = new XClientMessageEvent();
+         try {
+-            msg.set_type((int)XConstants.ClientMessage);
++            msg.set_type(XConstants.ClientMessage);
+             msg.set_window(getTargetWindow());
+             msg.set_format(32);
+             msg.set_message_type(XDnDConstants.XA_XdndPosition.getAtom());
+@@ -335,7 +335,7 @@
+ 
+         XClientMessageEvent msg = new XClientMessageEvent();
+         try {
+-            msg.set_type((int)XConstants.ClientMessage);
++            msg.set_type(XConstants.ClientMessage);
+             msg.set_window(getTargetWindow());
+             msg.set_format(32);
+             msg.set_message_type(XDnDConstants.XA_XdndLeave.getAtom());
+@@ -361,7 +361,7 @@
+ 
+         XClientMessageEvent msg = new XClientMessageEvent();
+         try {
+-            msg.set_type((int)XConstants.ClientMessage);
++            msg.set_type(XConstants.ClientMessage);
+             msg.set_window(getTargetWindow());
+             msg.set_format(32);
+             msg.set_message_type(XDnDConstants.XA_XdndDrop.getAtom());

@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/share/classes/com/sun/imageio/plugins/jpeg/MarkerSegment.java
+--- a/src/share/classes/com/sun/imageio/plugins/jpeg/MarkerSegment.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/com/sun/imageio/plugins/jpeg/MarkerSegment.java	Mon Mar 12 23:16:08 2012 +0000
+@@ -114,7 +114,7 @@
+             newGuy = (MarkerSegment) super.clone();
+         } catch (CloneNotSupportedException e) {} // won't happen
+         if (this.data != null) {
+-            newGuy.data = (byte[]) data.clone();
++            newGuy.data = data.clone();
+         }
+         return newGuy;
+     }

@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/share/classes/sun/awt/datatransfer/ClipboardTransferable.java
+--- a/src/share/classes/sun/awt/datatransfer/ClipboardTransferable.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/sun/awt/datatransfer/ClipboardTransferable.java	Mon Mar 12 23:16:38 2012 +0000
+@@ -146,7 +146,7 @@
+     }
+ 
+     public DataFlavor[] getTransferDataFlavors() {
+-        return (DataFlavor[])flavors.clone();
++        return flavors.clone();
+     }
+ 
+     public boolean isDataFlavorSupported(DataFlavor flavor) {
