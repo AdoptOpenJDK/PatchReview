@@ -1,24 +1,34 @@
-diff -r 134d9f4f9498 src/share/classes/java/text/MessageFormat.java
---- a/src/share/classes/java/text/MessageFormat.java	Mon Mar 12 11:30:28 2012 +0000
-+++ b/src/share/classes/java/text/MessageFormat.java	Mon Mar 12 23:16:26 2012 +0000
-@@ -411,7 +411,7 @@
-         return locale;
+diff -r f4a8153b3ce5 src/share/classes/java/text/MessageFormat.java
+--- a/src/share/classes/java/text/MessageFormat.java	Thu Apr 19 12:18:58 2012 -0700
++++ b/src/share/classes/java/text/MessageFormat.java	Tue Apr 24 21:45:39 2012 +0100
+@@ -422,6 +422,7 @@
+      * @param pattern the pattern for this message format
+      * @exception IllegalArgumentException if the pattern is invalid
+      */
++    @SuppressWarnings("fallthrough")
+     public void applyPattern(String pattern) {
+             StringBuilder[] segments = new StringBuilder[4];
+             // Allocate only segments[SEG_RAW] here. The rest are
+@@ -897,7 +898,7 @@
+      */
+     public AttributedCharacterIterator formatToCharacterIterator(Object arguments) {
+         StringBuffer result = new StringBuffer();
+-        ArrayList iterators = new ArrayList();
++        ArrayList<AttributedCharacterIterator> iterators = new ArrayList<>();
+ 
+         if (arguments == null) {
+             throw new NullPointerException(
+@@ -908,8 +909,7 @@
+             return createAttributedCharacterIterator("");
+         }
+         return createAttributedCharacterIterator(
+-                     (AttributedCharacterIterator[])iterators.toArray(
+-                     new AttributedCharacterIterator[iterators.size()]));
++                     iterators.toArray(new AttributedCharacterIterator[iterators.size()]));
      }
  
--
-+    @SuppressWarnings("fallthrough")
      /**
-      * Sets the pattern used by this message format.
-      * The method parses the pattern and creates a list of subformats
-@@ -496,6 +496,7 @@
-                         case '\'':
-                             inQuote = true;
-                             // fall through, so we keep quotes in other parts
-+                        
-                         default:
-                             segments[part].append(ch);
-                             break;
-@@ -1074,14 +1075,14 @@
+@@ -1074,14 +1074,14 @@
          MessageFormat other = (MessageFormat) super.clone();
  
          // clone arrays. Can't do with utility because of bug in Cloneable
@@ -36,3 +46,13 @@ diff -r 134d9f4f9498 src/share/classes/java/text/MessageFormat.java
  
          return other;
      }
+@@ -1224,7 +1224,8 @@
+      *            expected by the format element(s) that use it.
+      */
+     private StringBuffer subformat(Object[] arguments, StringBuffer result,
+-                                   FieldPosition fp, List characterIterators) {
++                                   FieldPosition fp, 
++                                   List<AttributedCharacterIterator> characterIterators) {
+         // note: this implementation assumes a fast substring & index.
+         // if this is not true, would be better to append chars one by one.
+         int lastOffset = 0;
