@@ -1,0 +1,12 @@
+diff -r 1980be18d0f8 src/share/classes/java/awt/Toolkit.java
+--- a/src/share/classes/java/awt/Toolkit.java	Sun Apr 22 21:22:17 2012 +0100
++++ b/src/share/classes/java/awt/Toolkit.java	Mon Apr 23 19:28:32 2012 +0100
+@@ -863,7 +863,7 @@
+                         new java.security.PrivilegedAction<Void>() {
+                     public Void run() {
+                         String nm = null;
+-                        Class cls = null;
++                        Class<?> cls = null;
+                         try {
+                             nm = System.getProperty("awt.toolkit");
+                             try {
