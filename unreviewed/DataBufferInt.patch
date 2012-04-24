@@ -1,6 +1,6 @@
-diff -r 134d9f4f9498 src/share/classes/java/awt/image/DataBufferInt.java
---- a/src/share/classes/java/awt/image/DataBufferInt.java	Mon Mar 12 11:30:28 2012 +0000
-+++ b/src/share/classes/java/awt/image/DataBufferInt.java	Mon Mar 12 23:16:21 2012 +0000
+diff -r 1980be18d0f8 src/share/classes/java/awt/image/DataBufferInt.java
+--- a/src/share/classes/java/awt/image/DataBufferInt.java	Sun Apr 22 21:22:17 2012 +0100
++++ b/src/share/classes/java/awt/image/DataBufferInt.java	Mon Apr 23 20:15:36 2012 +0100
 @@ -154,7 +154,7 @@
       */
      public DataBufferInt(int dataArray[][], int size) {
