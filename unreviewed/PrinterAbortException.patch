@@ -1,0 +1,12 @@
+diff -r 1980be18d0f8 src/share/classes/java/awt/print/PrinterAbortException.java
+--- a/src/share/classes/java/awt/print/PrinterAbortException.java	Sun Apr 22 21:22:17 2012 +0100
++++ b/src/share/classes/java/awt/print/PrinterAbortException.java	Mon Apr 23 20:46:54 2012 +0100
+@@ -34,6 +34,8 @@
+ 
+ public class PrinterAbortException extends PrinterException {
+ 
++    private static final long serialVersionUID = 4725169026278854136L;
++
+     /**
+      * Constructs a new <code>PrinterAbortException</code> with no
+      * detail message.

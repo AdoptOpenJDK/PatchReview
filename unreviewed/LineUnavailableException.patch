@@ -1,0 +1,12 @@
+diff -r 1980be18d0f8 src/share/classes/javax/sound/sampled/LineUnavailableException.java
+--- a/src/share/classes/javax/sound/sampled/LineUnavailableException.java	Sun Apr 22 21:22:17 2012 +0100
++++ b/src/share/classes/javax/sound/sampled/LineUnavailableException.java	Tue Apr 24 01:15:55 2012 +0100
+@@ -45,6 +45,8 @@
+ 
+ public class LineUnavailableException extends Exception {
+ 
++    private static final long serialVersionUID = -2046718279487432130L;
++
+     /**
+      * Constructs a <code>LineUnavailableException</code> that has
+      * <code>null</code> as its error detail message.

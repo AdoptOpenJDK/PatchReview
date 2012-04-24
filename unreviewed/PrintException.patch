@@ -1,0 +1,11 @@
+diff -r 1980be18d0f8 src/share/classes/javax/print/PrintException.java
+--- a/src/share/classes/javax/print/PrintException.java	Sun Apr 22 21:22:17 2012 +0100
++++ b/src/share/classes/javax/print/PrintException.java	Tue Apr 24 01:15:53 2012 +0100
+@@ -34,6 +34,7 @@
+  */
+ public class PrintException extends Exception {
+ 
++    private static final long serialVersionUID = -5932531546705242471L;
+ 
+     /**
+      * Construct a print exception with no detail message.

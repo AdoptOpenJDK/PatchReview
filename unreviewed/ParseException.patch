@@ -1,0 +1,12 @@
+diff -r 1980be18d0f8 src/share/classes/java/text/ParseException.java
+--- a/src/share/classes/java/text/ParseException.java	Sun Apr 22 21:22:17 2012 +0100
++++ b/src/share/classes/java/text/ParseException.java	Tue Apr 24 01:15:51 2012 +0100
+@@ -49,6 +49,8 @@
+ public
+ class ParseException extends Exception {
+ 
++    private static final long serialVersionUID = 2703218443322787634L;
++
+     /**
+      * Constructs a ParseException with the specified detail message and
+      * offset.

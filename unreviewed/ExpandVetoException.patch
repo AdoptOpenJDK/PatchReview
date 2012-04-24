@@ -1,0 +1,13 @@
+diff -r 1980be18d0f8 src/share/classes/javax/swing/tree/ExpandVetoException.java
+--- a/src/share/classes/javax/swing/tree/ExpandVetoException.java	Sun Apr 22 21:22:17 2012 +0100
++++ b/src/share/classes/javax/swing/tree/ExpandVetoException.java	Tue Apr 24 01:15:57 2012 +0100
+@@ -37,6 +37,9 @@
+  * @author Scott Violet
+  */
+ public class ExpandVetoException extends Exception {
++
++    private static final long serialVersionUID = 3087147949017162393L;
++
+     /** The event that the exception was created for. */
+     protected TreeExpansionEvent      event;
+ 

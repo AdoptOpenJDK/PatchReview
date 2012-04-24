@@ -1,0 +1,12 @@
+diff -r 1980be18d0f8 src/share/classes/javax/imageio/IIOException.java
+--- a/src/share/classes/javax/imageio/IIOException.java	Sun Apr 22 21:22:17 2012 +0100
++++ b/src/share/classes/javax/imageio/IIOException.java	Tue Apr 24 01:15:52 2012 +0100
+@@ -41,6 +41,8 @@
+  */
+ public class IIOException extends IOException {
+ 
++    private static final long serialVersionUID = -3216210718638985251L;
++
+     /**
+      * Constructs an <code>IIOException</code> with a given message
+      * <code>String</code>.  No underlying cause is set;

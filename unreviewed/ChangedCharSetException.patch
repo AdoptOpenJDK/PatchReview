@@ -1,0 +1,12 @@
+diff -r 1980be18d0f8 src/share/classes/javax/swing/text/ChangedCharSetException.java
+--- a/src/share/classes/javax/swing/text/ChangedCharSetException.java	Sun Apr 22 21:22:17 2012 +0100
++++ b/src/share/classes/javax/swing/text/ChangedCharSetException.java	Tue Apr 24 01:15:57 2012 +0100
+@@ -34,6 +34,8 @@
+  */
+ public class ChangedCharSetException extends IOException {
+ 
++    private static final long serialVersionUID = 9119851554465432389L;
++
+     String charSetSpec;
+     boolean charSetKey;
+ 

@@ -1,0 +1,12 @@
+diff -r 1980be18d0f8 src/share/classes/java/awt/dnd/InvalidDnDOperationException.java
+--- a/src/share/classes/java/awt/dnd/InvalidDnDOperationException.java	Sun Apr 22 21:22:17 2012 +0100
++++ b/src/share/classes/java/awt/dnd/InvalidDnDOperationException.java	Mon Apr 23 20:47:22 2012 +0100
+@@ -36,6 +36,8 @@
+ 
+ public class InvalidDnDOperationException extends IllegalStateException {
+ 
++    private static final long serialVersionUID = -6062568741193956678L;
++
+     static private String dft_msg = "The operation requested cannot be performed by the DnD system since it is not in the appropriate state";
+ 
+     /**

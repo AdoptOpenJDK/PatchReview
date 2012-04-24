@@ -1,0 +1,12 @@
+diff -r 1980be18d0f8 src/share/classes/java/awt/print/PrinterException.java
+--- a/src/share/classes/java/awt/print/PrinterException.java	Sun Apr 22 21:22:17 2012 +0100
++++ b/src/share/classes/java/awt/print/PrinterException.java	Mon Apr 23 20:47:08 2012 +0100
+@@ -33,6 +33,8 @@
+ 
+ public class PrinterException extends Exception {
+ 
++    private static final long serialVersionUID = -3757589981158265819L;
++
+     /**
+      * Constructs a new <code>PrinterException</code> object
+      * without a detail message.

@@ -1,0 +1,12 @@
+diff -r 1980be18d0f8 src/share/classes/javax/sound/sampled/UnsupportedAudioFileException.java
+--- a/src/share/classes/javax/sound/sampled/UnsupportedAudioFileException.java	Sun Apr 22 21:22:17 2012 +0100
++++ b/src/share/classes/javax/sound/sampled/UnsupportedAudioFileException.java	Tue Apr 24 01:15:55 2012 +0100
+@@ -43,6 +43,8 @@
+ 
+ public class UnsupportedAudioFileException extends Exception {
+ 
++    private static final long serialVersionUID = -139127412623160368L;
++
+     /**
+      * Constructs a <code>UnsupportedAudioFileException</code> that has
+      * <code>null</code> as its error detail message.

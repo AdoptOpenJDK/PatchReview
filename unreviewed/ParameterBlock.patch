@@ -1,0 +1,31 @@
+diff -r 1980be18d0f8 src/share/classes/java/awt/image/renderable/ParameterBlock.java
+--- a/src/share/classes/java/awt/image/renderable/ParameterBlock.java	Sun Apr 22 21:22:17 2012 +0100
++++ b/src/share/classes/java/awt/image/renderable/ParameterBlock.java	Mon Apr 23 20:49:26 2012 +0100
+@@ -93,6 +93,9 @@
+  * </pre>
+  * */
+ public class ParameterBlock implements Cloneable, Serializable {
++
++    private static final long serialVersionUID = -7577115551785240750L;
++
+     /** A Vector of sources, stored as arbitrary Objects. */
+     protected Vector<Object> sources = new Vector<Object>();
+ 
+@@ -278,7 +281,7 @@
+ 
+     /** Clears the list of source images. */
+     public void removeSources() {
+-        sources = new Vector();
++        sources = new Vector<Object>();
+     }
+ 
+     /**
+@@ -311,7 +314,7 @@
+ 
+     /** Clears the list of parameters. */
+     public void removeParameters() {
+-        parameters = new Vector();
++        parameters = new Vector<Object>();
+     }
+ 
+     /**

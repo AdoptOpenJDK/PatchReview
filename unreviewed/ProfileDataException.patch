@@ -1,0 +1,12 @@
+diff -r 1980be18d0f8 src/share/classes/java/awt/color/ProfileDataException.java
+--- a/src/share/classes/java/awt/color/ProfileDataException.java	Sun Apr 22 21:22:17 2012 +0100
++++ b/src/share/classes/java/awt/color/ProfileDataException.java	Mon Apr 23 20:46:11 2012 +0100
+@@ -32,6 +32,8 @@
+ 
+ public class ProfileDataException extends java.lang.RuntimeException {
+ 
++    private static final long serialVersionUID = 7286140888240322498L;
++
+     /**
+      *  Constructs a ProfileDataException with the specified detail message.
+      *  @param s the specified detail message
