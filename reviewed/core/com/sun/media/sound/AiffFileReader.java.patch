@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/share/classes/com/sun/media/sound/AiffFileReader.java
+--- a/src/share/classes/com/sun/media/sound/AiffFileReader.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/com/sun/media/sound/AiffFileReader.java	Mon Mar 12 23:16:10 2012 +0000
+@@ -429,7 +429,7 @@
+         int expon = 0;
+         long hiMant = 0, loMant = 0;
+         long t1, t2;
+-        double HUGE = ((double)3.40282346638528860e+38);
++        double HUGE = 3.40282346638528860e+38;
+ 
+ 
+         expon = dis.readUnsignedShort();

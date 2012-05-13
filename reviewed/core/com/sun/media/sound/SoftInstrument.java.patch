@@ -1,0 +1,12 @@
+diff -r 134d9f4f9498 src/share/classes/com/sun/media/sound/SoftInstrument.java
+--- a/src/share/classes/com/sun/media/sound/SoftInstrument.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/com/sun/media/sound/SoftInstrument.java	Mon Mar 12 23:16:12 2012 +0000
+@@ -44,7 +44,7 @@
+                 ins.getDataClass());
+         data = ins.getData();
+         this.ins = ins;
+-        initPerformers(((ModelInstrument)ins).getPerformers());
++        initPerformers(ins.getPerformers());
+     }
+ 
+     public SoftInstrument(ModelInstrument ins,
