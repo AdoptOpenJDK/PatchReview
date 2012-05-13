@@ -1,0 +1,25 @@
+diff -r 1980be18d0f8 src/share/classes/java/awt/TextArea.java
+--- a/src/share/classes/java/awt/TextArea.java	Sun Apr 22 21:22:17 2012 +0100
++++ b/src/share/classes/java/awt/TextArea.java	Mon Apr 23 19:29:23 2012 +0100
+@@ -123,7 +123,7 @@
+      * Cache the Sets of forward and backward traversal keys so we need not
+      * look them up each time.
+      */
+-    private static Set forwardTraversalKeys, backwardTraversalKeys;
++    private static Set<AWTKeyStroke> forwardTraversalKeys, backwardTraversalKeys;
+ 
+     /*
+      * JDK 1.1 serialVersionUID
+@@ -143,10 +143,10 @@
+         }
+         forwardTraversalKeys = KeyboardFocusManager.initFocusTraversalKeysSet(
+             "ctrl TAB",
+-            new HashSet());
++            new HashSet<AWTKeyStroke>());
+         backwardTraversalKeys = KeyboardFocusManager.initFocusTraversalKeysSet(
+             "ctrl shift TAB",
+-            new HashSet());
++            new HashSet<AWTKeyStroke>());
+     }
+ 
+     /**
