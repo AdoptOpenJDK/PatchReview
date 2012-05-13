@@ -1,0 +1,43 @@
+diff -r 1980be18d0f8 src/share/classes/java/awt/MenuBar.java
+--- a/src/share/classes/java/awt/MenuBar.java	Sun Apr 22 21:22:17 2012 +0100
++++ b/src/share/classes/java/awt/MenuBar.java	Mon Apr 23 20:02:32 2012 +0100
+@@ -83,7 +83,7 @@
+      * @serial
+      * @see #countMenus()
+      */
+-    Vector menus = new Vector();
++    Vector<Menu> menus = new Vector<>();
+ 
+     /**
+      * This menu is a special menu dedicated to
+@@ -298,7 +298,7 @@
+      * be called on the toolkit thread.
+      */
+     final Menu getMenuImpl(int i) {
+-        return (Menu)menus.elementAt(i);
++        return menus.elementAt(i);
+     }
+ 
+     /**
+@@ -310,10 +310,10 @@
+      * @since       JDK1.1
+      */
+     public synchronized Enumeration<MenuShortcut> shortcuts() {
+-        Vector shortcuts = new Vector();
++        Vector<MenuShortcut> shortcuts = new Vector<>();
+         int nmenus = getMenuCount();
+         for (int i = 0 ; i < nmenus ; i++) {
+-            Enumeration e = getMenu(i).shortcuts();
++            Enumeration<MenuShortcut> e = getMenu(i).shortcuts();
+             while (e.hasMoreElements()) {
+                 shortcuts.addElement(e.nextElement());
+             }
+@@ -427,7 +427,7 @@
+       // HeadlessException will be thrown from MenuComponent's readObject
+       s.defaultReadObject();
+       for (int i = 0; i < menus.size(); i++) {
+-        Menu m = (Menu)menus.elementAt(i);
++        Menu m = menus.elementAt(i);
+         m.parent = this;
+       }
+     }

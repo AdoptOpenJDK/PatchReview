@@ -1,0 +1,12 @@
+diff -r 1980be18d0f8 src/share/classes/java/awt/KeyboardFocusManager.java
+--- a/src/share/classes/java/awt/KeyboardFocusManager.java	Sun Apr 22 21:22:17 2012 +0100
++++ b/src/share/classes/java/awt/KeyboardFocusManager.java	Mon Apr 23 19:29:23 2012 +0100
+@@ -427,7 +427,7 @@
+         }
+     }
+ 
+-    static Set initFocusTraversalKeysSet(String value, Set targetSet) {
++    static Set<AWTKeyStroke> initFocusTraversalKeysSet(String value, Set<AWTKeyStroke> targetSet) {
+         StringTokenizer tokens = new StringTokenizer(value, ",");
+         while (tokens.hasMoreTokens()) {
+             targetSet.add(AWTKeyStroke.getAWTKeyStroke(tokens.nextToken()));
