@@ -25,7 +25,7 @@ diff -r 134d9f4f9498 src/share/classes/javax/accessibility/AccessibleRelationSet
          String ret = "";
          if ((relations != null) && (relations.size() > 0)) {
 -            ret = ((AccessibleRelation) (relations.elementAt(0))).toDisplayString();
-+            ret = (relations.elementAt(0)).toDisplayString();
++            ret = relations.elementAt(0).toDisplayString();
              for (int i = 1; i < relations.size(); i++) {
 -                ret = ret + ","
 -                        + ((AccessibleRelation) (relations.elementAt(i))).
