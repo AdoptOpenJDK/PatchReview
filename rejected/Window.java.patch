@@ -1,0 +1,21 @@
+diff -r 1980be18d0f8 src/share/classes/java/awt/Window.java
+--- a/src/share/classes/java/awt/Window.java	Sun Apr 22 21:22:17 2012 +0100
++++ b/src/share/classes/java/awt/Window.java	Mon Apr 23 20:36:55 2012 +0100
+@@ -2765,7 +2766,7 @@
+    /*
+     * Support for tracking all windows owned by this window
+     */
+-    void addOwnedWindow(WeakReference weakWindow) {
++    void addOwnedWindow(WeakReference<Window> weakWindow) {
+         if (weakWindow != null) {
+             synchronized(ownedWindowList) {
+                 // this if statement should really be an assert, but we don't
+@@ -2777,7 +2778,7 @@
+         }
+     }
+ 
+-    void removeOwnedWindow(WeakReference weakWindow) {
++    void removeOwnedWindow(WeakReference<Window> weakWindow) {
+         if (weakWindow != null) {
+             // synchronized block not required since removeElement is
+             // already synchronized
