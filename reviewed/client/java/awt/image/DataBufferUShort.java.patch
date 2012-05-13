@@ -33,7 +33,7 @@ diff -r 134d9f4f9498 src/share/classes/java/awt/image/DataBufferUShort.java
       */
      public int getElem(int i) {
 -        return (int)(data[i+offset]&0xffff);
-+        return (data[i+offset]&0xffff);
++        return data[i+offset]&0xffff;
      }
  
      /**
@@ -42,7 +42,7 @@ diff -r 134d9f4f9498 src/share/classes/java/awt/image/DataBufferUShort.java
       */
      public int getElem(int bank, int i) {
 -        return (int)(bankdata[bank][i+offsets[bank]]&0xffff);
-+        return (bankdata[bank][i+offsets[bank]]&0xffff);
++        return bankdata[bank][i+offsets[bank]]&0xffff;
      }
  
      /**
