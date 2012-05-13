@@ -39,7 +39,6 @@ diff -r 134d9f4f9498 src/solaris/classes/sun/java2d/x11/X11SurfaceData.java
                  break;
              }
              // Fall through for 32 bit case
-+        
          case 32:
              if (cm instanceof DirectColorModel) {
                  if (((SunToolkit)java.awt.Toolkit.getDefaultToolkit()
