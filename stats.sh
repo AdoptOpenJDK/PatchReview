@@ -3,7 +3,7 @@
 set -eu
 
 count () {
-    ls -1 $1 | wc -l
+    find $1 -name *.patch | wc -l
 }
 
 echo "Unreviewed Scripts:"
