@@ -54,24 +54,6 @@ diff -r 1980be18d0f8 src/share/classes/java/awt/Window.java
              ? focusTraversalKeys[id]
              : null;
  
-@@ -2765,7 +2766,7 @@
-    /*
-     * Support for tracking all windows owned by this window
-     */
--    void addOwnedWindow(WeakReference weakWindow) {
-+    void addOwnedWindow(WeakReference<Window> weakWindow) {
-         if (weakWindow != null) {
-             synchronized(ownedWindowList) {
-                 // this if statement should really be an assert, but we don't
-@@ -2777,7 +2778,7 @@
-         }
-     }
- 
--    void removeOwnedWindow(WeakReference weakWindow) {
-+    void removeOwnedWindow(WeakReference<Window> weakWindow) {
-         if (weakWindow != null) {
-             // synchronized block not required since removeElement is
-             // already synchronized
 @@ -2801,7 +2802,7 @@
          }
      }
