@@ -1,0 +1,11 @@
+diff -r 134d9f4f9498 src/share/classes/sunw/util/EventObject.java
+--- a/src/share/classes/sunw/util/EventObject.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/sunw/util/EventObject.java	Mon Mar 12 23:16:45 2012 +0000
+@@ -50,6 +50,7 @@
+  * @see java.util.EventObject
+  */
+ 
++@Deprecated
+ public class EventObject extends java.util.EventObject {
+ 
+     private static final long serialVersionUID = 6723767567830330255L;
