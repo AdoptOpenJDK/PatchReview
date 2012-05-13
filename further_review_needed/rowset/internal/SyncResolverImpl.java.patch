@@ -1,0 +1,27 @@
+diff -r 134d9f4f9498 src/share/classes/com/sun/rowset/internal/SyncResolverImpl.java
+--- a/src/share/classes/com/sun/rowset/internal/SyncResolverImpl.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/com/sun/rowset/internal/SyncResolverImpl.java	Mon Mar 12 23:16:13 2012 +0000
+@@ -1424,6 +1424,7 @@
+      * @throws SQLException if an error occurs
+      * @deprecated
+      */
++    @Deprecated
+     public java.io.InputStream getUnicodeStream(int columnIndex) throws SQLException {
+        throw new UnsupportedOperationException();
+     }
+@@ -1653,6 +1654,7 @@
+      * @deprecated Use the <code>getBigDecimal(String columnName)</code>
+      *             method instead
+      */
++    @Deprecated
+     public BigDecimal getBigDecimal(String columnName, int scale) throws SQLException {
+         throw new UnsupportedOperationException();
+     }
+@@ -1784,6 +1786,7 @@
+      *            this rowset's rows or its insert row
+      * @deprecated use the method <code>getCharacterStream</code> instead
+      */
++    @Deprecated
+     public java.io.InputStream getUnicodeStream(String columnName) throws SQLException {
+         throw new UnsupportedOperationException();
+     }
