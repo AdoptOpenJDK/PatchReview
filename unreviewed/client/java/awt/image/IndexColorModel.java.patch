@@ -1,0 +1,12 @@
+diff -r f9fb8c4b4550 src/share/classes/java/awt/image/IndexColorModel.java
+--- a/src/share/classes/java/awt/image/IndexColorModel.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/java/awt/image/IndexColorModel.java	Sat Feb 11 19:18:32 2012 +0000
+@@ -908,7 +908,7 @@
+ 
+             int minDist = 256;
+             int d;
+-            int gray = (int) (red*77 + green*150 + blue*29 + 128)/256;
++            int gray = (red*77 + green*150 + blue*29 + 128)/256;
+ 
+             for (int i = 0; i < map_size; i++) {
+                 if (this.rgb[i] == 0x0) {

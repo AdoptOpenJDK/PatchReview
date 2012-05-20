@@ -1,0 +1,12 @@
+diff -r f9fb8c4b4550 src/share/classes/sun/font/FontLineMetrics.java
+--- a/src/share/classes/sun/font/FontLineMetrics.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/sun/font/FontLineMetrics.java	Sat Feb 11 19:19:24 2012 +0000
+@@ -75,7 +75,7 @@
+     }
+ 
+     public final float[] getBaselineOffsets() {
+-        return (float[])cm.baselineOffsets.clone();
++        return cm.baselineOffsets.clone();
+     }
+ 
+     public final float getStrikethroughOffset() {

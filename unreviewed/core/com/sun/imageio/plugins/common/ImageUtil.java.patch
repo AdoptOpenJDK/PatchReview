@@ -1,0 +1,36 @@
+diff -r f9fb8c4b4550 src/share/classes/com/sun/imageio/plugins/common/ImageUtil.java
+--- a/src/share/classes/com/sun/imageio/plugins/common/ImageUtil.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/com/sun/imageio/plugins/common/ImageUtil.java	Sat Feb 11 19:17:47 2012 +0000
+@@ -593,16 +593,15 @@
+                     int i = eltOffset;
+                     while(xRemaining > 24) {
+                         data[i++] =
+-                            (int)(((binaryDataArray[b++] & 0xFF) << 24) |
+-                                  ((binaryDataArray[b++] & 0xFF) << 16) |
+-                                  ((binaryDataArray[b++] & 0xFF) << 8) |
+-                                  (binaryDataArray[b++] & 0xFF));
++                            (((binaryDataArray[b++] & 0xFF) << 24) |
++                                ((binaryDataArray[b++] & 0xFF) << 16) |
++                                ((binaryDataArray[b++] & 0xFF) << 8) |
++                                (binaryDataArray[b++] & 0xFF));
+                         xRemaining -= 32;
+                     }
+                     int shift = 24;
+                     while(xRemaining > 0) {
+-                        data[i] |=
+-                            (int)((binaryDataArray[b++] & 0xFF) << shift);
++                        data[i] |= ((binaryDataArray[b++] & 0xFF) << shift);
+                         shift -= 8;
+                         xRemaining -= 8;
+                     }
+@@ -835,8 +834,8 @@
+                 for(int x = 0; x < rectWidth; x++) {
+                     if(bdata[k++] != (byte)0) {
+                         data[bOffset/32] |=
+-                            (int)(0x00000001 <<
+-                                  (31 - bOffset % 32));
++                            (0x00000001 <<
++                               (31 - bOffset % 32));
+                     }
+                     bOffset++;
+                 }

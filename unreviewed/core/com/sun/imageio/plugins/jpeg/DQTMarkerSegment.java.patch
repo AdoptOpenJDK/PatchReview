@@ -1,0 +1,12 @@
+diff -r f9fb8c4b4550 src/share/classes/com/sun/imageio/plugins/jpeg/DQTMarkerSegment.java
+--- a/src/share/classes/com/sun/imageio/plugins/jpeg/DQTMarkerSegment.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/com/sun/imageio/plugins/jpeg/DQTMarkerSegment.java	Sat Feb 11 19:17:50 2012 +0000
+@@ -274,7 +274,7 @@
+                 newGuy = (Qtable) super.clone();
+             } catch (CloneNotSupportedException e) {} // won't happen
+             if (data != null) {
+-                newGuy.data = (int []) data.clone();
++                newGuy.data = data.clone();
+             }
+             return newGuy;
+         }

@@ -1,0 +1,12 @@
+diff -r f9fb8c4b4550 src/share/classes/javax/print/attribute/standard/Finishings.java
+--- a/src/share/classes/javax/print/attribute/standard/Finishings.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/javax/print/attribute/standard/Finishings.java	Sat Feb 11 19:18:53 2012 +0000
+@@ -430,7 +430,7 @@
+      * Returns the string table for class Finishings.
+      */
+     protected String[] getStringTable() {
+-        return (String[])myStringTable.clone();
++        return myStringTable.clone();
+     }
+ 
+     /**

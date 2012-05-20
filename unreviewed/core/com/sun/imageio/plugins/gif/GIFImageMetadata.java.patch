@@ -1,0 +1,12 @@
+diff -r f9fb8c4b4550 src/share/classes/com/sun/imageio/plugins/gif/GIFImageMetadata.java
+--- a/src/share/classes/com/sun/imageio/plugins/gif/GIFImageMetadata.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/com/sun/imageio/plugins/gif/GIFImageMetadata.java	Sat Feb 11 19:17:49 2012 +0000
+@@ -232,7 +232,7 @@
+                 appExtNode.setAttribute("authenticationCode",
+                                         toISO8859(authenticationCode));
+                 byte[] appData = (byte[])applicationData.get(i);
+-                appExtNode.setUserObject((byte[])appData.clone());
++                appExtNode.setUserObject(appData.clone());
+                 node.appendChild(appExtNode);
+             }
+ 

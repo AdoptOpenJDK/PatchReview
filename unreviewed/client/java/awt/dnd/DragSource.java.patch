@@ -1,0 +1,31 @@
+diff -r f9fb8c4b4550 src/share/classes/java/awt/dnd/DragSource.java
+--- a/src/share/classes/java/awt/dnd/DragSource.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/java/awt/dnd/DragSource.java	Sat Feb 11 19:18:24 2012 +0000
+@@ -600,7 +600,7 @@
+      * @since    1.4
+      */
+     public DragSourceListener[] getDragSourceListeners() {
+-        return (DragSourceListener[])getListeners(DragSourceListener.class);
++        return getListeners(DragSourceListener.class);
+     }
+ 
+     /**
+@@ -660,8 +660,7 @@
+      * @since    1.4
+      */
+     public DragSourceMotionListener[] getDragSourceMotionListeners() {
+-        return (DragSourceMotionListener[])
+-            getListeners(DragSourceMotionListener.class);
++        return getListeners(DragSourceMotionListener.class);
+     }
+ 
+     /**
+@@ -896,7 +895,7 @@
+      * @since 1.5
+      */
+     public static int getDragThreshold() {
+-        int ts = ((Integer)AccessController.doPrivileged(
++        int ts = (AccessController.doPrivileged(
+                 new GetIntegerAction("awt.dnd.drag.threshold", 0))).intValue();
+         if (ts > 0) {
+             return ts;

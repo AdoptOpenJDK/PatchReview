@@ -1,0 +1,12 @@
+diff -r f9fb8c4b4550 src/share/classes/javax/imageio/ImageWriteParam.java
+--- a/src/share/classes/javax/imageio/ImageWriteParam.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/javax/imageio/ImageWriteParam.java	Sat Feb 11 19:18:44 2012 +0000
+@@ -977,7 +977,7 @@
+         if (compressionTypes == null) {
+             return null;
+         }
+-        return (String[])compressionTypes.clone();
++        return compressionTypes.clone();
+     }
+ 
+     /**

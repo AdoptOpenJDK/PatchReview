@@ -1,0 +1,28 @@
+diff -r f9fb8c4b4550 src/share/classes/sun/awt/FontConfiguration.java
+--- a/src/share/classes/sun/awt/FontConfiguration.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/sun/awt/FontConfiguration.java	Sat Feb 11 19:19:13 2012 +0000
+@@ -1504,10 +1504,10 @@
+         printTable(table_elcIDs, 0);
+         System.out.println("\n----sequences-------------");
+         for (int ii = 0; ii< table_elcIDs.length; ii++) {
+-            System.out.println("  " + ii + "/" + getString((short)table_elcIDs[ii]));
++            System.out.println("  " + ii + "/" + getString(table_elcIDs[ii]));
+             short[] ss = getShortArray(table_sequences[ii * NUM_FONTS + 0]);
+             for (int jj = 0; jj < ss.length; jj++) {
+-                System.out.println("     " + getString((short)table_scriptIDs[ss[jj]]));
++                System.out.println("     " + getString(table_scriptIDs[ss[jj]]));
+             }
+         }
+         System.out.println("\n----fontfileNameIDs-------");
+@@ -1533,9 +1533,9 @@
+         System.out.println("\n----proportionals--------");
+         for (int ii = 0; ii < table_proportionals.length; ii++) {
+             System.out.println("  "
+-                   + getString((short)table_componentFontNameIDs[table_proportionals[ii++]])
++                   + getString(table_componentFontNameIDs[table_proportionals[ii++]])
+                    + " -> "
+-                   + getString((short)table_componentFontNameIDs[table_proportionals[ii]]));
++                   + getString(table_componentFontNameIDs[table_proportionals[ii]]));
+         }
+         int i = 0;
+         System.out.println("\n----alphabeticSuffix----");

@@ -1,0 +1,12 @@
+diff -r f9fb8c4b4550 src/share/classes/com/sun/imageio/plugins/jpeg/JFIFMarkerSegment.java
+--- a/src/share/classes/com/sun/imageio/plugins/jpeg/JFIFMarkerSegment.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/com/sun/imageio/plugins/jpeg/JFIFMarkerSegment.java	Sat Feb 11 19:17:50 2012 +0000
+@@ -1448,7 +1448,7 @@
+         protected Object clone () {
+             ICCMarkerSegment newGuy = (ICCMarkerSegment) super.clone();
+             if (profile != null) {
+-                newGuy.profile = (byte[]) profile.clone();
++                newGuy.profile = profile.clone();
+             }
+             return newGuy;
+         }

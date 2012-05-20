@@ -1,0 +1,29 @@
+diff -r f9fb8c4b4550 src/share/classes/com/sun/imageio/plugins/jpeg/JPEGMetadata.java
+--- a/src/share/classes/com/sun/imageio/plugins/jpeg/JPEGMetadata.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/com/sun/imageio/plugins/jpeg/JPEGMetadata.java	Sat Feb 11 19:17:52 2012 +0000
+@@ -723,7 +723,7 @@
+             newGuy = (JPEGMetadata) super.clone();
+         } catch (CloneNotSupportedException e) {} // won't happen
+         if (markerSequence != null) {
+-            newGuy.markerSequence = (List) cloneSequence();
++            newGuy.markerSequence = cloneSequence();
+         }
+         newGuy.resetSequence = null;
+         return newGuy;
+@@ -2015,14 +2015,14 @@
+ 
+         // First approximation
+         int y = 1;
+-        int x = (int) Math.round(value);
++        int x = Math.round(value);
+ 
+         float ratio = (float) x;
+         float delta = Math.abs(value - ratio);
+         while (delta > epsilon) { // not close enough
+             // Increment y and compute a new x
+             y++;
+-            x = (int) Math.round(y*value);
++            x = Math.round(y*value);
+             ratio = (float)x/(float)y;
+             delta = Math.abs(value - ratio);
+         }

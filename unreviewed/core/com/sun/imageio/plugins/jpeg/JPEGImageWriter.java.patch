@@ -1,0 +1,12 @@
+diff -r f9fb8c4b4550 src/share/classes/com/sun/imageio/plugins/jpeg/JPEGImageWriter.java
+--- a/src/share/classes/com/sun/imageio/plugins/jpeg/JPEGImageWriter.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/com/sun/imageio/plugins/jpeg/JPEGImageWriter.java	Sat Feb 11 19:17:51 2012 +0000
+@@ -313,7 +313,7 @@
+                                                   IIOMetadata streamMetadata,
+                                                   IIOMetadata imageMetadata) {
+         if (jfifOK(imageType, param, streamMetadata, imageMetadata)) {
+-            return (Dimension [])preferredThumbSizes.clone();
++            return preferredThumbSizes.clone();
+         }
+         return null;
+     }

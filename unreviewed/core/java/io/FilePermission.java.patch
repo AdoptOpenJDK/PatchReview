@@ -1,0 +1,11 @@
+diff -r f9fb8c4b4550 src/share/classes/java/io/FilePermission.java
+--- a/src/share/classes/java/io/FilePermission.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/java/io/FilePermission.java	Sat Feb 11 19:18:35 2012 +0000
+@@ -421,6 +421,7 @@
+         return this.cpath.hashCode();
+     }
+ 
++    @SuppressWarnings("fallthrough")
+     /**
+      * Converts an actions String to an actions mask.
+      *

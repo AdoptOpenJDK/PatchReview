@@ -1,0 +1,104 @@
+diff -r f9fb8c4b4550 src/share/classes/javax/imageio/ImageWriter.java
+--- a/src/share/classes/javax/imageio/ImageWriter.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/javax/imageio/ImageWriter.java	Sat Feb 11 19:18:45 2012 +0000
+@@ -259,7 +259,7 @@
+      */
+     public Locale[] getAvailableLocales() {
+         return (availableLocales == null) ?
+-            null : (Locale[])availableLocales.clone();
++            null : availableLocales.clone();
+     }
+ 
+     /**
+@@ -1755,8 +1755,7 @@
+         }
+         int numListeners = progressListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOWriteProgressListener listener =
+-                (IIOWriteProgressListener)progressListeners.get(i);
++            IIOWriteProgressListener listener = progressListeners.get(i);
+             listener.imageStarted(this, imageIndex);
+         }
+     }
+@@ -1776,8 +1775,7 @@
+         }
+         int numListeners = progressListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOWriteProgressListener listener =
+-                (IIOWriteProgressListener)progressListeners.get(i);
++            IIOWriteProgressListener listener = progressListeners.get(i);
+             listener.imageProgress(this, percentageDone);
+         }
+     }
+@@ -1794,8 +1792,7 @@
+         }
+         int numListeners = progressListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOWriteProgressListener listener =
+-                (IIOWriteProgressListener)progressListeners.get(i);
++            IIOWriteProgressListener listener = progressListeners.get(i);
+             listener.imageComplete(this);
+         }
+     }
+@@ -1817,8 +1814,7 @@
+         }
+         int numListeners = progressListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOWriteProgressListener listener =
+-                (IIOWriteProgressListener)progressListeners.get(i);
++            IIOWriteProgressListener listener = progressListeners.get(i);
+             listener.thumbnailStarted(this, imageIndex, thumbnailIndex);
+         }
+     }
+@@ -1838,8 +1834,7 @@
+         }
+         int numListeners = progressListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOWriteProgressListener listener =
+-                (IIOWriteProgressListener)progressListeners.get(i);
++            IIOWriteProgressListener listener = progressListeners.get(i);
+             listener.thumbnailProgress(this, percentageDone);
+         }
+     }
+@@ -1856,8 +1851,7 @@
+         }
+         int numListeners = progressListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOWriteProgressListener listener =
+-                (IIOWriteProgressListener)progressListeners.get(i);
++            IIOWriteProgressListener listener = progressListeners.get(i);
+             listener.thumbnailComplete(this);
+         }
+     }
+@@ -1874,8 +1868,7 @@
+         }
+         int numListeners = progressListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOWriteProgressListener listener =
+-                (IIOWriteProgressListener)progressListeners.get(i);
++            IIOWriteProgressListener listener = progressListeners.get(i);
+             listener.writeAborted(this);
+         }
+     }
+@@ -1903,8 +1896,7 @@
+         }
+         int numListeners = warningListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOWriteWarningListener listener =
+-                (IIOWriteWarningListener)warningListeners.get(i);
++            IIOWriteWarningListener listener = warningListeners.get(i);
+ 
+             listener.warningOccurred(this, imageIndex, warning);
+         }
+@@ -1951,9 +1943,8 @@
+         }
+         int numListeners = warningListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOWriteWarningListener listener =
+-                (IIOWriteWarningListener)warningListeners.get(i);
+-            Locale locale = (Locale)warningLocales.get(i);
++            IIOWriteWarningListener listener = warningListeners.get(i);
++            Locale locale = warningLocales.get(i);
+             if (locale == null) {
+                 locale = Locale.getDefault();
+             }

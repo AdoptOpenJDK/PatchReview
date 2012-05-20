@@ -1,0 +1,12 @@
+diff -r f9fb8c4b4550 src/share/classes/sun/awt/FontDescriptor.java
+--- a/src/share/classes/sun/awt/FontDescriptor.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/sun/awt/FontDescriptor.java	Sat Feb 11 19:19:13 2012 +0000
+@@ -113,7 +113,7 @@
+     }
+     static boolean isLE;
+     static {
+-        String enc = (String) java.security.AccessController.doPrivileged(
++        String enc = java.security.AccessController.doPrivileged(
+            new sun.security.action.GetPropertyAction("sun.io.unicode.encoding",
+                                                           "UnicodeBig"));
+         isLE = !"UnicodeBig".equals(enc);

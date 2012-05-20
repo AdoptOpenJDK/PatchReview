@@ -1,0 +1,29 @@
+diff -r f9fb8c4b4550 src/share/classes/javax/imageio/spi/ImageWriterSpi.java
+--- a/src/share/classes/javax/imageio/spi/ImageWriterSpi.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/javax/imageio/spi/ImageWriterSpi.java	Sat Feb 11 19:18:50 2012 +0000
+@@ -238,7 +238,7 @@
+ 
+         // If length == 0, leave it null
+         if (readerSpiNames != null && readerSpiNames.length > 0) {
+-            this.readerSpiNames = (String[])readerSpiNames.clone();
++            this.readerSpiNames = readerSpiNames.clone();
+         }
+     }
+ 
+@@ -268,7 +268,7 @@
+      * <code>Class</code>objects of length at least 1.
+      */
+     public Class[] getOutputTypes() {
+-        return (Class[])outputTypes.clone();
++        return outputTypes.clone();
+     }
+ 
+     /**
+@@ -435,6 +435,6 @@
+      */
+     public String[] getImageReaderSpiNames() {
+         return readerSpiNames == null ?
+-            null : (String[])readerSpiNames.clone();
++            null : readerSpiNames.clone();
+     }
+ }

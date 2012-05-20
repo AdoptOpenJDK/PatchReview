@@ -1,0 +1,39 @@
+diff -r f9fb8c4b4550 src/share/classes/javax/imageio/ImageTypeSpecifier.java
+--- a/src/share/classes/javax/imageio/ImageTypeSpecifier.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/javax/imageio/ImageTypeSpecifier.java	Sat Feb 11 19:18:44 2012 +0000
+@@ -296,7 +296,7 @@
+                     ("Bad value for dataType!");
+             }
+             this.colorSpace = colorSpace;
+-            this.bandOffsets = (int[])bandOffsets.clone();
++            this.bandOffsets = bandOffsets.clone();
+             this.dataType = dataType;
+             this.hasAlpha = hasAlpha;
+             this.isAlphaPremultiplied = isAlphaPremultiplied;
+@@ -449,8 +449,8 @@
+             }
+ 
+             this.colorSpace = colorSpace;
+-            this.bankIndices = (int[])bankIndices.clone();
+-            this.bandOffsets = (int[])bandOffsets.clone();
++            this.bankIndices = bankIndices.clone();
++            this.bandOffsets = bandOffsets.clone();
+             this.dataType = dataType;
+             this.hasAlpha = hasAlpha;
+             this.isAlphaPremultiplied = isAlphaPremultiplied;
+@@ -769,11 +769,11 @@
+                 (alphaLUT != null && alphaLUT.length != len)) {
+                 throw new IllegalArgumentException("LUT has improper length!");
+             }
+-            this.redLUT = (byte[])redLUT.clone();
+-            this.greenLUT = (byte[])greenLUT.clone();
+-            this.blueLUT = (byte[])blueLUT.clone();
++            this.redLUT = redLUT.clone();
++            this.greenLUT = greenLUT.clone();
++            this.blueLUT = blueLUT.clone();
+             if (alphaLUT != null) {
+-                this.alphaLUT = (byte[])alphaLUT.clone();
++                this.alphaLUT = alphaLUT.clone();
+             }
+             this.bits = bits;
+             this.dataType = dataType;

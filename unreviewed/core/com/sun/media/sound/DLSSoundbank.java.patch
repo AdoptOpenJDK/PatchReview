@@ -1,0 +1,12 @@
+diff -r f9fb8c4b4550 src/share/classes/com/sun/media/sound/DLSSoundbank.java
+--- a/src/share/classes/com/sun/media/sound/DLSSoundbank.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/com/sun/media/sound/DLSSoundbank.java	Sat Feb 11 19:18:00 2012 +0000
+@@ -531,7 +531,7 @@
+                     chunk.read(); // Read Reserved byte
+ 
+                     instrument.bank = bank;
+-                    instrument.preset = (int) id;
++                    instrument.preset = id;
+                     instrument.druminstrument = (drumins & 128) > 0;
+                     //System.out.println("bank="+bank+" drumkit="+drumkit
+                     //        +" id="+id);

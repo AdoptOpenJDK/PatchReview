@@ -1,0 +1,21 @@
+diff -r f9fb8c4b4550 src/share/classes/javax/imageio/metadata/IIOMetadataFormatImpl.java
+--- a/src/share/classes/javax/imageio/metadata/IIOMetadataFormatImpl.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/javax/imageio/metadata/IIOMetadataFormatImpl.java	Sat Feb 11 19:18:46 2012 +0000
+@@ -1178,7 +1178,7 @@
+ 
+     private ObjectValue getObjectValue(String elementName) {
+         Element element = getElement(elementName);
+-        ObjectValue objv = (ObjectValue)element.objectValue;
++        ObjectValue objv = element.objectValue;
+         if (objv == null) {
+             throw new IllegalArgumentException("No object within element " +
+                                                elementName + "!");
+@@ -1188,7 +1188,7 @@
+ 
+     public int getObjectValueType(String elementName) {
+         Element element = getElement(elementName);
+-        ObjectValue objv = (ObjectValue)element.objectValue;
++        ObjectValue objv = element.objectValue;
+         if (objv == null) {
+             return VALUE_NONE;
+         }

@@ -1,0 +1,21 @@
+diff -r f9fb8c4b4550 src/share/classes/javax/imageio/IIOParam.java
+--- a/src/share/classes/javax/imageio/IIOParam.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/javax/imageio/IIOParam.java	Sat Feb 11 19:18:41 2012 +0000
+@@ -437,7 +437,7 @@
+                 }
+ 
+             }
+-            this.sourceBands = (int[])(sourceBands.clone());
++            this.sourceBands = sourceBands.clone();
+         }
+     }
+ 
+@@ -460,7 +460,7 @@
+         if (sourceBands == null) {
+             return null;
+         }
+-        return (int[])(sourceBands.clone());
++        return sourceBands.clone();
+     }
+ 
+     /**

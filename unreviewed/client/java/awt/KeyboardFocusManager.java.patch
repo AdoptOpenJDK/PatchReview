@@ -1,0 +1,12 @@
+diff -r f9fb8c4b4550 src/share/classes/java/awt/KeyboardFocusManager.java
+--- a/src/share/classes/java/awt/KeyboardFocusManager.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/java/awt/KeyboardFocusManager.java	Sat Feb 11 19:18:14 2012 +0000
+@@ -2448,7 +2448,7 @@
+                         HeavyweightFocusRequest.CLEAR_GLOBAL_FOCUS_OWNER)
+                     {
+                         int size = heavyweightRequests.size();
+-                        hwFocusRequest = (HeavyweightFocusRequest)((size >= 2)
++                        hwFocusRequest = (size >= 2
+                             ? heavyweightRequests.get(size - 2)
+                             : null);
+                     }

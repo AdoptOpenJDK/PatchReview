@@ -1,0 +1,23 @@
+diff -r f9fb8c4b4550 src/share/classes/javax/net/ssl/HandshakeCompletedEvent.java
+--- a/src/share/classes/javax/net/ssl/HandshakeCompletedEvent.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/javax/net/ssl/HandshakeCompletedEvent.java	Sat Feb 11 19:18:51 2012 +0000
+@@ -186,8 +186,7 @@
+             // if the provider does not support it, fallback to peer certs.
+             // return the X500Principal of the end-entity cert.
+             Certificate[] certs = getPeerCertificates();
+-            principal = (X500Principal)
+-                ((X509Certificate)certs[0]).getSubjectX500Principal();
++            principal = ((X509Certificate)certs[0]).getSubjectX500Principal();
+         }
+         return principal;
+     }
+@@ -216,8 +215,7 @@
+             // return the X500Principal of the end-entity cert.
+             Certificate[] certs = getLocalCertificates();
+             if (certs != null) {
+-                principal = (X500Principal)
+-                        ((X509Certificate)certs[0]).getSubjectX500Principal();
++                principal = ((X509Certificate)certs[0]).getSubjectX500Principal();
+             }
+         }
+         return principal;

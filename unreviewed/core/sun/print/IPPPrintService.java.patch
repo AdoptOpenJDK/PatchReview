@@ -1,0 +1,31 @@
+diff -r f9fb8c4b4550 src/solaris/classes/sun/print/IPPPrintService.java
+--- a/src/solaris/classes/sun/print/IPPPrintService.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/solaris/classes/sun/print/IPPPrintService.java	Sat Feb 11 19:20:01 2012 +0000
+@@ -74,7 +74,7 @@
+ 
+     static {
+         String debugStr =
+-                (String)java.security.AccessController.doPrivileged(
++                java.security.AccessController.doPrivileged(
+                   new sun.security.action.GetPropertyAction(FORCE_PIPE_PROP));
+ 
+         debugPrint = "true".equalsIgnoreCase(debugStr);
+@@ -422,7 +422,7 @@
+             }
+ 
+             // use IPP to get all media,
+-            Media[] allMedia = (Media[])getSupportedMedia();
++            Media[] allMedia = getSupportedMedia();
+             ArrayList sizeList = new ArrayList();
+             ArrayList trayList = new ArrayList();
+             for (int i=0; i<allMedia.length; i++) {
+@@ -932,8 +932,7 @@
+             return null;
+         }
+         for (int i=0; i< customMediaSizeNames.length; i++) {
+-            CustomMediaSizeName custom =
+-                (CustomMediaSizeName)customMediaSizeNames[i];
++            CustomMediaSizeName custom = customMediaSizeNames[i];
+             MediaSizeName msn = custom.getStandardMedia();
+             if (media.equals(msn)) {
+                 return customMediaSizeNames[i];

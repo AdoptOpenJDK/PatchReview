@@ -1,0 +1,24 @@
+diff -r f9fb8c4b4550 src/share/classes/javax/imageio/metadata/IIOMetadata.java
+--- a/src/share/classes/javax/imageio/metadata/IIOMetadata.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/javax/imageio/metadata/IIOMetadata.java	Sat Feb 11 19:18:46 2012 +0000
+@@ -192,9 +192,9 @@
+                     ("extraMetadataFormatClassNames.length != extraMetadataFormatNames.length!");
+             }
+             this.extraMetadataFormatNames =
+-                (String[]) extraMetadataFormatNames.clone();
++                extraMetadataFormatNames.clone();
+             this.extraMetadataFormatClassNames =
+-                (String[]) extraMetadataFormatClassNames.clone();
++                extraMetadataFormatClassNames.clone();
+         } else {
+             if (extraMetadataFormatClassNames != null) {
+                 throw new IllegalArgumentException
+@@ -285,7 +285,7 @@
+         if (extraMetadataFormatNames == null) {
+             return null;
+         }
+-        return (String[])extraMetadataFormatNames.clone();
++        return extraMetadataFormatNames.clone();
+     }
+ 
+     /**

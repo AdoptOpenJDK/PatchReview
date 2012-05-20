@@ -1,0 +1,43 @@
+diff -r f9fb8c4b4550 src/share/classes/javax/imageio/plugins/jpeg/JPEGImageReadParam.java
+--- a/src/share/classes/javax/imageio/plugins/jpeg/JPEGImageReadParam.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/javax/imageio/plugins/jpeg/JPEGImageReadParam.java	Sat Feb 11 19:18:47 2012 +0000
+@@ -134,9 +134,9 @@
+                 throw new IllegalArgumentException
+                     ("Invalid JPEG table arrays");
+         }
+-        this.qTables = (JPEGQTable[])qTables.clone();
+-        this.DCHuffmanTables = (JPEGHuffmanTable[])DCHuffmanTables.clone();
+-        this.ACHuffmanTables = (JPEGHuffmanTable[])ACHuffmanTables.clone();
++        this.qTables = qTables.clone();
++        this.DCHuffmanTables = DCHuffmanTables.clone();
++        this.ACHuffmanTables = ACHuffmanTables.clone();
+     }
+ 
+     /**
+@@ -162,7 +162,7 @@
+      * @see #setDecodeTables
+      */
+     public JPEGQTable[] getQTables() {
+-        return (qTables != null) ? (JPEGQTable[])qTables.clone() : null;
++        return (qTables != null) ? qTables.clone() : null;
+     }
+ 
+     /**
+@@ -177,7 +177,7 @@
+      */
+     public JPEGHuffmanTable[] getDCHuffmanTables() {
+         return (DCHuffmanTables != null)
+-            ? (JPEGHuffmanTable[])DCHuffmanTables.clone()
++            ? DCHuffmanTables.clone()
+             : null;
+     }
+ 
+@@ -193,7 +193,7 @@
+      */
+     public JPEGHuffmanTable[] getACHuffmanTables() {
+         return (ACHuffmanTables != null)
+-            ? (JPEGHuffmanTable[])ACHuffmanTables.clone()
++            ? ACHuffmanTables.clone()
+             : null;
+     }
+ }

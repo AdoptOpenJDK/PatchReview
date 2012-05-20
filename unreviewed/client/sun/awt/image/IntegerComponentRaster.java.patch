@@ -1,0 +1,12 @@
+diff -r f9fb8c4b4550 src/share/classes/sun/awt/image/IntegerComponentRaster.java
+--- a/src/share/classes/sun/awt/image/IntegerComponentRaster.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/sun/awt/image/IntegerComponentRaster.java	Sat Feb 11 19:19:18 2012 +0000
+@@ -218,7 +218,7 @@
+      * band.
+      */
+     public int[] getDataOffsets() {
+-        return (int[]) dataOffsets.clone();
++        return dataOffsets.clone();
+     }
+ 
+     /**

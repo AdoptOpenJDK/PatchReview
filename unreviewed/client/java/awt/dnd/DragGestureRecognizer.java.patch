@@ -1,0 +1,12 @@
+diff -r f9fb8c4b4550 src/share/classes/java/awt/dnd/DragGestureRecognizer.java
+--- a/src/share/classes/java/awt/dnd/DragGestureRecognizer.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/java/awt/dnd/DragGestureRecognizer.java	Sat Feb 11 19:18:24 2012 +0000
+@@ -297,7 +297,7 @@
+      * @return the initial event that triggered the drag gesture
+      */
+ 
+-    public InputEvent getTriggerEvent() { return events.isEmpty() ? null : (InputEvent)events.get(0); }
++    public InputEvent getTriggerEvent() { return events.isEmpty() ? null : events.get(0); }
+ 
+     /**
+      * Reset the Recognizer, if its currently recognizing a gesture, ignore

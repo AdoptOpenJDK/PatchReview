@@ -1,0 +1,12 @@
+diff -r f9fb8c4b4550 src/share/classes/javax/print/attribute/standard/JobStateReasons.java
+--- a/src/share/classes/javax/print/attribute/standard/JobStateReasons.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/javax/print/attribute/standard/JobStateReasons.java	Sat Feb 11 19:18:55 2012 +0000
+@@ -149,7 +149,7 @@
+         if (o == null) {
+             throw new NullPointerException();
+         }
+-        return super.add ((JobStateReason) o);
++        return super.add (o);
+     }
+ 
+     /**

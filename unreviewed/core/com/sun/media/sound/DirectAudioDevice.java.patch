@@ -1,0 +1,21 @@
+diff -r f9fb8c4b4550 src/share/classes/com/sun/media/sound/DirectAudioDevice.java
+--- a/src/share/classes/com/sun/media/sound/DirectAudioDevice.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/com/sun/media/sound/DirectAudioDevice.java	Sat Feb 11 19:18:01 2012 +0000
+@@ -495,7 +495,7 @@
+             }
+ 
+             // align buffer to full frames
+-            bufferSize = ((int) bufferSize / format.getFrameSize()) * format.getFrameSize();
++            bufferSize = (bufferSize / format.getFrameSize()) * format.getFrameSize();
+ 
+             id = nOpen(mixerIndex, deviceID, isSource,
+                     encoding,
+@@ -1377,7 +1377,7 @@
+                     if (toWriteBytes > getBufferSize()) {
+                         toWriteBytes = Toolkit.align(getBufferSize(), frameSize);
+                     }
+-                    int written = write(audioData, (int) clipBytePosition, toWriteBytes); // increases bytePosition
++                    int written = write(audioData, clipBytePosition, toWriteBytes); // increases bytePosition
+                     clipBytePosition += written;
+                     // make sure nobody called setFramePosition, or stop() during the write() call
+                     if (doIO && newFramePosition < 0 && written >= 0) {

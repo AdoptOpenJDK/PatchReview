@@ -1,0 +1,12 @@
+diff -r f9fb8c4b4550 src/solaris/classes/sun/awt/X11/InfoWindow.java
+--- a/src/solaris/classes/sun/awt/X11/InfoWindow.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/solaris/classes/sun/awt/X11/InfoWindow.java	Sat Feb 11 19:19:36 2012 +0000
+@@ -451,7 +451,7 @@
+                 while (true) {
+                     Message msg = null;
+                     try {
+-                        msg = (Message)messageQueue.take();
++                        msg = messageQueue.take();
+                     } catch (InterruptedException e) {
+                         return;
+                     }

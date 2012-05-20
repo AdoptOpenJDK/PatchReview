@@ -1,0 +1,203 @@
+diff -r f9fb8c4b4550 src/share/classes/javax/imageio/ImageReader.java
+--- a/src/share/classes/javax/imageio/ImageReader.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/javax/imageio/ImageReader.java	Sat Feb 11 19:18:43 2012 +0000
+@@ -457,7 +457,7 @@
+         if (availableLocales == null) {
+             return null;
+         } else {
+-            return (Locale[])availableLocales.clone();
++            return availableLocales.clone();
+         }
+     }
+ 
+@@ -679,7 +679,7 @@
+      */
+     public ImageTypeSpecifier getRawImageType(int imageIndex)
+         throws IOException {
+-        return (ImageTypeSpecifier)getImageTypes(imageIndex).next();
++        return getImageTypes(imageIndex).next();
+     }
+ 
+     /**
+@@ -2014,8 +2014,7 @@
+         }
+         int numListeners = progressListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOReadProgressListener listener =
+-                (IIOReadProgressListener)progressListeners.get(i);
++            IIOReadProgressListener listener = progressListeners.get(i);
+             listener.sequenceStarted(this, minIndex);
+         }
+     }
+@@ -2032,8 +2031,7 @@
+         }
+         int numListeners = progressListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOReadProgressListener listener =
+-                (IIOReadProgressListener)progressListeners.get(i);
++            IIOReadProgressListener listener = progressListeners.get(i);
+             listener.sequenceComplete(this);
+         }
+     }
+@@ -2052,8 +2050,7 @@
+         }
+         int numListeners = progressListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOReadProgressListener listener =
+-                (IIOReadProgressListener)progressListeners.get(i);
++            IIOReadProgressListener listener = progressListeners.get(i);
+             listener.imageStarted(this, imageIndex);
+         }
+     }
+@@ -2073,8 +2070,7 @@
+         }
+         int numListeners = progressListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOReadProgressListener listener =
+-                (IIOReadProgressListener)progressListeners.get(i);
++            IIOReadProgressListener listener = progressListeners.get(i);
+             listener.imageProgress(this, percentageDone);
+         }
+     }
+@@ -2091,8 +2087,7 @@
+         }
+         int numListeners = progressListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOReadProgressListener listener =
+-                (IIOReadProgressListener)progressListeners.get(i);
++            IIOReadProgressListener listener = progressListeners.get(i);
+             listener.imageComplete(this);
+         }
+     }
+@@ -2114,8 +2109,7 @@
+         }
+         int numListeners = progressListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOReadProgressListener listener =
+-                (IIOReadProgressListener)progressListeners.get(i);
++            IIOReadProgressListener listener = progressListeners.get(i);
+             listener.thumbnailStarted(this, imageIndex, thumbnailIndex);
+         }
+     }
+@@ -2135,8 +2129,7 @@
+         }
+         int numListeners = progressListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOReadProgressListener listener =
+-                (IIOReadProgressListener)progressListeners.get(i);
++            IIOReadProgressListener listener = progressListeners.get(i);
+             listener.thumbnailProgress(this, percentageDone);
+         }
+     }
+@@ -2153,8 +2146,7 @@
+         }
+         int numListeners = progressListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOReadProgressListener listener =
+-                (IIOReadProgressListener)progressListeners.get(i);
++            IIOReadProgressListener listener = progressListeners.get(i);
+             listener.thumbnailComplete(this);
+         }
+     }
+@@ -2171,8 +2163,7 @@
+         }
+         int numListeners = progressListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOReadProgressListener listener =
+-                (IIOReadProgressListener)progressListeners.get(i);
++            IIOReadProgressListener listener = progressListeners.get(i);
+             listener.readAborted(this);
+         }
+     }
+@@ -2207,8 +2198,7 @@
+         }
+         int numListeners = updateListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOReadUpdateListener listener =
+-                (IIOReadUpdateListener)updateListeners.get(i);
++            IIOReadUpdateListener listener = updateListeners.get(i);
+             listener.passStarted(this, theImage, pass,
+                                  minPass,
+                                  maxPass,
+@@ -2248,8 +2238,7 @@
+         }
+         int numListeners = updateListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOReadUpdateListener listener =
+-                (IIOReadUpdateListener)updateListeners.get(i);
++            IIOReadUpdateListener listener = updateListeners.get(i);
+             listener.imageUpdate(this,
+                                  theImage,
+                                  minX, minY,
+@@ -2273,8 +2262,7 @@
+         }
+         int numListeners = updateListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOReadUpdateListener listener =
+-                (IIOReadUpdateListener)updateListeners.get(i);
++            IIOReadUpdateListener listener = updateListeners.get(i);
+             listener.passComplete(this, theImage);
+         }
+     }
+@@ -2310,8 +2298,7 @@
+         }
+         int numListeners = updateListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOReadUpdateListener listener =
+-                (IIOReadUpdateListener)updateListeners.get(i);
++            IIOReadUpdateListener listener = updateListeners.get(i);
+             listener.thumbnailPassStarted(this, theThumbnail, pass,
+                                           minPass,
+                                           maxPass,
+@@ -2352,8 +2339,7 @@
+         }
+         int numListeners = updateListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOReadUpdateListener listener =
+-                (IIOReadUpdateListener)updateListeners.get(i);
++            IIOReadUpdateListener listener = updateListeners.get(i);
+             listener.thumbnailUpdate(this,
+                                      theThumbnail,
+                                      minX, minY,
+@@ -2378,8 +2364,7 @@
+         }
+         int numListeners = updateListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOReadUpdateListener listener =
+-                (IIOReadUpdateListener)updateListeners.get(i);
++            IIOReadUpdateListener listener = updateListeners.get(i);
+             listener.thumbnailPassComplete(this, theThumbnail);
+         }
+     }
+@@ -2404,8 +2389,7 @@
+         }
+         int numListeners = warningListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOReadWarningListener listener =
+-                (IIOReadWarningListener)warningListeners.get(i);
++            IIOReadWarningListener listener = warningListeners.get(i);
+ 
+             listener.warningOccurred(this, warning);
+         }
+@@ -2449,9 +2433,8 @@
+         }
+         int numListeners = warningListeners.size();
+         for (int i = 0; i < numListeners; i++) {
+-            IIOReadWarningListener listener =
+-                (IIOReadWarningListener)warningListeners.get(i);
+-            Locale locale = (Locale)warningLocales.get(i);
++            IIOReadWarningListener listener = warningListeners.get(i);
++            Locale locale = warningLocales.get(i);
+             if (locale == null) {
+                 locale = Locale.getDefault();
+             }
+@@ -2867,8 +2850,7 @@
+         } else {
+             boolean foundIt = false;
+             while (imageTypes.hasNext()) {
+-                ImageTypeSpecifier type =
+-                    (ImageTypeSpecifier)imageTypes.next();
++                ImageTypeSpecifier type = imageTypes.next();
+                 if (type.equals(imageType)) {
+                     foundIt = true;
+                     break;

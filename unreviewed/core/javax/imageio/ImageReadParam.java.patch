@@ -1,0 +1,21 @@
+diff -r f9fb8c4b4550 src/share/classes/javax/imageio/ImageReadParam.java
+--- a/src/share/classes/javax/imageio/ImageReadParam.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/javax/imageio/ImageReadParam.java	Sat Feb 11 19:18:43 2012 +0000
+@@ -294,7 +294,7 @@
+                     }
+                 }
+             }
+-            this.destinationBands = (int[])destinationBands.clone();
++            this.destinationBands = destinationBands.clone();
+         }
+     }
+ 
+@@ -312,7 +312,7 @@
+         if (destinationBands == null) {
+             return null;
+         } else {
+-            return (int[])(destinationBands.clone());
++            return destinationBands.clone();
+         }
+     }
+ 

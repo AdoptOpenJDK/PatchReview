@@ -1,0 +1,21 @@
+diff -r f9fb8c4b4550 src/share/classes/sun/font/FileFontStrike.java
+--- a/src/share/classes/sun/font/FileFontStrike.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/sun/font/FileFontStrike.java	Sat Feb 11 19:19:24 2012 +0000
+@@ -728,7 +728,7 @@
+         if ((desc.aaHint == INTVAL_TEXT_ANTIALIAS_LCD_HRGB ||
+              desc.aaHint == INTVAL_TEXT_ANTIALIAS_LCD_HBGR)
+             && topLeftX <= -2.0f) {
+-            int minx = getGlyphImageMinX(ptr, (int)result.x);
++            int minx = getGlyphImageMinX(ptr, result.x);
+             if (minx > result.x) {
+                 result.x += 1;
+                 result.width -=1;
+@@ -917,7 +917,7 @@
+         if (outlineMapRef != null) {
+             outlineMap = outlineMapRef.get();
+             if (outlineMap != null) {
+-                gp = (GeneralPath)outlineMap.get(glyphCode);
++                gp = outlineMap.get(glyphCode);
+             }
+         }
+ 

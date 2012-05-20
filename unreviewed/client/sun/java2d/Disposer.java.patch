@@ -1,0 +1,12 @@
+diff -r f9fb8c4b4550 src/share/classes/sun/java2d/Disposer.java
+--- a/src/share/classes/sun/java2d/Disposer.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/sun/java2d/Disposer.java	Sat Feb 11 19:19:29 2012 +0000
+@@ -59,7 +59,7 @@
+         java.security.AccessController.doPrivileged(
+             new sun.security.action.LoadLibraryAction("awt"));
+         initIDs();
+-        String type = (String) java.security.AccessController.doPrivileged(
++        String type = java.security.AccessController.doPrivileged(
+                 new sun.security.action.GetPropertyAction("sun.java2d.reftype"));
+         if (type != null) {
+             if (type.equals("weak")) {

@@ -1,0 +1,37 @@
+diff -r f9fb8c4b4550 src/share/classes/org/jcp/xml/dsig/internal/dom/DOMPGPData.java
+--- a/src/share/classes/org/jcp/xml/dsig/internal/dom/DOMPGPData.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/org/jcp/xml/dsig/internal/dom/DOMPGPData.java	Sat Feb 11 19:19:07 2012 +0000
+@@ -83,7 +83,7 @@
+             }
+             this.externalElements = Collections.unmodifiableList(otherCopy);
+         }
+-        this.keyPacket = (byte []) keyPacket.clone();
++        this.keyPacket = keyPacket.clone();
+         checkKeyPacket(keyPacket);
+         this.keyId = null;
+     }
+@@ -128,8 +128,8 @@
+             }
+             this.externalElements = Collections.unmodifiableList(otherCopy);
+         }
+-        this.keyId = (byte []) keyId.clone();
+-        this.keyPacket = keyPacket == null ? null : (byte []) keyPacket.clone();
++        this.keyId = keyId.clone();
++        this.keyPacket = keyPacket == null ? null : keyPacket.clone();
+         if (keyPacket != null) {
+             checkKeyPacket(keyPacket);
+         }
+@@ -172,11 +172,11 @@
+     }
+ 
+     public byte[] getKeyId() {
+-        return (keyId == null ? null : (byte []) keyId.clone());
++        return (keyId == null ? null : keyId.clone());
+     }
+ 
+     public byte[] getKeyPacket() {
+-        return (keyPacket == null ? null : (byte []) keyPacket.clone());
++        return (keyPacket == null ? null : keyPacket.clone());
+     }
+ 
+     public List getExternalElements() {

@@ -1,0 +1,12 @@
+diff -r f9fb8c4b4550 src/share/classes/javax/print/DocFlavor.java
+--- a/src/share/classes/javax/print/DocFlavor.java	Mon Jan 30 11:44:45 2012 +0000
++++ b/src/share/classes/javax/print/DocFlavor.java	Sat Feb 11 19:18:51 2012 +0000
+@@ -463,7 +463,7 @@
+ 
+     static {
+         hostEncoding =
+-            (String)java.security.AccessController.doPrivileged(
++            java.security.AccessController.doPrivileged(
+                   new sun.security.action.GetPropertyAction("file.encoding"));
+     }
+ 
