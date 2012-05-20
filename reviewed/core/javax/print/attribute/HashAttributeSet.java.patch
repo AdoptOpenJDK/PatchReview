@@ -6,7 +6,7 @@ diff -r f9fb8c4b4550 src/share/classes/javax/print/attribute/HashAttributeSet.ja
             attribute != null &&
             attribute instanceof Attribute &&
 -           attribute.equals(attrMap.get(((Attribute)attribute).getCategory()));
-+           attribute.equals(attrMap.get((attribute).getCategory()));
++           attribute.equals(attrMap.get(attribute.getCategory()));
      }
  
      /**
