@@ -38,7 +38,7 @@ declare -a clientPackages=('java.awt' 'sun.awt' 'javax.swing' 'com.sun.awt' 'sun
 
 #run file through diffsplit to split multiple diff parts
 cd $WORKING_DIR
-$SCRIPT_DIR/ojdkdiffsplit -q -s ".patch" $PATCHES_DIR/*.patch
+$SCRIPT_DIR/ojdkdiffsplit.pl -q -s ".patch" $PATCHES_DIR/*.patch
 cd $CURRENT_DIR
 
 #process all files output from diffsplit
