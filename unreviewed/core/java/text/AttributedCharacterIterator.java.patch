@@ -1,0 +1,21 @@
+diff -r 1980be18d0f8 src/share/classes/java/text/AttributedCharacterIterator.java
+--- a/src/share/classes/java/text/AttributedCharacterIterator.java	Sun Apr 22 21:22:17 2012 +0100
++++ b/src/share/classes/java/text/AttributedCharacterIterator.java	Tue Apr 24 02:38:09 2012 +0100
+@@ -97,7 +97,7 @@
+         private String name;
+ 
+         // table of all instances in this class, used by readResolve
+-        private static final Map instanceMap = new HashMap(7);
++        private static final Map<String, Attribute> instanceMap = new HashMap<String, Attribute>(7);
+ 
+         /**
+          * Constructs an {@code Attribute} with the given name.
+@@ -150,7 +150,7 @@
+                 throw new InvalidObjectException("subclass didn't correctly implement readResolve");
+             }
+ 
+-            Attribute instance = (Attribute) instanceMap.get(getName());
++            Attribute instance = instanceMap.get(getName());
+             if (instance != null) {
+                 return instance;
+             } else {

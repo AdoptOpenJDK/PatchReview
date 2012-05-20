@@ -1,0 +1,60 @@
+diff -r 1980be18d0f8 src/share/classes/java/text/MessageFormat.java
+--- a/src/share/classes/java/text/MessageFormat.java	Sun Apr 22 21:22:17 2012 +0100
++++ b/src/share/classes/java/text/MessageFormat.java	Tue Apr 24 02:38:28 2012 +0100
+@@ -495,7 +495,8 @@
+                             break;
+                         case '\'':
+                             inQuote = true;
+-                            // fall through, so we keep quotes in other parts
++                            segments[part].append(ch);
++                            break;
+                         default:
+                             segments[part].append(ch);
+                             break;
+@@ -897,7 +898,7 @@
+      */
+     public AttributedCharacterIterator formatToCharacterIterator(Object arguments) {
+         StringBuffer result = new StringBuffer();
+-        ArrayList iterators = new ArrayList();
++        ArrayList<AttributedCharacterIterator> iterators = new ArrayList<AttributedCharacterIterator>();
+ 
+         if (arguments == null) {
+             throw new NullPointerException(
+@@ -907,8 +908,7 @@
+         if (iterators.size() == 0) {
+             return createAttributedCharacterIterator("");
+         }
+-        return createAttributedCharacterIterator(
+-                     (AttributedCharacterIterator[])iterators.toArray(
++        return createAttributedCharacterIterator(iterators.toArray(
+                      new AttributedCharacterIterator[iterators.size()]));
+     }
+ 
+@@ -1074,14 +1074,14 @@
+         MessageFormat other = (MessageFormat) super.clone();
+ 
+         // clone arrays. Can't do with utility because of bug in Cloneable
+-        other.formats = (Format[]) formats.clone(); // shallow clone
++        other.formats = formats.clone(); // shallow clone
+         for (int i = 0; i < formats.length; ++i) {
+             if (formats[i] != null)
+                 other.formats[i] = (Format)formats[i].clone();
+         }
+         // for primitives or immutables, shallow clone is enough
+-        other.offsets = (int[]) offsets.clone();
+-        other.argumentNumbers = (int[]) argumentNumbers.clone();
++        other.offsets = offsets.clone();
++        other.argumentNumbers = argumentNumbers.clone();
+ 
+         return other;
+     }
+@@ -1224,7 +1224,8 @@
+      *            expected by the format element(s) that use it.
+      */
+     private StringBuffer subformat(Object[] arguments, StringBuffer result,
+-                                   FieldPosition fp, List characterIterators) {
++                                   FieldPosition fp, 
++                                   List<AttributedCharacterIterator> characterIterators) {
+         // note: this implementation assumes a fast substring & index.
+         // if this is not true, would be better to append chars one by one.
+         int lastOffset = 0;
