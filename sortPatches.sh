@@ -26,7 +26,7 @@ OPEN_JDK_LOCATION=$3
 matchPackage="([0-9A-Za-z]+\.)+[0-9A-Za-z]+";
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-WORKING_DIR=$(mktemp -d)
+WORKING_DIR=$(mktemp -d /tmp/foo.XXXX)
 CURRENT_DIR=$(pwd)
 
 #things that are clients
@@ -76,5 +76,8 @@ do
     fi
 done
 
-echo "Cleaning up $WORKING_DIR";
-rm -rI --preserve-root $WORKING_DIR
+if [[ $WORKING_DIR == /tmp/* ]] 
+then
+	echo "Cleaning up $WORKING_DIR";
+	rm -r --preserve-root $WORKING_DIR
+fi
