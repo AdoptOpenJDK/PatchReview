@@ -1,0 +1,19 @@
+diff -r 1980be18d0f8 src/share/classes/java/util/PropertyResourceBundle.java
+--- a/src/share/classes/java/util/PropertyResourceBundle.java	Sun Apr 22 21:22:17 2012 +0100
++++ b/src/share/classes/java/util/PropertyResourceBundle.java	Tue Apr 24 02:39:00 2012 +0100
+@@ -125,6 +125,7 @@
+      * @throws IOException if an I/O error occurs
+      * @throws NullPointerException if <code>stream</code> is null
+      */
++    @SuppressWarnings("unchecked")
+     public PropertyResourceBundle (InputStream stream) throws IOException {
+         Properties properties = new Properties();
+         properties.load(stream);
+@@ -143,6 +144,7 @@
+      * @throws NullPointerException if <code>reader</code> is null
+      * @since 1.6
+      */
++    @SuppressWarnings("unchecked")
+     public PropertyResourceBundle (Reader reader) throws IOException {
+         Properties properties = new Properties();
+         properties.load(reader);
