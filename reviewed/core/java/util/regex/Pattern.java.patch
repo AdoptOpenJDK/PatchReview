@@ -9,13 +9,6 @@ diff -r 134d9f4f9498 src/share/classes/java/util/regex/Pattern.java
      /**
       * Parsing of sequences between alternations.
       */
-@@ -2110,6 +2111,7 @@
-                     break LOOP;
-                 }
-                 // Fall through
-             default:
-                 node = atom();
-                 break;
 @@ -2132,6 +2134,7 @@
          return head;
      }
