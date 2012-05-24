@@ -50,7 +50,7 @@ do
     if [ -f $OPEN_JDK_LOCATION/$file ]
     then
 	#get package name from java file
-	patchPackage=$(egrep -o "\s*package\s+$matchPackage;" $OPEN_JDK_LOCATION/$file | egrep -o "$matchPackage")
+	patchPackage=$(egrep -o "[[:space:]]*package[[:space:]]+$matchPackage;" $OPEN_JDK_LOCATION/$file | egrep -o "$matchPackage")
 
 	if [[ -z "$patchPackage" ]]
 	then
@@ -79,5 +79,5 @@ done
 if [[ $WORKING_DIR == /tmp/* ]] 
 then
 	echo "Cleaning up $WORKING_DIR";
-	rm -r --preserve-root $WORKING_DIR
+	rm -r $WORKING_DIR
 fi
