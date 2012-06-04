@@ -1,0 +1,12 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/event/TableModelEvent.java
+--- a/src/share/classes/javax/swing/event/TableModelEvent.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/event/TableModelEvent.java	Mon Jun 04 20:02:36 2012 +0100
+@@ -67,6 +67,8 @@
+  */
+ public class TableModelEvent extends java.util.EventObject
+ {
++    private static final long serialVersionUID = -7849342674552212824L;
++
+     /** Identifies the addtion of new rows or columns. */
+     public static final int INSERT =  1;
+     /** Identifies a change to existing data. */

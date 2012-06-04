@@ -1,0 +1,68 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/text/html/StyleSheet.java
+--- a/src/share/classes/javax/swing/text/html/StyleSheet.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/text/html/StyleSheet.java	Mon Jun 04 20:04:26 2012 +0100
+@@ -159,6 +159,8 @@
+     //   AttributeSet that contains HTML.Tag.B, the HTML.Tag.B entry will
+     //   be removed.
+ 
++    private static final long serialVersionUID = -3677091494120210018L;
++
+     /**
+      * Construct a StyleSheet
+      */
+@@ -763,6 +765,7 @@
+      * Large set of attributes that does conversion of requests
+      * for attributes of type StyleConstants.
+      */
++    @SuppressWarnings("serial")
+     class LargeConversionSet extends SimpleAttributeSet {
+ 
+         /**
+@@ -1760,6 +1763,7 @@
+      * the insets of a View and making sure the background
+      * is maintained according to the CSS attributes.
+      */
++    @SuppressWarnings("serial")
+     public static class BoxPainter implements Serializable {
+ 
+         BoxPainter(AttributeSet a, CSS css, StyleSheet ss) {
+@@ -2019,6 +2023,7 @@
+      * while not knowing anything about how the CSS values
+      * are being cached.
+      */
++    @SuppressWarnings("serial")
+     public static class ListPainter implements Serializable {
+ 
+         ListPainter(AttributeSet attr, StyleSheet ss) {
+@@ -2448,6 +2453,7 @@
+     /**
+      * Paints the background image.
+      */
++    @SuppressWarnings("serial")
+     static class BackgroundImagePainter implements Serializable {
+         ImageIcon   backgroundImage;
+         float       hPosition;
+@@ -2615,6 +2621,7 @@
+      * CSS and HTML and StyleConstants. The AttributeSets used are
+      * the CSS rules that match the Views Elements.
+      */
++    @SuppressWarnings("serial")
+     class ViewAttributeSet extends MuxingAttributeSet {
+         ViewAttributeSet(View v) {
+             host = v;
+@@ -2779,6 +2786,7 @@
+     // contain a SimpleAttributeSet that modify methods are delegated to,
+     // or change getRule to return an AttributeSet and then don't make this
+     // implement Style.
++    @SuppressWarnings("serial")
+     static class ResolvedStyle extends MuxingAttributeSet implements
+                   Serializable, Style {
+         ResolvedStyle(String name, AttributeSet[] attrs, int extendedIndex) {
+@@ -3020,6 +3028,7 @@
+      * This is not thread safe, it is assumed the caller will take the
+      * necessary precations if this is to be used in a threaded environment.
+      */
++    @SuppressWarnings("serial")
+     static class SelectorMapping implements Serializable {
+         public SelectorMapping(int specificity) {
+             this.specificity = specificity;

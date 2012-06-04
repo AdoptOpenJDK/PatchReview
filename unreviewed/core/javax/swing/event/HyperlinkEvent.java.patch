@@ -1,0 +1,12 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/event/HyperlinkEvent.java
+--- a/src/share/classes/javax/swing/event/HyperlinkEvent.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/event/HyperlinkEvent.java	Mon Jun 04 20:02:34 2012 +0100
+@@ -47,6 +47,8 @@
+  */
+ public class HyperlinkEvent extends EventObject {
+ 
++    private static final long serialVersionUID = 2586028032955957627L;
++
+     /**
+      * Creates a new object representing a hypertext link event.
+      * The other constructor is preferred, as it provides more

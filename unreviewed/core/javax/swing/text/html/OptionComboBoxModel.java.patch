@@ -1,0 +1,12 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/text/html/OptionComboBoxModel.java
+--- a/src/share/classes/javax/swing/text/html/OptionComboBoxModel.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/text/html/OptionComboBoxModel.java	Mon Jun 04 20:04:25 2012 +0100
+@@ -42,6 +42,8 @@
+ 
+ class OptionComboBoxModel<E> extends DefaultComboBoxModel<E> implements Serializable {
+ 
++    private static final long serialVersionUID = 1094958203985458821L;
++
+     private Option selectedOption = null;
+ 
+     /**

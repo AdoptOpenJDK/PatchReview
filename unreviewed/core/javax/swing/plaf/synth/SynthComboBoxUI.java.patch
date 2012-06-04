@@ -1,0 +1,19 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/plaf/synth/SynthComboBoxUI.java
+--- a/src/share/classes/javax/swing/plaf/synth/SynthComboBoxUI.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/plaf/synth/SynthComboBoxUI.java	Mon Jun 04 20:03:48 2012 +0100
+@@ -444,6 +444,7 @@
+      * renderer installed on a Synth combo box is a JLabel. If this is changed,
+      * then an assert will fail in SynthFileChooserUIImpl
+      */
++    @SuppressWarnings("serial")
+     private class SynthComboBoxRenderer extends JLabel implements ListCellRenderer<Object>, UIResource {
+         public SynthComboBoxRenderer() {
+             super();
+@@ -535,6 +536,7 @@
+      * are in sync. Whenever one is "over" both are. Whenever one is pressed,
+      * both are.
+      */
++    @SuppressWarnings("serial")
+     private final class ButtonHandler extends DefaultButtonModel
+             implements MouseListener, PopupMenuListener {
+         /**

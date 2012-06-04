@@ -1,0 +1,13 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/event/RowSorterEvent.java
+--- a/src/share/classes/javax/swing/event/RowSorterEvent.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/event/RowSorterEvent.java	Mon Jun 04 20:02:35 2012 +0100
+@@ -41,6 +41,9 @@
+  * @since 1.6
+  */
+ public class RowSorterEvent extends java.util.EventObject {
++
++    private static final long serialVersionUID = -2701905455516718736L;
++
+     private Type type;
+     private int[] oldViewToModel;
+ 
