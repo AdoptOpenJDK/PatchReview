@@ -1,0 +1,11 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/plaf/multi/MultiLookAndFeel.java
+--- a/src/share/classes/javax/swing/plaf/multi/MultiLookAndFeel.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/plaf/multi/MultiLookAndFeel.java	Mon Jun 04 20:03:40 2012 +0100
+@@ -293,6 +293,7 @@
+  * emits error messages when it cannot find a UI class in the
+  * LAF.
+  */
++@SuppressWarnings("serial")
+ class MultiUIDefaults extends UIDefaults {
+     MultiUIDefaults(int initialCapacity, float loadFactor) {
+         super(initialCapacity, loadFactor);

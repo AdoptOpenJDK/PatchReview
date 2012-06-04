@@ -1,0 +1,13 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/undo/CompoundEdit.java
+--- a/src/share/classes/javax/swing/undo/CompoundEdit.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/undo/CompoundEdit.java	Mon Jun 04 20:04:38 2012 +0100
+@@ -33,6 +33,9 @@
+  * @author Ray Ryan
+  */
+ public class CompoundEdit extends AbstractUndoableEdit {
++
++    private static final long serialVersionUID = -6512679249930119683L;
++
+     /**
+      * True if this edit has never received <code>end</code>.
+      */

@@ -1,0 +1,13 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/text/NumberFormatter.java
+--- a/src/share/classes/javax/swing/text/NumberFormatter.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/text/NumberFormatter.java	Mon Jun 04 20:04:11 2012 +0100
+@@ -90,6 +90,9 @@
+  * @since 1.4
+  */
+ public class NumberFormatter extends InternationalFormatter {
++
++    private static final long serialVersionUID = 7072183780912339615L;
++
+     /** The special characters from the Format instance. */
+     private String specialChars;
+ 

@@ -1,0 +1,13 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/DefaultListSelectionModel.java
+--- a/src/share/classes/javax/swing/DefaultListSelectionModel.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/DefaultListSelectionModel.java	Mon Jun 04 20:01:15 2012 +0100
+@@ -52,6 +52,9 @@
+ 
+ public class DefaultListSelectionModel implements ListSelectionModel, Cloneable, Serializable
+ {
++
++    private static final long serialVersionUID = 1121126924905985590L;
++
+     private static final int MIN = -1;
+     private static final int MAX = Integer.MAX_VALUE;
+     private int selectionMode = MULTIPLE_INTERVAL_SELECTION;

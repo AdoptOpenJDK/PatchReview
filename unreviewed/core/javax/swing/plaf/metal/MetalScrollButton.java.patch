@@ -1,0 +1,13 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/plaf/metal/MetalScrollButton.java
+--- a/src/share/classes/javax/swing/plaf/metal/MetalScrollButton.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/plaf/metal/MetalScrollButton.java	Mon Jun 04 20:03:38 2012 +0100
+@@ -52,6 +52,9 @@
+  */
+ public class MetalScrollButton extends BasicArrowButton
+ {
++
++    private static final long serialVersionUID = -8194495911401531669L;
++
+   private static Color shadowColor;
+   private static Color highlightColor;
+   private boolean isFreeStanding = false;

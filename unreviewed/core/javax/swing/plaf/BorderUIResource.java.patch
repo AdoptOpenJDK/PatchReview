@@ -1,0 +1,82 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/plaf/BorderUIResource.java
+--- a/src/share/classes/javax/swing/plaf/BorderUIResource.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/plaf/BorderUIResource.java	Mon Jun 04 20:02:50 2012 +0100
+@@ -61,6 +61,9 @@
+  */
+ public class BorderUIResource implements Border, UIResource, Serializable
+ {
++
++    private static final long serialVersionUID = -3440553684010079691L;
++
+     static Border etched;
+     static Border loweredBevel;
+     static Border raisedBevel;
+@@ -121,6 +124,9 @@
+         return delegate.isBorderOpaque();
+     }
+ 
++
++
++    @SuppressWarnings("serial")
+     public static class CompoundBorderUIResource extends CompoundBorder implements UIResource {
+         @ConstructorProperties({"outsideBorder", "insideBorder"})
+         public CompoundBorderUIResource(Border outsideBorder, Border insideBorder) {
+@@ -129,6 +135,9 @@
+ 
+     }
+ 
++
++
++    @SuppressWarnings("serial")
+     public static class EmptyBorderUIResource extends EmptyBorder implements UIResource {
+ 
+         public EmptyBorderUIResource(int top, int left, int bottom, int right)   {
+@@ -140,6 +149,9 @@
+         }
+     }
+ 
++
++
++    @SuppressWarnings("serial")
+     public static class LineBorderUIResource extends LineBorder implements UIResource {
+ 
+         public LineBorderUIResource(Color color) {
+@@ -153,6 +165,8 @@
+     }
+ 
+ 
++
++    @SuppressWarnings("serial")
+     public static class BevelBorderUIResource extends BevelBorder implements UIResource {
+ 
+         public BevelBorderUIResource(int bevelType) {
+@@ -171,6 +185,9 @@
+         }
+     }
+ 
++
++
++    @SuppressWarnings("serial")
+     public static class EtchedBorderUIResource extends EtchedBorder implements UIResource {
+ 
+         public EtchedBorderUIResource()    {
+@@ -191,6 +208,9 @@
+         }
+     }
+ 
++
++
++    @SuppressWarnings("serial")
+     public static class MatteBorderUIResource extends MatteBorder implements UIResource {
+ 
+         public MatteBorderUIResource(int top, int left, int bottom, int right,
+@@ -208,6 +228,9 @@
+         }
+     }
+ 
++
++
++    @SuppressWarnings("serial")
+     public static class TitledBorderUIResource extends TitledBorder implements UIResource {
+ 
+         public TitledBorderUIResource(String title)     {

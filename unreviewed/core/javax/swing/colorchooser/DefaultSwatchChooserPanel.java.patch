@@ -1,0 +1,58 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/colorchooser/DefaultSwatchChooserPanel.java
+--- a/src/share/classes/javax/swing/colorchooser/DefaultSwatchChooserPanel.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/colorchooser/DefaultSwatchChooserPanel.java	Mon Jun 04 20:02:32 2012 +0100
+@@ -53,6 +53,8 @@
+  */
+ class DefaultSwatchChooserPanel extends AbstractColorChooserPanel {
+ 
++    private static final long serialVersionUID = -8797330151364428929L;
++
+     SwatchPanel swatchPanel;
+     RecentSwatchPanel recentSwatchPanel;
+     MouseListener mainSwatchListener;
+@@ -209,6 +211,7 @@
+     }
+ 
+ 
++    @SuppressWarnings("serial")
+     class RecentSwatchListener extends MouseAdapter implements Serializable {
+         public void mousePressed(MouseEvent e) {
+             if (isEnabled()) {
+@@ -218,6 +221,7 @@
+         }
+     }
+ 
++    @SuppressWarnings("serial")
+     class MainSwatchListener extends MouseAdapter implements Serializable {
+         public void mousePressed(MouseEvent e) {
+             if (isEnabled()) {
+@@ -231,7 +235,8 @@
+ }
+ 
+ 
+-
++ 
++@SuppressWarnings("serial")
+ class SwatchPanel extends JPanel {
+ 
+     protected Color[] colors;
+@@ -317,6 +322,9 @@
+ 
+ }
+ 
++
++
++@SuppressWarnings("serial")
+ class RecentSwatchPanel extends SwatchPanel {
+     protected void initValues() {
+         swatchSize = UIManager.getDimension("ColorChooser.swatchesRecentSwatchSize", getLocale());
+@@ -344,6 +352,9 @@
+ 
+ }
+ 
++
++
++@SuppressWarnings("serial")
+ class MainSwatchPanel extends SwatchPanel {
+ 
+ 

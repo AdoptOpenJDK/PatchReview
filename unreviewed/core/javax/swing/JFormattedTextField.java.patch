@@ -1,0 +1,45 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/JFormattedTextField.java
+--- a/src/share/classes/javax/swing/JFormattedTextField.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/JFormattedTextField.java	Mon Jun 04 20:01:38 2012 +0100
+@@ -178,6 +178,9 @@
+  * @since 1.4
+  */
+ public class JFormattedTextField extends JTextField {
++
++    private static final long serialVersionUID = -4299089315674433842L;
++
+     private static final String uiClassID = "FormattedTextFieldUI";
+     private static final Action[] defaultActions =
+             { new CommitAction(), new CancelAction() };
+@@ -640,6 +643,7 @@
+     /**
+      * FOCUS_LOST behavior implementation
+      */
++    @SuppressWarnings("serial")
+     private class FocusLostHandler implements Runnable, Serializable {
+         public void run() {
+             int fb = JFormattedTextField.this.getFocusLostBehavior();
+@@ -1106,6 +1110,7 @@
+      * has focus, and extends <code>actionPerformed</code> to invoke
+      * commitEdit.
+      */
++    @SuppressWarnings("serial")
+     static class CommitAction extends JTextField.NotifyAction {
+         public void actionPerformed(ActionEvent e) {
+             JTextComponent target = getFocusedComponent();
+@@ -1144,6 +1149,7 @@
+      * enabled if the focused component is an instance of
+      * JFormattedTextField.
+      */
++    @SuppressWarnings("serial")
+     private static class CancelAction extends TextAction {
+         public CancelAction() {
+             super("reset-field-edit");
+@@ -1175,6 +1181,7 @@
+     /**
+      * Sets the dirty state as the document changes.
+      */
++    @SuppressWarnings("serial")
+     private class DocumentHandler implements DocumentListener, Serializable {
+         public void insertUpdate(DocumentEvent e) {
+             setEdited(true);

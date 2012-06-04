@@ -1,0 +1,12 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/plaf/nimbus/TableScrollPaneCorner.java
+--- a/src/share/classes/javax/swing/plaf/nimbus/TableScrollPaneCorner.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/plaf/nimbus/TableScrollPaneCorner.java	Mon Jun 04 20:03:47 2012 +0100
+@@ -43,6 +43,8 @@
+  */
+ class TableScrollPaneCorner extends JComponent implements UIResource{
+ 
++    private static final long serialVersionUID = -1619734150849980699L;
++
+     /**
+      * Paint the component using the Nimbus Table Header Background Painter
+      */

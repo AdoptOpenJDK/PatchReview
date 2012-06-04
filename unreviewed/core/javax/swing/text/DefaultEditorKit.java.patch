@@ -1,0 +1,278 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/text/DefaultEditorKit.java
+--- a/src/share/classes/javax/swing/text/DefaultEditorKit.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/text/DefaultEditorKit.java	Mon Jun 04 20:04:05 2012 +0100
+@@ -72,6 +72,8 @@
+  */
+ public class DefaultEditorKit extends EditorKit {
+ 
++    private static final long serialVersionUID = 2948709989644140410L;
++
+     /**
+      * default constructor for DefaultEditorKit
+      */
+@@ -849,6 +851,7 @@
+      * @see Keymap#setDefaultAction
+      * @see Keymap#getDefaultAction
+      */
++    @SuppressWarnings("serial")
+     public static class DefaultKeyTypedAction extends TextAction {
+ 
+         /**
+@@ -906,6 +909,7 @@
+      * @see DefaultEditorKit#insertContentAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     public static class InsertContentAction extends TextAction {
+ 
+         /**
+@@ -954,6 +958,7 @@
+      * @see DefaultEditorKit#insertBreakAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     public static class InsertBreakAction extends TextAction {
+ 
+         /**
+@@ -996,6 +1001,7 @@
+      * @see DefaultEditorKit#insertTabAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     public static class InsertTabAction extends TextAction {
+ 
+         /**
+@@ -1028,6 +1034,7 @@
+      * @see DefaultEditorKit#deletePrevCharAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     static class DeletePrevCharAction extends TextAction {
+ 
+         /**
+@@ -1086,6 +1093,7 @@
+      * @see DefaultEditorKit#deleteNextCharAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     static class DeleteNextCharAction extends TextAction {
+ 
+         /* Create this object with the appropriate identifier. */
+@@ -1137,6 +1145,7 @@
+      * Deletes the word that precedes/follows the beginning of the selection.
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     static class DeleteWordAction extends TextAction {
+         DeleteWordAction(String name) {
+             super(name);
+@@ -1211,6 +1220,7 @@
+      * @see DefaultEditorKit#readOnlyAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     static class ReadOnlyAction extends TextAction {
+ 
+         /* Create this object with the appropriate identifier. */
+@@ -1236,6 +1246,7 @@
+      * @see DefaultEditorKit#writableAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     static class WritableAction extends TextAction {
+ 
+         /* Create this object with the appropriate identifier. */
+@@ -1272,6 +1283,7 @@
+      * @see DefaultEditorKit#cutAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     public static class CutAction extends TextAction {
+ 
+         /** Create this object with the appropriate identifier. */
+@@ -1308,6 +1320,7 @@
+      * @see DefaultEditorKit#copyAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     public static class CopyAction extends TextAction {
+ 
+         /** Create this object with the appropriate identifier. */
+@@ -1345,6 +1358,7 @@
+      * @see DefaultEditorKit#pasteAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     public static class PasteAction extends TextAction {
+ 
+         /** Create this object with the appropriate identifier. */
+@@ -1380,6 +1394,7 @@
+      * @see DefaultEditorKit#beepAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     public static class BeepAction extends TextAction {
+ 
+         /** Create this object with the appropriate identifier. */
+@@ -1406,6 +1421,7 @@
+      * @see DefaultEditorKit#pageDownAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     static class VerticalPageAction extends TextAction {
+ 
+         /** Create this object with the appropriate identifier. */
+@@ -1565,6 +1581,7 @@
+     /**
+      * Pages one view to the left or right.
+      */
++    @SuppressWarnings("serial")
+     static class PageAction extends TextAction {
+ 
+         /** Create this object with the appropriate identifier. */
+@@ -1619,6 +1636,9 @@
+         private boolean left;
+     }
+ 
++
++
++    @SuppressWarnings("serial")
+     static class DumpModelAction extends TextAction {
+ 
+         DumpModelAction() {
+@@ -1641,6 +1661,7 @@
+      * getNextVisualPositionFrom method. Constructor indicates direction
+      * to use.
+      */
++    @SuppressWarnings("serial")
+     static class NextVisualPositionAction extends TextAction {
+ 
+         /**
+@@ -1728,6 +1749,7 @@
+      * @see DefaultEditorKit#selectBeginWordAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     static class BeginWordAction extends TextAction {
+ 
+         /**
+@@ -1768,6 +1790,7 @@
+      * @see DefaultEditorKit#selectEndWordAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     static class EndWordAction extends TextAction {
+ 
+         /**
+@@ -1808,6 +1831,7 @@
+      * @see DefaultEditorKit#selectPreviousWordAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     static class PreviousWordAction extends TextAction {
+ 
+         /**
+@@ -1867,6 +1891,7 @@
+      * @see DefaultEditorKit#selectNextWordAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     static class NextWordAction extends TextAction {
+ 
+         /**
+@@ -1932,6 +1957,7 @@
+      * @see DefaultEditorKit#selectBeginLineAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     static class BeginLineAction extends TextAction {
+ 
+         /**
+@@ -1972,6 +1998,7 @@
+      * @see DefaultEditorKit#selectEndLineAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     static class EndLineAction extends TextAction {
+ 
+         /**
+@@ -2012,6 +2039,7 @@
+      * @see DefaultEditorKit#selectBeginParagraphAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     static class BeginParagraphAction extends TextAction {
+ 
+         /**
+@@ -2049,6 +2077,7 @@
+      * @see DefaultEditorKit#selectEndParagraphAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     static class EndParagraphAction extends TextAction {
+ 
+         /**
+@@ -2086,6 +2115,7 @@
+      * @see DefaultEditorKit#beginAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     static class BeginAction extends TextAction {
+ 
+         /* Create this object with the appropriate identifier. */
+@@ -2114,6 +2144,7 @@
+      * @see DefaultEditorKit#endAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     static class EndAction extends TextAction {
+ 
+         /* Create this object with the appropriate identifier. */
+@@ -2144,6 +2175,7 @@
+      * @see DefaultEditorKit#endAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     static class SelectWordAction extends TextAction {
+ 
+         /**
+@@ -2173,6 +2205,7 @@
+      * @see DefaultEditorKit#endAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     static class SelectLineAction extends TextAction {
+ 
+         /**
+@@ -2202,6 +2235,7 @@
+      * @see DefaultEditorKit#endAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     static class SelectParagraphAction extends TextAction {
+ 
+         /**
+@@ -2231,6 +2265,7 @@
+      * @see DefaultEditorKit#endAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     static class SelectAllAction extends TextAction {
+ 
+         /**
+@@ -2260,6 +2295,7 @@
+      * @see DefaultEditorKit#unselectAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     static class UnselectAction extends TextAction {
+ 
+         /**
+@@ -2284,6 +2320,7 @@
+      * @see DefaultEditorKit#toggleComponentOrientationAction
+      * @see DefaultEditorKit#getActions
+      */
++    @SuppressWarnings("serial")
+     static class ToggleComponentOrientationAction extends TextAction {
+ 
+         /**

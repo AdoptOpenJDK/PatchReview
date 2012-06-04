@@ -1,0 +1,20 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/JRadioButton.java
+--- a/src/share/classes/javax/swing/JRadioButton.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/JRadioButton.java	Mon Jun 04 20:01:51 2012 +0100
+@@ -88,6 +88,8 @@
+  */
+ public class JRadioButton extends JToggleButton implements Accessible {
+ 
++    private static final long serialVersionUID = 5661186423398900235L;
++
+     /**
+      * @see #getUIClassID
+      * @see #readObject
+@@ -284,6 +286,7 @@
+      * has been added to the <code>java.beans</code> package.
+      * Please see {@link java.beans.XMLEncoder}.
+      */
++    @SuppressWarnings("serial")
+     protected class AccessibleJRadioButton extends AccessibleJToggleButton {
+ 
+         /**

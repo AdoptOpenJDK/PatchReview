@@ -1,0 +1,13 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/SpinnerNumberModel.java
+--- a/src/share/classes/javax/swing/SpinnerNumberModel.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/SpinnerNumberModel.java	Mon Jun 04 20:02:19 2012 +0100
+@@ -82,6 +82,9 @@
+ */
+ public class SpinnerNumberModel extends AbstractSpinnerModel implements Serializable
+ {
++
++    private static final long serialVersionUID = 7279176385485777821L;
++
+     private Number stepSize, value;
+     private Comparable minimum, maximum;
+ 

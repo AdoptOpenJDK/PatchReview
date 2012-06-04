@@ -1,0 +1,38 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/JTabbedPane.java
+--- a/src/share/classes/javax/swing/JTabbedPane.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/JTabbedPane.java	Mon Jun 04 20:01:54 2012 +0100
+@@ -109,6 +109,8 @@
+ public class JTabbedPane extends JComponent
+        implements Serializable, Accessible, SwingConstants {
+ 
++    private static final long serialVersionUID = 7167406529619372870L;
++
+    /**
+     * The tab layout policy for wrapping tabs in multiple runs when all
+     * tabs will not fit within a single run.
+@@ -265,6 +267,7 @@
+      * We pass <code>ModelChanged</code> events along to the listeners with
+      * the tabbedpane (instead of the model itself) as the event source.
+      */
++    @SuppressWarnings("serial")
+     protected class ModelListener implements ChangeListener, Serializable {
+         public void stateChanged(ChangeEvent e) {
+             fireStateChanged();
+@@ -1889,6 +1892,7 @@
+      * has been added to the <code>java.beans</code> package.
+      * Please see {@link java.beans.XMLEncoder}.
+      */
++    @SuppressWarnings("serial")
+     protected class AccessibleJTabbedPane extends AccessibleJComponent
+         implements AccessibleSelection, ChangeListener {
+ 
+@@ -2029,6 +2033,9 @@
+         }
+     }
+ 
++
++
++    @SuppressWarnings("serial")
+     private class Page extends AccessibleContext
+         implements Serializable, Accessible, AccessibleComponent {
+         String title;

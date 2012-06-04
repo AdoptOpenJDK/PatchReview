@@ -1,0 +1,13 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/UIManager.java
+--- a/src/share/classes/javax/swing/UIManager.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/UIManager.java	Mon Jun 04 20:02:21 2012 +0100
+@@ -175,6 +175,9 @@
+  */
+ public class UIManager implements Serializable
+ {
++
++    private static final long serialVersionUID = 162155665392519986L;
++
+     /**
+      * This class defines the state managed by the <code>UIManager</code>.  For
+      * Swing applications the fields in this class could just as well

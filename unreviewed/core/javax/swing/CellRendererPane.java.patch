@@ -1,0 +1,21 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/CellRendererPane.java
+--- a/src/share/classes/javax/swing/CellRendererPane.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/CellRendererPane.java	Mon Jun 04 20:01:11 2012 +0100
+@@ -65,6 +65,9 @@
+  */
+ public class CellRendererPane extends Container implements Accessible
+ {
++
++    private static final long serialVersionUID = -7642183829532984273L;
++
+     /**
+      * Construct a CellRendererPane object.
+      */
+@@ -210,6 +213,7 @@
+      * This class implements accessibility support for the
+      * <code>CellRendererPane</code> class.
+      */
++    @SuppressWarnings("serial")
+     protected class AccessibleCellRendererPane extends AccessibleAWTContainer {
+         // AccessibleContext methods
+         //
