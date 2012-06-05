@@ -1,0 +1,21 @@
+diff -r 0678af55d3db src/share/classes/javax/print/MimeType.java
+--- a/src/share/classes/javax/print/MimeType.java	Tue Jun 05 17:11:26 2012 +0800
++++ b/src/share/classes/javax/print/MimeType.java	Tue Jun 05 19:59:20 2012 +0100
+@@ -285,7 +285,7 @@
+      */
+     private String getStringValue() {
+         if (myStringValue == null) {
+-            StringBuffer result = new StringBuffer();
++            StringBuilder result = new StringBuilder();
+             result.append (myPieces[0]);
+             result.append ('/');
+             result.append (myPieces[1]);
+@@ -510,7 +510,7 @@
+         int n = s.length();
+         int i;
+         char c;
+-        StringBuffer result = new StringBuffer (n+2);
++        StringBuilder result = new StringBuilder(n+2);
+         result.append ('\"');
+         for (i = 0; i < n; ++ i) {
+             c = s.charAt (i);

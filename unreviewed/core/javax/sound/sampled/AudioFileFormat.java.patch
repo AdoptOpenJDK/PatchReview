@@ -1,0 +1,12 @@
+diff -r 0678af55d3db src/share/classes/javax/sound/sampled/AudioFileFormat.java
+--- a/src/share/classes/javax/sound/sampled/AudioFileFormat.java	Tue Jun 05 17:11:26 2012 +0800
++++ b/src/share/classes/javax/sound/sampled/AudioFileFormat.java	Tue Jun 05 19:59:22 2012 +0100
+@@ -284,7 +284,7 @@
+      */
+     public String toString() {
+ 
+-        StringBuffer buf = new StringBuffer();
++        StringBuilder buf = new StringBuilder();
+ 
+         //$$fb2002-11-01: fix for 4672864: AudioFileFormat.toString() throws unexpected NullPointerException
+         if (type != null) {

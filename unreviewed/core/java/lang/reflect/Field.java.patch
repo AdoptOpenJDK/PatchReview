@@ -1,0 +1,12 @@
+diff -r 0678af55d3db src/share/classes/java/lang/reflect/Field.java
+--- a/src/share/classes/java/lang/reflect/Field.java	Tue Jun 05 17:11:26 2012 +0800
++++ b/src/share/classes/java/lang/reflect/Field.java	Tue Jun 05 19:59:03 2012 +0100
+@@ -997,7 +997,7 @@
+                     dimensions++;
+                     cl = cl.getComponentType();
+                 }
+-                StringBuffer sb = new StringBuffer();
++                StringBuilder sb = new StringBuilder();
+                 sb.append(cl.getName());
+                 for (int i = 0; i < dimensions; i++) {
+                     sb.append("[]");

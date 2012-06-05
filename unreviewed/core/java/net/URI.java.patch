@@ -1,0 +1,21 @@
+diff -r 0678af55d3db src/share/classes/java/net/URI.java
+--- a/src/share/classes/java/net/URI.java	Tue Jun 05 17:11:26 2012 +0800
++++ b/src/share/classes/java/net/URI.java	Tue Jun 05 19:59:05 2012 +0100
+@@ -1938,7 +1938,7 @@
+     private void defineString() {
+         if (string != null) return;
+ 
+-        StringBuffer sb = new StringBuffer();
++        StringBuilder sb = new StringBuilder();
+         if (scheme != null) {
+             sb.append(scheme);
+             sb.append(':');
+@@ -1996,7 +1996,7 @@
+             if (i >= 0)
+                 path = base.substring(0, i + 1);
+         } else {
+-            StringBuffer sb = new StringBuffer(base.length() + cn);
++            StringBuilder sb = new StringBuilder(base.length() + cn);
+             // 5.2 (6a)
+             if (i >= 0)
+                 sb.append(base.substring(0, i + 1));

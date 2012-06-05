@@ -1,0 +1,12 @@
+diff -r 0678af55d3db src/share/classes/java/net/SocketPermission.java
+--- a/src/share/classes/java/net/SocketPermission.java	Tue Jun 05 17:11:26 2012 +0800
++++ b/src/share/classes/java/net/SocketPermission.java	Tue Jun 05 19:59:05 2012 +0100
+@@ -712,7 +712,7 @@
+             InetAddress auth;
+ 
+         try {
+-            StringBuffer sb = new StringBuffer(39);
++            StringBuilder sb = new StringBuilder(39);
+ 
+             for (int i = 15; i >= 0; i--) {
+                 sb.append(Integer.toHexString(((addr[i]) & 0x0f)));

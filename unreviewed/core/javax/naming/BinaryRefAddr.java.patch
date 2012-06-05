@@ -1,0 +1,12 @@
+diff -r 0678af55d3db src/share/classes/javax/naming/BinaryRefAddr.java
+--- a/src/share/classes/javax/naming/BinaryRefAddr.java	Tue Jun 05 17:11:26 2012 +0800
++++ b/src/share/classes/javax/naming/BinaryRefAddr.java	Tue Jun 05 19:59:17 2012 +0100
+@@ -165,7 +165,7 @@
+       * @return The non-null string representation of this address.
+       */
+     public String toString(){
+-        StringBuffer str = new StringBuffer("Address Type: " + addrType + "\n");
++        StringBuilder str = new StringBuilder("Address Type: " + addrType + "\n");
+ 
+         str.append("AddressContents: ");
+         for (int i = 0; i<buf.length && i < 32; i++) {

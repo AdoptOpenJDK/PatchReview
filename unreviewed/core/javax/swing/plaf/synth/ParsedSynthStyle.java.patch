@@ -1,0 +1,21 @@
+diff -r 0678af55d3db src/share/classes/javax/swing/plaf/synth/ParsedSynthStyle.java
+--- a/src/share/classes/javax/swing/plaf/synth/ParsedSynthStyle.java	Tue Jun 05 17:11:26 2012 +0800
++++ b/src/share/classes/javax/swing/plaf/synth/ParsedSynthStyle.java	Tue Jun 05 19:59:27 2012 +0100
+@@ -156,7 +156,7 @@
+     }
+ 
+     public String toString() {
+-        StringBuffer text = new StringBuffer(super.toString());
++        StringBuilder text = new StringBuilder(super.toString());
+         if (_painters != null) {
+             text.append(",painters=[");
+             for (int i = 0; i < +_painters.length; i++) {
+@@ -208,7 +208,7 @@
+         }
+ 
+         public String toString() {
+-            StringBuffer text = new StringBuffer(super.toString());
++            StringBuilder text = new StringBuilder(super.toString());
+             text.append(",painters=[");
+             if (_painterInfo != null) {
+                 for (int i = 0; i < +_painterInfo.length; i++) {

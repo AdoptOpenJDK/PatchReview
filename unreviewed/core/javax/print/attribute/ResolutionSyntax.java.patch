@@ -1,0 +1,21 @@
+diff -r 0678af55d3db src/share/classes/javax/print/attribute/ResolutionSyntax.java
+--- a/src/share/classes/javax/print/attribute/ResolutionSyntax.java	Tue Jun 05 17:11:26 2012 +0800
++++ b/src/share/classes/javax/print/attribute/ResolutionSyntax.java	Tue Jun 05 19:59:20 2012 +0100
+@@ -241,7 +241,7 @@
+      *     (unchecked exception) Thrown if <CODE>units</CODE> < 1.
+      */
+     public String toString(int units, String unitsName) {
+-        StringBuffer result = new StringBuffer();
++        StringBuilder result = new StringBuilder();
+         result.append(getCrossFeedResolution (units));
+         result.append('x');
+         result.append(getFeedResolution (units));
+@@ -326,7 +326,7 @@
+      * resolution. The values are reported in the internal units of dphi.
+      */
+     public String toString() {
+-        StringBuffer result = new StringBuffer();
++        StringBuilder result = new StringBuilder();
+         result.append(crossFeedResolution);
+         result.append('x');
+         result.append(feedResolution);

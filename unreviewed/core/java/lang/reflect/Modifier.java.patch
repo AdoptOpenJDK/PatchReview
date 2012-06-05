@@ -1,0 +1,12 @@
+diff -r 0678af55d3db src/share/classes/java/lang/reflect/Modifier.java
+--- a/src/share/classes/java/lang/reflect/Modifier.java	Tue Jun 05 17:11:26 2012 +0800
++++ b/src/share/classes/java/lang/reflect/Modifier.java	Tue Jun 05 19:59:03 2012 +0100
+@@ -233,7 +233,7 @@
+      * represented by {@code mod}
+      */
+     public static String toString(int mod) {
+-        StringBuffer sb = new StringBuffer();
++        StringBuilder sb = new StringBuilder();
+         int len;
+ 
+         if ((mod & PUBLIC) != 0)        sb.append("public ");

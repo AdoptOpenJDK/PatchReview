@@ -1,0 +1,21 @@
+diff -r 0678af55d3db src/share/classes/javax/print/attribute/Size2DSyntax.java
+--- a/src/share/classes/javax/print/attribute/Size2DSyntax.java	Tue Jun 05 17:11:26 2012 +0800
++++ b/src/share/classes/javax/print/attribute/Size2DSyntax.java	Tue Jun 05 19:59:21 2012 +0100
+@@ -260,7 +260,7 @@
+      *     (unchecked exception) Thrown if <CODE>units</CODE> < 1.
+      */
+     public String toString(int units, String unitsName) {
+-        StringBuffer result = new StringBuffer();
++        StringBuilder result = new StringBuilder();
+         result.append(getX (units));
+         result.append('x');
+         result.append(getY (units));
+@@ -315,7 +315,7 @@
+      * The values are reported in the internal units of micrometers.
+      */
+     public String toString() {
+-        StringBuffer result = new StringBuffer();
++        StringBuilder result = new StringBuilder();
+         result.append(x);
+         result.append('x');
+         result.append(y);

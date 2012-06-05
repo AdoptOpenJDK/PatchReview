@@ -1,0 +1,12 @@
+diff -r 0678af55d3db src/share/classes/java/security/cert/X509CertSelector.java
+--- a/src/share/classes/java/security/cert/X509CertSelector.java	Tue Jun 05 17:11:26 2012 +0800
++++ b/src/share/classes/java/security/cert/X509CertSelector.java	Tue Jun 05 19:59:14 2012 +0100
+@@ -1811,7 +1811,7 @@
+      *         <code>CertSelector</code>
+      */
+     public String toString() {
+-        StringBuffer sb = new StringBuffer();
++        StringBuilder sb = new StringBuilder();
+         sb.append("X509CertSelector: [\n");
+         if (x509Cert != null) {
+             sb.append("  Certificate: " + x509Cert.toString() + "\n");
