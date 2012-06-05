@@ -1,0 +1,13 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/plaf/ComponentInputMapUIResource.java
+--- a/src/share/classes/javax/swing/plaf/ComponentInputMapUIResource.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/plaf/ComponentInputMapUIResource.java	Mon Jun 04 20:02:51 2012 +0100
+@@ -37,6 +37,9 @@
+  * @since 1.3
+  */
+ public class ComponentInputMapUIResource extends ComponentInputMap implements UIResource {
++
++    private static final long serialVersionUID = 4654381648400775854L;
++
+     public ComponentInputMapUIResource(JComponent component) {
+         super(component);
+     }

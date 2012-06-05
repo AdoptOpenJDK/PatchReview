@@ -1,0 +1,23 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/plaf/nimbus/DerivedColor.java
+--- a/src/share/classes/javax/swing/plaf/nimbus/DerivedColor.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/plaf/nimbus/DerivedColor.java	Mon Jun 04 20:03:40 2012 +0100
+@@ -39,6 +39,9 @@
+  * @author Jasper Potts
+  */
+ class DerivedColor extends Color {
++
++    private static final long serialVersionUID = 2943692070465976766L;
++
+     private final String uiDefaultParentName;
+     private final float hOffset, sOffset, bOffset;
+     private final int aOffset;
+@@ -173,6 +176,9 @@
+         return src == null ? s : s + " pColor=" + src.getRed() + "," + src.getGreen() + "," + src.getBlue();
+     }
+ 
++
++
++    @SuppressWarnings("serial")
+     static class UIResource extends DerivedColor implements javax.swing.plaf.UIResource {
+         UIResource(String uiDefaultParentName, float hOffset, float sOffset,
+                    float bOffset, int aOffset) {

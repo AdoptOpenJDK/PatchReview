@@ -1,0 +1,44 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/JTextField.java
+--- a/src/share/classes/javax/swing/JTextField.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/JTextField.java	Mon Jun 04 20:02:04 2012 +0100
+@@ -163,6 +163,8 @@
+  */
+ public class JTextField extends JTextComponent implements SwingConstants {
+ 
++    private static final long serialVersionUID = -3082247762805483391L;
++
+     /**
+      * Constructs a new <code>TextField</code>.  A default model is created,
+      * the initial string is <code>null</code>,
+@@ -681,6 +683,7 @@
+         return new TextFieldActionPropertyChangeListener(this, a);
+     }
+ 
++    @SuppressWarnings("serial")
+     private static class TextFieldActionPropertyChangeListener extends
+                          ActionPropertyChangeListener<JTextField> {
+         TextFieldActionPropertyChangeListener(JTextField tf, Action a) {
+@@ -823,6 +826,7 @@
+     // --- Action implementations -----------------------------------
+ 
+     // Note that JFormattedTextField.CommitAction extends this
++    @SuppressWarnings("serial")
+     static class NotifyAction extends TextAction {
+ 
+         NotifyAction() {
+@@ -846,6 +850,7 @@
+         }
+     }
+ 
++    @SuppressWarnings("serial")
+     class ScrollRepainter implements ChangeListener, Serializable {
+ 
+         public void stateChanged(ChangeEvent e) {
+@@ -943,6 +948,7 @@
+      * has been added to the <code>java.beans</code> package.
+      * Please see {@link java.beans.XMLEncoder}.
+      */
++    @SuppressWarnings("serial")
+     protected class AccessibleJTextField extends AccessibleJTextComponent {
+ 
+         /**

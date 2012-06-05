@@ -1,0 +1,84 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/text/StyledEditorKit.java
+--- a/src/share/classes/javax/swing/text/StyledEditorKit.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/text/StyledEditorKit.java	Mon Jun 04 20:04:14 2012 +0100
+@@ -46,6 +46,8 @@
+  */
+ public class StyledEditorKit extends DefaultEditorKit {
+ 
++    private static final long serialVersionUID = 7002391892985555948L;
++
+     /**
+      * Creates a new EditorKit used for styled documents.
+      */
+@@ -218,6 +220,7 @@
+      * input attributes when the Document changes, as if the Document
+      * changes the attributes will almost certainly change.
+      */
++    @SuppressWarnings("serial")
+     class AttributeTracker implements CaretListener, PropertyChangeListener, Serializable {
+ 
+         /**
+@@ -494,6 +497,7 @@
+      * has been added to the <code>java.beans</code> package.
+      * Please see {@link java.beans.XMLEncoder}.
+      */
++    @SuppressWarnings("serial")
+     public static class FontFamilyAction extends StyledTextAction {
+ 
+         /**
+@@ -550,6 +554,7 @@
+      * has been added to the <code>java.beans</code> package.
+      * Please see {@link java.beans.XMLEncoder}.
+      */
++    @SuppressWarnings("serial")
+     public static class FontSizeAction extends StyledTextAction {
+ 
+         /**
+@@ -617,6 +622,7 @@
+      * has been added to the <code>java.beans</code> package.
+      * Please see {@link java.beans.XMLEncoder}.
+      */
++    @SuppressWarnings("serial")
+     public static class ForegroundAction extends StyledTextAction {
+ 
+         /**
+@@ -683,6 +689,7 @@
+      * has been added to the <code>java.beans</code> package.
+      * Please see {@link java.beans.XMLEncoder}.
+      */
++    @SuppressWarnings("serial")
+     public static class AlignmentAction extends StyledTextAction {
+ 
+         /**
+@@ -733,6 +740,7 @@
+      * has been added to the <code>java.beans</code> package.
+      * Please see {@link java.beans.XMLEncoder}.
+      */
++    @SuppressWarnings("serial")
+     public static class BoldAction extends StyledTextAction {
+ 
+         /**
+@@ -772,6 +780,7 @@
+      * has been added to the <code>java.beans</code> package.
+      * Please see {@link java.beans.XMLEncoder}.
+      */
++    @SuppressWarnings("serial")
+     public static class ItalicAction extends StyledTextAction {
+ 
+         /**
+@@ -811,6 +820,7 @@
+      * has been added to the <code>java.beans</code> package.
+      * Please see {@link java.beans.XMLEncoder}.
+      */
++    @SuppressWarnings("serial")
+     public static class UnderlineAction extends StyledTextAction {
+ 
+         /**
+@@ -846,6 +856,7 @@
+      * is inserted. Beyond that, this will reset the input attributes to
+      * what they were before the newline was inserted.
+      */
++    @SuppressWarnings("serial")
+     static class StyledInsertBreakAction extends StyledTextAction {
+         private SimpleAttributeSet tempSet;
+ 

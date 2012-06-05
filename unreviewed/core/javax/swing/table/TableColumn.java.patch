@@ -1,0 +1,12 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/table/TableColumn.java
+--- a/src/share/classes/javax/swing/table/TableColumn.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/table/TableColumn.java	Mon Jun 04 20:04:02 2012 +0100
+@@ -84,6 +84,8 @@
+  */
+ public class TableColumn extends Object implements Serializable {
+ 
++    private static final long serialVersionUID = -6113660025878112608L;
++
+     /**
+      * Obsolete as of Java 2 platform v1.3.  Please use string literals to identify
+      * properties.

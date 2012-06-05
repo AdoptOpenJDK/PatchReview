@@ -1,0 +1,29 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/text/DefaultFormatter.java
+--- a/src/share/classes/javax/swing/text/DefaultFormatter.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/text/DefaultFormatter.java	Mon Jun 04 20:04:05 2012 +0100
+@@ -58,6 +58,9 @@
+  */
+ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
+                     implements Cloneable, Serializable {
++
++    private static final long serialVersionUID = -8864378574101886740L;
++
+     /** Indicates if the value being edited must match the mask. */
+     private boolean allowsInvalid;
+ 
+@@ -675,6 +678,7 @@
+      * NavigationFilter implementation that calls back to methods with
+      * same name in DefaultFormatter.
+      */
++    @SuppressWarnings("serial")
+     private class DefaultNavigationFilter extends NavigationFilter
+                              implements Serializable {
+         public void setDot(FilterBypass fb, int dot, Position.Bias bias) {
+@@ -718,6 +722,7 @@
+      * DocumentFilter implementation that calls back to the replace
+      * method of DefaultFormatter.
+      */
++    @SuppressWarnings("serial")
+     private class DefaultDocumentFilter extends DocumentFilter implements
+                              Serializable {
+         public void remove(FilterBypass fb, int offset, int length) throws

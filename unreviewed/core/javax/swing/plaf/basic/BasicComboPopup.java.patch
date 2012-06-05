@@ -1,0 +1,25 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/plaf/basic/BasicComboPopup.java
+--- a/src/share/classes/javax/swing/plaf/basic/BasicComboPopup.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/plaf/basic/BasicComboPopup.java	Mon Jun 04 20:03:03 2012 +0100
+@@ -61,8 +61,12 @@
+  * @author Mark Davidson
+  */
+ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
++
++    private static final long serialVersionUID = 3337651239927121973L;
++
+     // An empty ListMode, this is used when the UI changes to allow
+     // the JList to be gc'ed.
++    @SuppressWarnings("serial")
+     private static class EmptyListModelClass implements ListModel<Object>, Serializable {
+         public int getSize() { return 0; }
+         public Object getElementAt(int index) { return null; }
+@@ -795,6 +799,8 @@
+     }
+ 
+ 
++
++    @SuppressWarnings("serial")
+     private class Handler implements ItemListener, MouseListener,
+                           MouseMotionListener, PropertyChangeListener,
+                           Serializable {

@@ -1,0 +1,61 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/plaf/basic/BasicFileChooserUI.java
+--- a/src/share/classes/javax/swing/plaf/basic/BasicFileChooserUI.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/plaf/basic/BasicFileChooserUI.java	Mon Jun 04 20:03:05 2012 +0100
+@@ -752,6 +752,7 @@
+     /**
+      * Creates a new folder.
+      */
++    @SuppressWarnings("serial")
+     protected class NewFolderAction extends AbstractAction {
+         protected NewFolderAction() {
+             super(FilePane.ACTION_NEW_FOLDER);
+@@ -794,6 +795,7 @@
+     /**
+      * Acts on the "home" key event or equivalent event.
+      */
++    @SuppressWarnings("serial")
+     protected class GoHomeAction extends AbstractAction {
+         protected GoHomeAction() {
+             super("Go Home");
+@@ -804,6 +806,9 @@
+         }
+     }
+ 
++
++
++    @SuppressWarnings("serial")
+     protected class ChangeToParentDirectoryAction extends AbstractAction {
+         protected ChangeToParentDirectoryAction() {
+             super("Go Up");
+@@ -817,6 +822,7 @@
+     /**
+      * Responds to an Open or Save request
+      */
++    @SuppressWarnings("serial")
+     protected class ApproveSelectionAction extends AbstractAction {
+         protected ApproveSelectionAction() {
+             super(FilePane.ACTION_APPROVE_SELECTION);
+@@ -1125,6 +1131,7 @@
+     /**
+      * Responds to a cancel request.
+      */
++    @SuppressWarnings("serial")
+     protected class CancelSelectionAction extends AbstractAction {
+         public void actionPerformed(ActionEvent e) {
+             getFileChooser().cancelSelection();
+@@ -1134,6 +1141,7 @@
+     /**
+      * Rescans the files in the current directory
+      */
++    @SuppressWarnings("serial")
+     protected class UpdateAction extends AbstractAction {
+         public void actionPerformed(ActionEvent e) {
+             JFileChooser fc = getFileChooser();
+@@ -1286,6 +1294,7 @@
+      * Data transfer support for the file chooser.  Since files are currently presented
+      * as a list, the list support is reused with the added flavor of DataFlavor.javaFileListFlavor
+      */
++    @SuppressWarnings("serial")
+     static class FileTransferHandler extends TransferHandler implements UIResource {
+ 
+         /**

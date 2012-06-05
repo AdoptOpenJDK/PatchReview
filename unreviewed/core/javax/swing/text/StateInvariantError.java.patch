@@ -1,0 +1,13 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/text/StateInvariantError.java
+--- a/src/share/classes/javax/swing/text/StateInvariantError.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/text/StateInvariantError.java	Mon Jun 04 20:04:12 2012 +0100
+@@ -33,6 +33,9 @@
+  */
+ class StateInvariantError extends Error
+ {
++
++    private static final long serialVersionUID = 1823025015388960447L;
++
+     /**
+      * Creates a new StateInvariantFailure object.
+      *

@@ -1,0 +1,116 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/text/html/CSS.java
+--- a/src/share/classes/javax/swing/text/html/CSS.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/text/html/CSS.java	Mon Jun 04 20:04:16 2012 +0100
+@@ -125,6 +125,8 @@
+  */
+ public class CSS implements Serializable {
+ 
++    private static final long serialVersionUID = 3482914137475155648L;
++
+     /**
+      * Definitions to be used as a key on AttributeSet's
+      * that might hold CSS attributes.  Since this is a
+@@ -1563,6 +1565,7 @@
+      * method to convert the CSS value to a StyleConstants
+      * value.
+      */
++    @SuppressWarnings("serial")
+     static class CssValue implements Serializable {
+ 
+         /**
+@@ -1641,6 +1644,7 @@
+      * provides StyleConstants conversion support for the
+      * CSS attributes that are held as strings.
+      */
++    @SuppressWarnings("serial")
+     static class StringValue extends CssValue {
+ 
+         /**
+@@ -1797,6 +1801,7 @@
+      * If the type is Integer, the value is specified
+      * in terms of a size index.
+      */
++    @SuppressWarnings("serial")
+     class FontSize extends CssValue {
+ 
+         /**
+@@ -1966,6 +1971,7 @@
+         LengthUnit lu;
+     }
+ 
++    @SuppressWarnings("serial")
+     static class FontFamily extends CssValue {
+ 
+         /**
+@@ -2063,6 +2069,7 @@
+         String family;
+     }
+ 
++    @SuppressWarnings("serial")
+     static class FontWeight extends CssValue {
+ 
+         int getValue() {
+@@ -2125,6 +2132,7 @@
+         int weight;
+     }
+ 
++    @SuppressWarnings("serial")
+     static class ColorValue extends CssValue {
+ 
+         /**
+@@ -2184,6 +2192,7 @@
+         Color c;
+     }
+ 
++    @SuppressWarnings("serial")
+     static class BorderStyle extends CssValue {
+ 
+         CSS.Value getValue() {
+@@ -2236,6 +2245,7 @@
+         transient private CSS.Value style;
+     }
+ 
++    @SuppressWarnings("serial")
+     static class LengthValue extends CssValue {
+ 
+         /**
+@@ -2373,6 +2383,7 @@
+      * BorderWidthValue is used to model BORDER_XXX_WIDTH and adds support
+      * for the thin/medium/thick values.
+      */
++    @SuppressWarnings("serial")
+     static class BorderWidthValue extends LengthValue {
+         BorderWidthValue(String svalue, int index) {
+             this.svalue = svalue;
+@@ -2412,6 +2423,7 @@
+      * Handles uniquing of CSS values, like lists, and background image
+      * repeating.
+      */
++    @SuppressWarnings("serial")
+     static class CssValueMapper extends CssValue {
+         Object parseCssValue(String value) {
+             Object retValue = cssValueToInternalValueMap.get(value);
+@@ -2435,6 +2447,7 @@
+     /**
+      * Used for background images, to represent the position.
+      */
++    @SuppressWarnings("serial")
+     static class BackgroundPosition extends CssValue {
+         float horizontalPosition;
+         float verticalPosition;
+@@ -2580,6 +2593,7 @@
+     /**
+      * Used for BackgroundImages.
+      */
++    @SuppressWarnings("serial")
+     static class BackgroundImage extends CssValue {
+         private boolean    loadedImage;
+         private ImageIcon  image;
+@@ -2619,6 +2633,7 @@
+      * Parses a length value, this is used internally, and never added
+      * to an AttributeSet or returned to the developer.
+      */
++    @SuppressWarnings("serial")
+     static class LengthUnit implements Serializable {
+         static Hashtable<String, Float> lengthMapping = new Hashtable<String, Float>(6);
+         static Hashtable<String, Float> w3cLengthMapping = new Hashtable<String, Float>(6);

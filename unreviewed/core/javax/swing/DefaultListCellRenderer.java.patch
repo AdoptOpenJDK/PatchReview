@@ -1,0 +1,20 @@
+diff -r 7baa22e6a6b3 src/share/classes/javax/swing/DefaultListCellRenderer.java
+--- a/src/share/classes/javax/swing/DefaultListCellRenderer.java	Fri Jun 01 00:05:21 2012 -0700
++++ b/src/share/classes/javax/swing/DefaultListCellRenderer.java	Mon Jun 04 20:01:14 2012 +0100
+@@ -74,6 +74,8 @@
+     implements ListCellRenderer<Object>, Serializable
+ {
+ 
++    private static final long serialVersionUID = 2725711908942908334L;
++
+    /**
+     * An empty <code>Border</code>. This field might not be used. To change the
+     * <code>Border</code> used by this renderer override the
+@@ -341,6 +343,7 @@
+      * has been added to the <code>java.beans</code> package.
+      * Please see {@link java.beans.XMLEncoder}.
+      */
++    @SuppressWarnings("serial")
+     public static class UIResource extends DefaultListCellRenderer
+         implements javax.swing.plaf.UIResource
+     {
