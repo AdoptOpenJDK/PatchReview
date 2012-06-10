@@ -11,46 +11,6 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/plaf/basic/BasicInternalFrame
      protected JMenuBar menuBar;
      protected JButton iconButton;
      protected JButton maxButton;
-@@ -599,6 +602,7 @@
-      * This class should be treated as a &quot;protected&quot; inner class.
-      * Instantiate it only within subclasses of <Foo>.
-      */
-+    @SuppressWarnings("serial")
-     public class CloseAction extends AbstractAction {
-         public CloseAction() {
-             super(UIManager.getString(
-@@ -616,6 +620,7 @@
-      * This class should be treated as a &quot;protected&quot; inner class.
-      * Instantiate it only within subclasses of <Foo>.
-      */
-+    @SuppressWarnings("serial")
-     public class MaximizeAction extends AbstractAction {
-         public MaximizeAction() {
-             super(UIManager.getString(
-@@ -645,6 +650,7 @@
-      * This class should be treated as a &quot;protected&quot; inner class.
-      * Instantiate it only within subclasses of <Foo>.
-      */
-+    @SuppressWarnings("serial")
-     public class IconifyAction extends AbstractAction {
-         public IconifyAction() {
-             super(UIManager.getString(
-@@ -666,6 +672,7 @@
-      * This class should be treated as a &quot;protected&quot; inner class.
-      * Instantiate it only within subclasses of <Foo>.
-      */
-+    @SuppressWarnings("serial")
-     public class RestoreAction extends AbstractAction {
-         public RestoreAction() {
-             super(UIManager.getString(
-@@ -693,6 +700,7 @@
-      * This class should be treated as a &quot;protected&quot; inner class.
-      * Instantiate it only within subclasses of <Foo>.
-      */
-+    @SuppressWarnings("serial")
-     public class MoveAction extends AbstractAction {
-         public MoveAction() {
-             super(UIManager.getString(
 @@ -707,6 +715,7 @@
      /*
       * Handles showing and hiding the system menu.
@@ -59,22 +19,6 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/plaf/basic/BasicInternalFrame
      private class ShowSystemMenuAction extends AbstractAction {
          private boolean show;   // whether to show the menu
  
-@@ -727,6 +736,7 @@
-      * This class should be treated as a &quot;protected&quot; inner class.
-      * Instantiate it only within subclasses of <Foo>.
-      */
-+    @SuppressWarnings("serial")
-     public class SizeAction extends AbstractAction {
-         public SizeAction() {
-             super(UIManager.getString(
-@@ -743,6 +753,7 @@
-      * This class should be treated as a &quot;protected&quot; inner class.
-      * Instantiate it only within subclasses of <Foo>.
-      */
-+    @SuppressWarnings("serial")
-     public class SystemMenuBar extends JMenuBar {
-         public boolean isFocusTraversable() { return false; }
-         public void requestFocus() {}
 @@ -768,6 +779,8 @@
      } // end SystemMenuBar
  

@@ -10,11 +10,3 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/DefaultCellEditor.java
  //
  //  Instance Variables
  //
-@@ -297,6 +299,7 @@
-     /**
-      * The protected <code>EditorDelegate</code> class.
-      */
-+    @SuppressWarnings("serial")
-     protected class EditorDelegate implements ActionListener, ItemListener, Serializable {
- 
-         /**  The value of this cell. */

@@ -10,19 +10,3 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/JToggleButton.java
      /**
       * @see #getUIClassID
       * @see #readObject
-@@ -222,6 +224,7 @@
-      * has been added to the <code>java.beans</code> package.
-      * Please see {@link java.beans.XMLEncoder}.
-      */
-+    @SuppressWarnings("serial")
-     public static class ToggleButtonModel extends DefaultButtonModel {
- 
-         /**
-@@ -384,6 +387,7 @@
-      * has been added to the <code>java.beans</code> package.
-      * Please see {@link java.beans.XMLEncoder}.
-      */
-+    @SuppressWarnings("serial")
-     protected class AccessibleJToggleButton extends AccessibleAbstractButton
-             implements ItemListener {
- 

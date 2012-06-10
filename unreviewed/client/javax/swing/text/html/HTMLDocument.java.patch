@@ -11,38 +11,6 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/text/html/HTMLDocument.java
      /**
       * Constructs an HTML document using the default buffer size
       * and a default <code>StyleSheet</code>.  This is a convenience
-@@ -2778,6 +2781,7 @@
- 
-         }
- 
-+        @SuppressWarnings("serial")
-         public class BlockAction extends TagAction {
- 
-             public void start(HTML.Tag t, MutableAttributeSet attr) {
-@@ -4067,6 +4071,7 @@
-      * Used by StyleSheet to determine when to avoid removing HTML.Tags
-      * matching StyleConstants.
-      */
-+    @SuppressWarnings("serial")
-     static class TaggedAttributeSet extends SimpleAttributeSet {
-         TaggedAttributeSet() {
-             super();
-@@ -4079,6 +4084,7 @@
-      * a set of HTML character level attributes assigned to
-      * it.
-      */
-+    @SuppressWarnings("serial")
-     public class RunElement extends LeafElement {
- 
-         /**
-@@ -4124,6 +4130,7 @@
-      * An element that represents a structural <em>block</em> of
-      * HTML.
-      */
-+    @SuppressWarnings("serial")
-     public class BlockElement extends BranchElement {
- 
-         /**
 @@ -4168,6 +4175,7 @@
      /**
       * Document that allows you to set the maximum length of the text.

@@ -10,10 +10,3 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/ScrollPaneLayout.java
      /**
       * The scrollpane's viewport child.
       * Default is an empty <code>JViewport</code>.
-@@ -1117,5 +1119,6 @@
-     /**
-      * The UI resource version of <code>ScrollPaneLayout</code>.
-      */
-+    @SuppressWarnings("serial")
-     public static class UIResource extends ScrollPaneLayout implements javax.swing.plaf.UIResource {}
- }

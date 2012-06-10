@@ -10,36 +10,3 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/text/GapContent.java
      /**
       * Creates a new GapContent object.  Initial size defaults to 10.
       */
-@@ -262,6 +264,7 @@
-      * it.  The update table holds only a reference
-      * to this data.
-      */
-+    @SuppressWarnings("serial")
-     final class MarkData extends WeakReference<StickyPosition> {
- 
-         MarkData(int index) {
-@@ -578,6 +581,8 @@
-     }
- 
- 
-+
-+    @SuppressWarnings("serial")
-     static class MarkVector extends GapVector {
- 
-         MarkVector() {
-@@ -855,6 +860,7 @@
-     /**
-      * UnoableEdit created for inserts.
-      */
-+    @SuppressWarnings("serial")
-     class InsertUndo extends AbstractUndoableEdit {
-         protected InsertUndo(int offset, int length) {
-             super();
-@@ -905,6 +911,7 @@
-     /**
-      * UndoableEdit created for removes.
-      */
-+    @SuppressWarnings("serial")
-     class RemoveUndo extends AbstractUndoableEdit {
-         protected RemoveUndo(int offset, String string) {
-             super();

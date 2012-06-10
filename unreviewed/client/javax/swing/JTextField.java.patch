@@ -18,27 +18,3 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/JTextField.java
      private static class TextFieldActionPropertyChangeListener extends
                           ActionPropertyChangeListener<JTextField> {
          TextFieldActionPropertyChangeListener(JTextField tf, Action a) {
-@@ -823,6 +826,7 @@
-     // --- Action implementations -----------------------------------
- 
-     // Note that JFormattedTextField.CommitAction extends this
-+    @SuppressWarnings("serial")
-     static class NotifyAction extends TextAction {
- 
-         NotifyAction() {
-@@ -846,6 +850,7 @@
-         }
-     }
- 
-+    @SuppressWarnings("serial")
-     class ScrollRepainter implements ChangeListener, Serializable {
- 
-         public void stateChanged(ChangeEvent e) {
-@@ -943,6 +948,7 @@
-      * has been added to the <code>java.beans</code> package.
-      * Please see {@link java.beans.XMLEncoder}.
-      */
-+    @SuppressWarnings("serial")
-     protected class AccessibleJTextField extends AccessibleJTextComponent {
- 
-         /**

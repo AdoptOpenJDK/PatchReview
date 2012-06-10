@@ -19,11 +19,3 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/JList.java
      private class ListSelectionHandler implements ListSelectionListener, Serializable
      {
          public void valueChanged(ListSelectionEvent e) {
-@@ -2883,6 +2887,7 @@
-      * has been added to the <code>java.beans</code> package.
-      * Please see {@link java.beans.XMLEncoder}.
-      */
-+    @SuppressWarnings("serial")
-     protected class AccessibleJList extends AccessibleJComponent
-         implements AccessibleSelection, PropertyChangeListener,
-         ListSelectionListener, ListDataListener {

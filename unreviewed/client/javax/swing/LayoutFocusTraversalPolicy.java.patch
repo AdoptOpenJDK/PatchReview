@@ -11,11 +11,3 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/LayoutFocusTraversalPolicy.ja
      // Delegate most of our fitness test to Default so that we only have to
      // code the algorithm once.
      private static final SwingDefaultFocusTraversalPolicy fitnessTestPolicy =
-@@ -265,6 +268,7 @@
- 
- // Create our own subclass and change accept to public so that we can call
- // accept.
-+@SuppressWarnings("serial")
- class SwingDefaultFocusTraversalPolicy
-     extends java.awt.DefaultFocusTraversalPolicy
- {

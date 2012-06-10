@@ -11,27 +11,3 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/JInternalFrame.java
      /**
       * @see #getUIClassID
       * @see #readObject
-@@ -2033,6 +2036,7 @@
-      * has been added to the <code>java.beans</code> package.
-      * Please see {@link java.beans.XMLEncoder}.
-      */
-+    @SuppressWarnings("serial")
-     protected class AccessibleJInternalFrame extends AccessibleJComponent
-         implements AccessibleValue {
- 
-@@ -2150,6 +2154,7 @@
-      *
-      * @author David Kloba
-      */
-+    @SuppressWarnings("serial")
-     static public class JDesktopIcon extends JComponent implements Accessible
-     {
-         JInternalFrame internalFrame;
-@@ -2322,6 +2327,7 @@
-          * has been added to the <code>java.beans</code> package.
-          * Please see {@link java.beans.XMLEncoder}.
-          */
-+        @SuppressWarnings("serial")
-         protected class AccessibleJDesktopIcon extends AccessibleJComponent
-             implements AccessibleValue {
- 

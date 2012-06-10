@@ -11,14 +11,6 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/JToolBar.java
      /**
       * @see #getUIClassID
       * @see #readObject
-@@ -588,6 +591,7 @@
-      * A toolbar-specific separator. An object with dimension but
-      * no contents used to divide buttons on a tool bar into groups.
-      */
-+    @SuppressWarnings("serial")
-     static public class Separator extends JSeparator
-     {
-         private Dimension separatorSize;
 @@ -742,6 +746,7 @@
      }
  
@@ -27,11 +19,3 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/JToolBar.java
      private class DefaultToolBarLayout
          implements LayoutManager2, Serializable, PropertyChangeListener, UIResource {
  
-@@ -843,6 +848,7 @@
-      * <code>JToolBar</code> class.  It provides an implementation of the
-      * Java Accessibility API appropriate to toolbar user-interface elements.
-      */
-+    @SuppressWarnings("serial")
-     protected class AccessibleJToolBar extends AccessibleJComponent {
- 
-         /**

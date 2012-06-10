@@ -19,14 +19,6 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/JSpinner.java
      private class ModelListener implements ChangeListener, Serializable {
          public void stateChanged(ChangeEvent e) {
              fireStateChanged();
-@@ -600,6 +604,7 @@
-      * child is just centered with the parents insets.
-      * @since 1.4
-      */
-+    @SuppressWarnings("serial")
-     public static class DefaultEditor extends JPanel
-         implements ChangeListener, PropertyChangeListener, LayoutManager
-     {
 @@ -905,6 +910,7 @@
       * This subclass of javax.swing.DateFormatter maps the minimum/maximum
       * properties to te start/end properties of a SpinnerDateModel.
@@ -35,14 +27,6 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/JSpinner.java
      private static class DateEditorFormatter extends DateFormatter {
          private final SpinnerDateModel model;
  
-@@ -941,6 +947,7 @@
-      * @since 1.4
-      */
-     // PENDING(hmuller): more example javadoc
-+    @SuppressWarnings("serial")
-     public static class DateEditor extends DefaultEditor
-     {
-         // This is here until SimpleDateFormat gets a constructor that
 @@ -1081,6 +1088,7 @@
       * properties to a SpinnerNumberModel and initializes the valueClass
       * of the NumberFormatter to match the type of the initial models value.
@@ -51,22 +35,6 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/JSpinner.java
      private static class NumberEditorFormatter extends NumberFormatter {
          private final SpinnerNumberModel model;
  
-@@ -1119,6 +1127,7 @@
-      * @since 1.4
-      */
-     // PENDING(hmuller): more example javadoc
-+    @SuppressWarnings("serial")
-     public static class NumberEditor extends DefaultEditor
-     {
-         // This is here until DecimalFormat gets a constructor that
-@@ -1261,6 +1270,7 @@
-      * <code>SpinnerListModel</code>.
-      * @since 1.4
-      */
-+    @SuppressWarnings("serial")
-     public static class ListEditor extends DefaultEditor
-     {
-         /**
 @@ -1306,6 +1316,7 @@
           * user is inserting text at the end of the document. Completion
           * is done by way of the SpinnerListModel method findNextMatch.
@@ -75,11 +43,3 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/JSpinner.java
          private class ListFormatter extends
                            JFormattedTextField.AbstractFormatter {
              private DocumentFilter filter;
-@@ -1406,6 +1417,7 @@
-      * support for the <code>JSpinner</code> class.
-      * @since 1.5
-      */
-+    @SuppressWarnings("serial")
-     protected class AccessibleJSpinner extends AccessibleJComponent
-         implements AccessibleValue, AccessibleAction, AccessibleText,
-                    AccessibleEditableText, ChangeListener {

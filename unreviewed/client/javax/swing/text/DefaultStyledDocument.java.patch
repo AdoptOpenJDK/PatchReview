@@ -10,35 +10,3 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/text/DefaultStyledDocument.ja
      /**
       * Constructs a styled document.
       *
-@@ -1128,6 +1130,7 @@
-      * has been added to the <code>java.beans</code> package.
-      * Please see {@link java.beans.XMLEncoder}.
-      */
-+    @SuppressWarnings("serial")
-     protected class SectionElement extends BranchElement {
- 
-         /**
-@@ -1394,6 +1397,7 @@
-      * has been added to the <code>java.beans</code> package.
-      * Please see {@link java.beans.XMLEncoder}.
-      */
-+    @SuppressWarnings("serial")
-     public class ElementBuffer implements Serializable {
- 
-         /**
-@@ -2517,6 +2521,7 @@
-      * An UndoableEdit used to remember AttributeSet changes to an
-      * Element.
-      */
-+    @SuppressWarnings("serial")
-     public static class AttributeUndoableEdit extends AbstractUndoableEdit {
-         public AttributeUndoableEdit(Element element, AttributeSet newAttributes,
-                               boolean isReplacing) {
-@@ -2568,6 +2573,7 @@
-     /**
-      * UndoableEdit for changing the resolve parent of an Element.
-      */
-+    @SuppressWarnings("serial")
-     static class StyleChangeUndoableEdit extends AbstractUndoableEdit {
-         public StyleChangeUndoableEdit(AbstractElement element,
-                                        Style newStyle) {

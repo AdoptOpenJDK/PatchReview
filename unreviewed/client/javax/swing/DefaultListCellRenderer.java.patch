@@ -10,11 +10,3 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/DefaultListCellRenderer.java
     /**
      * An empty <code>Border</code>. This field might not be used. To change the
      * <code>Border</code> used by this renderer override the
-@@ -341,6 +343,7 @@
-      * has been added to the <code>java.beans</code> package.
-      * Please see {@link java.beans.XMLEncoder}.
-      */
-+    @SuppressWarnings("serial")
-     public static class UIResource extends DefaultListCellRenderer
-         implements javax.swing.plaf.UIResource
-     {

@@ -10,19 +10,3 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/text/StringContent.java
      /**
       * Creates a new StringContent object.  Initial size defaults to 10.
       */
-@@ -388,6 +390,7 @@
-     /**
-      * UnoableEdit created for inserts.
-      */
-+    @SuppressWarnings("serial")
-     class InsertUndo extends AbstractUndoableEdit {
-         protected InsertUndo(int offset, int length) {
-             super();
-@@ -443,6 +446,7 @@
-     /**
-      * UndoableEdit created for removes.
-      */
-+    @SuppressWarnings("serial")
-     class RemoveUndo extends AbstractUndoableEdit {
-         protected RemoveUndo(int offset, String string) {
-             super();

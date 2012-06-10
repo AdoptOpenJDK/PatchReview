@@ -50,14 +50,6 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/plaf/metal/MetalIconFactory.j
      private static class FileChooserUpFolderIcon implements Icon, UIResource, Serializable {
          public void paintIcon(Component c, Graphics g, int x, int y) {
              g.translate(x, y);
-@@ -510,6 +517,7 @@
-      * Defines an icon for Palette close
-      * @since 1.3
-      */
-+    @SuppressWarnings("serial")
-     public static class PaletteCloseIcon implements Icon, UIResource, Serializable{
-         int iconSize = 7;
- 
 @@ -554,6 +562,7 @@
      }
  
@@ -152,47 +144,6 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/plaf/metal/MetalIconFactory.j
      private static class TreeFloppyDriveIcon implements Icon, UIResource, Serializable {
          public void paintIcon(Component c, Graphics g, int x, int y) {
              g.translate(x, y);
-@@ -1554,6 +1582,7 @@
-      * has been added to the <code>java.beans</code> package.
-      * Please see {@link java.beans.XMLEncoder}.
-      */
-+    @SuppressWarnings("serial")
-     public static class FolderIcon16 implements Icon, Serializable {
- 
-         ImageCacher imageCacher;
-@@ -1636,6 +1665,7 @@
-      * has been added to the <code>java.beans</code> package.
-      * Please see {@link java.beans.XMLEncoder}.
-      */
-+    @SuppressWarnings("serial")
-     public static class TreeFolderIcon extends FolderIcon16 {
-         public int getShift() { return -1; }
-         public int getAdditionalHeight() { return 2; }
-@@ -1655,6 +1685,7 @@
-      * has been added to the <code>java.beans</code> package.
-      * Please see {@link java.beans.XMLEncoder}.
-      */
-+    @SuppressWarnings("serial")
-     public static class FileIcon16 implements Icon, Serializable {
- 
-         ImageCacher imageCacher;
-@@ -1721,6 +1752,8 @@
-     }
- 
- 
-+
-+    @SuppressWarnings("serial")
-     public static class TreeLeafIcon extends FileIcon16 {
-         public int getShift() { return 2; }
-         public int getAdditionalHeight() { return 4; }
-@@ -1740,6 +1773,7 @@
-      * has been added to the <code>java.beans</code> package.
-      * Please see {@link java.beans.XMLEncoder}.
-      */
-+    @SuppressWarnings("serial")
-     public static class TreeControlIcon implements Icon, Serializable {
-         // This data member should not have been exposed.  It's called
-         // isLight, but now it really means isCollapsed.  Since we can't change
 @@ -1879,6 +1913,9 @@
      static private final Dimension menuCheckIconSize = new Dimension( 10, 10 );
      static private final int xOff = 4;

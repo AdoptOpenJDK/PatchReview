@@ -11,11 +11,3 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/JRadioButtonMenuItem.java
      /**
       * @see #getUIClassID
       * @see #readObject
-@@ -266,6 +269,7 @@
-      * has been added to the <code>java.beans</code> package.
-      * Please see {@link java.beans.XMLEncoder}.
-      */
-+    @SuppressWarnings("serial")
-     protected class AccessibleJRadioButtonMenuItem extends AccessibleJMenuItem {
-         /**
-          * Get the role of this object.

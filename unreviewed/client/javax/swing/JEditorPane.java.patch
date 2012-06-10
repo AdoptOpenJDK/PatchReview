@@ -10,30 +10,6 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/JEditorPane.java
      /**
       * Creates a new <code>JEditorPane</code>.
       * The document model is set to <code>null</code>.
-@@ -1640,6 +1642,7 @@
-      * has been added to the <code>java.beans</code> package.
-      * Please see {@link java.beans.XMLEncoder}.
-      */
-+    @SuppressWarnings("serial")
-     protected class AccessibleJEditorPane extends AccessibleJTextComponent {
- 
-         /**
-@@ -1694,6 +1697,7 @@
-      * has been added to the <code>java.beans</code> package.
-      * Please see {@link java.beans.XMLEncoder}.
-      */
-+    @SuppressWarnings("serial")
-     protected class AccessibleJEditorPaneHTML extends AccessibleJEditorPane {
- 
-         private AccessibleContext accessibleContext;
-@@ -1774,6 +1778,7 @@
-      * <code>JEditorPane</code>.
-      *
-      */
-+    @SuppressWarnings("serial")
-     protected class JEditorPaneAccessibleHypertextSupport
-     extends AccessibleJEditorPane implements AccessibleHypertext {
- 
 @@ -1921,6 +1926,7 @@
              }
          }
@@ -42,11 +18,3 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/JEditorPane.java
          private class LinkVector extends Vector<HTMLLink> {
              public int baseElementIndex(Element e) {
                  HTMLLink l;
-@@ -2070,6 +2076,7 @@
-         }
-     }
- 
-+    @SuppressWarnings("serial")
-     static class PlainEditorKit extends DefaultEditorKit implements ViewFactory {
- 
-         /**

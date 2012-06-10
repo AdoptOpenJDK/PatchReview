@@ -19,27 +19,3 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/JSlider.java
      private class ModelListener implements ChangeListener, Serializable {
          public void stateChanged(ChangeEvent e) {
              fireStateChanged();
-@@ -929,11 +933,15 @@
-             throw new IllegalArgumentException( "Label incremement must be > 0" );
-         }
- 
-+
-+
-+        @SuppressWarnings("serial")
-         class SmartHashtable extends Hashtable<Object, Object> implements PropertyChangeListener {
-             int increment = 0;
-             int start = 0;
-             boolean startAtMin = false;
- 
-+            @SuppressWarnings("serial")
-             class LabelUIResource extends JLabel implements UIResource {
-                 public LabelUIResource( String text, int alignment ) {
-                     super( text, alignment );
-@@ -1429,6 +1437,7 @@
-      * has been added to the <code>java.beans</code> package.
-      * Please see {@link java.beans.XMLEncoder}.
-      */
-+    @SuppressWarnings("serial")
-     protected class AccessibleJSlider extends AccessibleJComponent
-     implements AccessibleValue {
- 

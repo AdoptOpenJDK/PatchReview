@@ -10,11 +10,3 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/JFileChooser.java
      /**
       * @see #getUIClassID
       * @see #readObject
-@@ -1963,6 +1965,7 @@
-      * Java Accessibility API appropriate to file chooser user-interface
-      * elements.
-      */
-+    @SuppressWarnings("serial")
-     protected class AccessibleJFileChooser extends AccessibleJComponent {
- 
-         /**

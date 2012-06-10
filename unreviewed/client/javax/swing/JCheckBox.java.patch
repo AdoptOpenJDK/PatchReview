@@ -9,12 +9,4 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/JCheckBox.java
 +
      /** Identifies a change to the flat property. */
      public static final String BORDER_PAINTED_FLAT_CHANGED_PROPERTY = "borderPaintedFlat";
- 
-@@ -334,6 +336,7 @@
-      * has been added to the <code>java.beans</code> package.
-      * Please see {@link java.beans.XMLEncoder}.
-      */
-+    @SuppressWarnings("serial")
-     protected class AccessibleJCheckBox extends AccessibleJToggleButton {
- 
-         /**
+

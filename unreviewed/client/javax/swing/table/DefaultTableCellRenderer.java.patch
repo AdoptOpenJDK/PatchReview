@@ -10,11 +10,3 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/table/DefaultTableCellRendere
     /**
      * An empty <code>Border</code>. This field might not be used. To change the
      * <code>Border</code> used by this renderer override the
-@@ -391,6 +393,7 @@
-      * has been added to the <code>java.beans</code> package.
-      * Please see {@link java.beans.XMLEncoder}.
-      */
-+    @SuppressWarnings("serial")
-     public static class UIResource extends DefaultTableCellRenderer
-         implements javax.swing.plaf.UIResource
-     {

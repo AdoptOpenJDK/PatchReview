@@ -10,11 +10,3 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/text/StyleContext.java
      /**
       * Returns default AttributeContext shared by all documents that
       * don't bother to define/supply their own context.
-@@ -1244,6 +1246,7 @@
-      * has been added to the <code>java.beans</code> package.
-      * Please see {@link java.beans.XMLEncoder}.
-      */
-+    @SuppressWarnings("serial")
-     public class NamedStyle implements Style, Serializable {
- 
-         /**

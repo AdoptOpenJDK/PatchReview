@@ -19,14 +19,6 @@ diff -r 7baa22e6a6b3 src/share/classes/javax/swing/JFormattedTextField.java
      private class FocusLostHandler implements Runnable, Serializable {
          public void run() {
              int fb = JFormattedTextField.this.getFocusLostBehavior();
-@@ -1106,6 +1110,7 @@
-      * has focus, and extends <code>actionPerformed</code> to invoke
-      * commitEdit.
-      */
-+    @SuppressWarnings("serial")
-     static class CommitAction extends JTextField.NotifyAction {
-         public void actionPerformed(ActionEvent e) {
-             JTextComponent target = getFocusedComponent();
 @@ -1144,6 +1149,7 @@
       * enabled if the focused component is an instance of
       * JFormattedTextField.
