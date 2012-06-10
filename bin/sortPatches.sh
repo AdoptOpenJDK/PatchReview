@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd ..
 
 if [ $# -ne 3 ]
 then

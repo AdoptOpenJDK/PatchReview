@@ -7,10 +7,10 @@ count () {
 }
 
 echo "Unreviewed Scripts:"
-count unreviewed
+count ../unreviewed
 
 echo "Reviewed Scripts:"
-count reviewed
+count ../reviewed
 
 echo "Further review needed:"
-count further_review_needed
+count ../further_review_needed
