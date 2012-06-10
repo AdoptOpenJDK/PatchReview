@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -eu
-
 internal_lines=$(java -version 2>&1 | grep "internal" | wc -l)
 
 if [ $internal_lines -ge 1 ]
