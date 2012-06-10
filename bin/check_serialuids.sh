@@ -1,13 +1,13 @@
-#!/bin/bash
+#!/bin/sh
 
-# $1 = dir with patches
-# $2 = file with generated UID's
+patch_dir=$1
+generated_uid_file=$2
 
-grep -oR "serialVersionUID.*" $1 | while read line
+grep -oR "serialVersionUID.*" $patch_dir | while read line
 do
-  count=$(grep "$line" $2 | wc -l)
+  count=$(grep "$line" $generated_uid_file | wc -l)
 
-  if [[ $count -ne 1 ]]
+  if [ $count -ne 1 ]
   then
     echo $line $count
   fi
