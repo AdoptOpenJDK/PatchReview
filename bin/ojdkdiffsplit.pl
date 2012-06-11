@@ -1,10 +1,11 @@
 #!/usr/bin/perl -w
 
 # Modified By John Oliver to remove directory from names produced
-
+#
 # diffsplit - split up unified diffs
 #
 # Copyright (C) 2001-2002  Transmeta Corporation
+# Copyright (C) 2012 John Oliver <johno@insightfullogic.com>
 #
 # written by Daniel Quinlan <quinlan@transmeta.com>
 #
