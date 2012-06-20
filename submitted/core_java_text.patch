@@ -1,0 +1,50 @@
+diff -r 1980be18d0f8 src/share/classes/java/text/ParseException.java
+--- a/src/share/classes/java/text/ParseException.java	Sun Apr 22 21:22:17 2012 +0100
++++ b/src/share/classes/java/text/ParseException.java	Tue Apr 24 01:15:51 2012 +0100
+@@ -49,6 +49,8 @@
+ public
+ class ParseException extends Exception {
+ 
++    private static final long serialVersionUID = 2703218443322787634L;
++
+     /**
+      * Constructs a ParseException with the specified detail message and
+      * offset.
+diff -r 134d9f4f9498 src/share/classes/java/text/ChoiceFormat.java
+--- a/src/share/classes/java/text/ChoiceFormat.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/java/text/ChoiceFormat.java	Mon Mar 12 23:16:26 2012 +0000
+@@ -457,8 +457,8 @@
+     {
+         ChoiceFormat other = (ChoiceFormat) super.clone();
+         // for primitives or immutables, shallow clone is enough
+-        other.choiceLimits = (double[]) choiceLimits.clone();
+-        other.choiceFormats = (String[]) choiceFormats.clone();
++        other.choiceLimits = choiceLimits.clone();
++        other.choiceFormats = choiceFormats.clone();
+         return other;
+     }
+ 
+diff -r 134d9f4f9498 src/share/classes/java/text/RBTableBuilder.java
+--- a/src/share/classes/java/text/RBTableBuilder.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/java/text/RBTableBuilder.java	Mon Mar 12 23:16:26 2012 +0000
+@@ -85,7 +85,7 @@
+             throw new ParseException("Build rules empty.", 0);
+ 
+         // This array maps Unicode characters to their collation ordering
+-        mapping = new UCompactIntArray((int)RBCollationTables.UNMAPPED);
++        mapping = new UCompactIntArray(RBCollationTables.UNMAPPED);
+         // Normalize the build rules.  Find occurances of all decomposed characters
+         // and normalize the rules before feeding into the builder.  By "normalize",
+         // we mean that all precomposed Unicode characters must be converted into
+diff -r 134d9f4f9498 src/share/classes/java/text/AttributedString.java
+--- a/src/share/classes/java/text/AttributedString.java	Mon Mar 12 11:30:28 2012 +0000
++++ b/src/share/classes/java/text/AttributedString.java	Mon Mar 12 23:16:25 2012 +0000
+@@ -761,7 +761,7 @@
+             this.currentIndex = beginIndex;
+             updateRunInfo();
+             if (attributes != null) {
+-                relevantAttributes = (Attribute[]) attributes.clone();
++                relevantAttributes = attributes.clone();
+             }
+         }
+ 
