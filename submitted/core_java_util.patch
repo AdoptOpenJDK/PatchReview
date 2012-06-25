@@ -11,10 +11,10 @@ diff -r 1980be18d0f8 src/share/classes/java/util/InvalidPropertiesFormatExceptio
      /**
       * Constructs an InvalidPropertiesFormatException with the specified
       * cause.
-diff -r 134d9f4f9498 src/share/classes/java/util/regex/Pattern.java
---- a/src/share/classes/java/util/regex/Pattern.java	Mon Mar 12 11:30:28 2012 +0000
-+++ b/src/share/classes/java/util/regex/Pattern.java	Mon Mar 12 23:16:27 2012 +0000
-@@ -2018,6 +2018,7 @@
+diff -r dfe5617c18b4 src/share/classes/java/util/regex/Pattern.java
+--- a/src/share/classes/java/util/regex/Pattern.java	Wed Jun 20 22:40:32 2012 -0400
++++ b/src/share/classes/java/util/regex/Pattern.java	Mon Jun 25 13:36:20 2012 +0100
+@@ -2026,6 +2026,7 @@
          }
      }
  
@@ -22,7 +22,7 @@ diff -r 134d9f4f9498 src/share/classes/java/util/regex/Pattern.java
      /**
       * Parsing of sequences between alternations.
       */
-@@ -2132,6 +2134,7 @@
+@@ -2140,6 +2141,7 @@
          return head;
      }
  
@@ -30,14 +30,22 @@ diff -r 134d9f4f9498 src/share/classes/java/util/regex/Pattern.java
      /**
       * Parse and add a new Single or Slice.
       */
-@@ -2268,6 +2271,7 @@
-             return new BackRef(refNum);
+@@ -2978,6 +2980,7 @@
+         return head;
      }
  
 +    @SuppressWarnings("fallthrough")
      /**
-      * Parses an escape sequence to determine the actual value that needs
-      * to be matched.
+      * Parses inlined match flags and set them appropriately.
+      */
+@@ -3019,6 +3022,7 @@
+         }
+     }
+ 
++    @SuppressWarnings("fallthrough")
+     /**
+      * Parses the second part of inlined match flags and turns off
+      * flags appropriately.
 diff -r 1980be18d0f8 src/share/classes/java/util/zip/GZIPInputStream.java
 --- a/src/share/classes/java/util/zip/GZIPInputStream.java	Sun Apr 22 21:22:17 2012 +0100
 +++ b/src/share/classes/java/util/zip/GZIPInputStream.java	Mon Apr 23 19:36:16 2012 +0100
