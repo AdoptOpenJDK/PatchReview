@@ -127,25 +127,6 @@ diff -r 1980be18d0f8 src/share/classes/javax/imageio/ImageIO.java
                  if (temp.isOwnReader(reader)) {
                      readerSpi = temp;
                      break;
-@@ -1029,15 +1029,15 @@
-             return null;
-         }
- 
--        Class writerSpiClass = null;
-+        Class<? extends ImageWriterSpi> writerSpiClass = null;
-         try {
-             writerSpiClass = Class.forName(writerNames[0], true,
--                                           ClassLoader.getSystemClassLoader());
-+                                           ClassLoader.getSystemClassLoader()).asSubclass(ImageWriterSpi.class);
-         } catch (ClassNotFoundException e) {
-             return null;
-         }
- 
--        ImageWriterSpi writerSpi = (ImageWriterSpi)
-+        ImageWriterSpi writerSpi =
-             theRegistry.getServiceProviderByClass(writerSpiClass);
-         if (writerSpi == null) {
-             return null;
 @@ -1082,7 +1082,7 @@
  
          ImageWriterSpi writerSpi = writer.getOriginatingProvider();
@@ -164,25 +145,6 @@ diff -r 1980be18d0f8 src/share/classes/javax/imageio/ImageIO.java
                  if (temp.isOwnWriter(writer)) {
                      writerSpi = temp;
                      break;
-@@ -1109,15 +1109,15 @@
-             return null;
-         }
- 
--        Class readerSpiClass = null;
-+        Class<? extends ImageReaderSpi> readerSpiClass = null;
-         try {
-             readerSpiClass = Class.forName(readerNames[0], true,
--                                           ClassLoader.getSystemClassLoader());
-+                                           ClassLoader.getSystemClassLoader()).asSubclass(ImageReaderSpi.class);
-         } catch (ClassNotFoundException e) {
-             return null;
-         }
- 
--        ImageReaderSpi readerSpi = (ImageReaderSpi)
-+        ImageReaderSpi readerSpi =
-             theRegistry.getServiceProviderByClass(readerSpiClass);
-         if (readerSpi == null) {
-             return null;
 @@ -1160,7 +1160,7 @@
              throw new IllegalArgumentException("formatName == null!");
          }
