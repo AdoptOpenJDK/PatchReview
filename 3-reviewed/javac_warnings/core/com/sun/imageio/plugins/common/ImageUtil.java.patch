@@ -10,9 +10,9 @@ diff -r f9fb8c4b4550 src/share/classes/com/sun/imageio/plugins/common/ImageUtil.
 -                                  ((binaryDataArray[b++] & 0xFF) << 8) |
 -                                  (binaryDataArray[b++] & 0xFF));
 +                            (((binaryDataArray[b++] & 0xFF) << 24) |
-+                                ((binaryDataArray[b++] & 0xFF) << 16) |
-+                                ((binaryDataArray[b++] & 0xFF) << 8) |
-+                                (binaryDataArray[b++] & 0xFF));
++                            ((binaryDataArray[b++] & 0xFF) << 16) |
++                            ((binaryDataArray[b++] & 0xFF) << 8) |
++                            (binaryDataArray[b++] & 0xFF));
                          xRemaining -= 32;
                      }
                      int shift = 24;
@@ -23,14 +23,13 @@ diff -r f9fb8c4b4550 src/share/classes/com/sun/imageio/plugins/common/ImageUtil.
                          shift -= 8;
                          xRemaining -= 8;
                      }
-@@ -835,8 +834,8 @@
+@@ -835,8 +834,7 @@
                  for(int x = 0; x < rectWidth; x++) {
                      if(bdata[k++] != (byte)0) {
                          data[bOffset/32] |=
 -                            (int)(0x00000001 <<
 -                                  (31 - bOffset % 32));
-+                            (0x00000001 <<
-+                               (31 - bOffset % 32));
++                            (0x00000001 << (31 - bOffset % 32));
                      }
                      bOffset++;
                  }
