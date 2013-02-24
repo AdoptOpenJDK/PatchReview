@@ -1,0 +1,1720 @@
+diff -r 8d8a35ac7d40 src/share/classes/java/util/AbstractCollection.java
+--- a/src/share/classes/java/util/AbstractCollection.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/AbstractCollection.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -125,7 +125,7 @@
+      * <p>This method is equivalent to:
+      *
+      *  <pre> {@code
+-     * List<E> list = new ArrayList<E>(size());
++     * List<E> list = new ArrayList<>(size());
+      * for (E e : this)
+      *     list.add(e);
+      * return list.toArray();
+@@ -161,7 +161,7 @@
+      * <p>This method is equivalent to:
+      *
+      *  <pre> {@code
+-     * List<E> list = new ArrayList<E>(size());
++     * List<E> list = new ArrayList<>(size());
+      * for (E e : this)
+      *     list.add(e);
+      * return list.toArray(a);
+diff -r 8d8a35ac7d40 src/share/classes/java/util/Arrays.java
+--- a/src/share/classes/java/util/Arrays.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/Arrays.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -4240,7 +4240,7 @@
+         if (a.length != 0 && bufLen <= 0)
+             bufLen = Integer.MAX_VALUE;
+         StringBuilder buf = new StringBuilder(bufLen);
+-        deepToString(a, buf, new HashSet<Object[]>());
++        deepToString(a, buf, new HashSet<>());
+         return buf.toString();
+     }
+ 
+diff -r 8d8a35ac7d40 src/share/classes/java/util/Collections.java
+--- a/src/share/classes/java/util/Collections.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/Collections.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -2239,12 +2239,12 @@
+      * program to wrap the collection with a dynamically typesafe view.
+      * For example, this declaration:
+      *  <pre> {@code
+-     *     Collection<String> c = new HashSet<String>();
++     *     Collection<String> c = new HashSet<>();
+      * }</pre>
+      * may be replaced temporarily by this one:
+      *  <pre> {@code
+      *     Collection<String> c = Collections.checkedCollection(
+-     *         new HashSet<String>(), String.class);
++     *         new HashSet<>(), String.class);
+      * }</pre>
+      * Running the program again will cause it to fail at the point where
+      * an incorrectly typed element is inserted into the collection, clearly
+diff -r 8d8a35ac7d40 src/share/classes/java/util/HashSet.java
+--- a/src/share/classes/java/util/HashSet.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/HashSet.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -298,8 +298,8 @@
+         int capacity = s.readInt();
+         float loadFactor = s.readFloat();
+         map = (((HashSet<?>)this) instanceof LinkedHashSet ?
+-               new LinkedHashMap<E,Object>(capacity, loadFactor) :
+-               new HashMap<E,Object>(capacity, loadFactor));
++               new LinkedHashMap<>(capacity, loadFactor) :
++               new HashMap<>(capacity, loadFactor));
+ 
+         // Read in size
+         int size = s.readInt();
+diff -r 8d8a35ac7d40 src/share/classes/java/util/Hashtable.java
+--- a/src/share/classes/java/util/Hashtable.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/Hashtable.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -67,7 +67,7 @@
+  * the numbers as keys:
+  * <pre>   {@code
+  *   Hashtable<String, Integer> numbers
+- *     = new Hashtable<String, Integer>();
++ *     = new Hashtable<>();
+  *   numbers.put("one", 1);
+  *   numbers.put("two", 2);
+  *   numbers.put("three", 3);}</pre>
+diff -r 8d8a35ac7d40 src/share/classes/java/util/ResourceBundle.java
+--- a/src/share/classes/java/util/ResourceBundle.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/ResourceBundle.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -245,7 +245,7 @@
+  *     // Overrides handleKeySet() so that the getKeys() implementation
+  *     // can rely on the keySet() value.
+  *     protected Set&lt;String&gt; handleKeySet() {
+- *         return new HashSet&lt;String&gt;(Arrays.asList("okKey", "cancelKey"));
++ *         return new HashSet&lt;&gt;(Arrays.asList("okKey", "cancelKey"));
+  *     }
+  * }
+  *
+@@ -258,7 +258,7 @@
+  *     }
+  *
+  *     protected Set&lt;String&gt; handleKeySet() {
+- *         return new HashSet&lt;String&gt;(Arrays.asList("cancelKey"));
++ *         return new HashSet&lt;&gt;(Arrays.asList("cancelKey"));
+  *     }
+  * }
+  * </pre>
+diff -r 8d8a35ac7d40 src/share/classes/java/util/Stack.java
+--- a/src/share/classes/java/util/Stack.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/Stack.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -40,7 +40,7 @@
+  * provided by the {@link Deque} interface and its implementations, which
+  * should be used in preference to this class.  For example:
+  * <pre>   {@code
+- *   Deque<Integer> stack = new ArrayDeque<Integer>();}</pre>
++ *   Deque<Integer> stack = new ArrayDeque<>();}</pre>
+  *
+  * @author  Jonathan Payne
+  * @since   JDK1.0
+diff -r 8d8a35ac7d40 src/share/classes/java/util/TreeSet.java
+--- a/src/share/classes/java/util/TreeSet.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/TreeSet.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -121,7 +121,7 @@
+      * {@code ClassCastException}.
+      */
+     public TreeSet() {
+-        this(new TreeMap<E,Object>());
++        this(new TreeMap<>());
+     }
+ 
+     /**
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/AbstractExecutorService.java
+--- a/src/share/classes/java/util/concurrent/AbstractExecutorService.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/AbstractExecutorService.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -57,10 +57,10 @@
+  *   static class CustomTask<V> implements RunnableFuture<V> {...}
+  *
+  *   protected <V> RunnableFuture<V> newTaskFor(Callable<V> c) {
+- *       return new CustomTask<V>(c);
++ *       return new CustomTask<>(c);
+  *   }
+  *   protected <V> RunnableFuture<V> newTaskFor(Runnable r, V v) {
+- *       return new CustomTask<V>(r, v);
++ *       return new CustomTask<>(r, v);
+  *   }
+  *   // ... add constructors, etc.
+  * }}</pre>
+@@ -83,7 +83,7 @@
+      * @since 1.6
+      */
+     protected <T> RunnableFuture<T> newTaskFor(Runnable runnable, T value) {
+-        return new FutureTask<T>(runnable, value);
++        return new FutureTask<>(runnable, value);
+     }
+ 
+     /**
+@@ -97,7 +97,7 @@
+      * @since 1.6
+      */
+     protected <T> RunnableFuture<T> newTaskFor(Callable<T> callable) {
+-        return new FutureTask<T>(callable);
++        return new FutureTask<>(callable);
+     }
+ 
+     /**
+@@ -144,9 +144,9 @@
+         int ntasks = tasks.size();
+         if (ntasks == 0)
+             throw new IllegalArgumentException();
+-        List<Future<T>> futures= new ArrayList<Future<T>>(ntasks);
++        List<Future<T>> futures= new ArrayList<>(ntasks);
+         ExecutorCompletionService<T> ecs =
+-            new ExecutorCompletionService<T>(this);
++            new ExecutorCompletionService<>(this);
+ 
+         // For efficiency, especially in executors with limited
+         // parallelism, check to see if previously submitted tasks are
+@@ -227,7 +227,7 @@
+         throws InterruptedException {
+         if (tasks == null)
+             throw new NullPointerException();
+-        List<Future<T>> futures = new ArrayList<Future<T>>(tasks.size());
++        List<Future<T>> futures = new ArrayList<>(tasks.size());
+         boolean done = false;
+         try {
+             for (Callable<T> t : tasks) {
+@@ -259,7 +259,7 @@
+         if (tasks == null)
+             throw new NullPointerException();
+         long nanos = unit.toNanos(timeout);
+-        List<Future<T>> futures = new ArrayList<Future<T>>(tasks.size());
++        List<Future<T>> futures = new ArrayList<>(tasks.size());
+         boolean done = false;
+         try {
+             for (Callable<T> t : tasks)
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/ConcurrentHashMap.java
+--- a/src/share/classes/java/util/concurrent/ConcurrentHashMap.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/ConcurrentHashMap.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -397,7 +397,7 @@
+                         if (node != null)
+                             node.setNext(first);
+                         else
+-                            node = new HashEntry<K,V>(hash, key, value, first);
++                            node = new HashEntry<>(hash, key, value, first);
+                         int c = count + 1;
+                         if (c > threshold && tab.length < MAXIMUM_CAPACITY)
+                             rehash(node);
+@@ -470,7 +470,7 @@
+                             int h = p.hash;
+                             int k = h & sizeMask;
+                             HashEntry<K,V> n = newTable[k];
+-                            newTable[k] = new HashEntry<K,V>(h, p.key, v, n);
++                            newTable[k] = new HashEntry<>(h, p.key, v, n);
+                         }
+                     }
+                 }
+@@ -501,7 +501,7 @@
+                 if (retries < 0) {
+                     if (e == null) {
+                         if (node == null) // speculatively create node
+-                            node = new HashEntry<K,V>(hash, key, value, null);
++                            node = new HashEntry<>(hash, key, value, null);
+                         retries = 0;
+                     }
+                     else if (key.equals(e.key))
+@@ -689,7 +689,7 @@
+             HashEntry<K,V>[] tab = (HashEntry<K,V>[])new HashEntry<?,?>[cap];
+             if ((seg = (Segment<K,V>)UNSAFE.getObjectVolatile(ss, u))
+                 == null) { // recheck
+-                Segment<K,V> s = new Segment<K,V>(lf, threshold, tab);
++                Segment<K,V> s = new Segment<>(lf, threshold, tab);
+                 while ((seg = (Segment<K,V>)UNSAFE.getObjectVolatile(ss, u))
+                        == null) {
+                     if (UNSAFE.compareAndSwapObject(ss, u, null, seg = s))
+@@ -766,8 +766,8 @@
+             cap <<= 1;
+         // create segments and segments[0]
+         Segment<K,V> s0 =
+-            new Segment<K,V>(loadFactor, (int)(cap * loadFactor),
+-                             (HashEntry<K,V>[])new HashEntry<?,?>[cap]);
++            new Segment<>(loadFactor, (int)(cap * loadFactor),
++                          (HashEntry<K,V>[])new HashEntry<?,?>[cap]);
+         Segment<K,V>[] ss = (Segment<K,V>[])new Segment<?,?>[ssize];
+         UNSAFE.putOrderedObject(ss, SBASE, s0); // ordered write of segments[0]
+         this.segments = ss;
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/ConcurrentLinkedDeque.java
+--- a/src/share/classes/java/util/concurrent/ConcurrentLinkedDeque.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/ConcurrentLinkedDeque.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -352,7 +352,7 @@
+      */
+     private void linkFirst(E e) {
+         checkNotNull(e);
+-        final Node<E> newNode = new Node<E>(e);
++        final Node<E> newNode = new Node<>(e);
+ 
+         restartFromHead:
+         for (;;)
+@@ -385,7 +385,7 @@
+      */
+     private void linkLast(E e) {
+         checkNotNull(e);
+-        final Node<E> newNode = new Node<E>(e);
++        final Node<E> newNode = new Node<>(e);
+ 
+         restartFromTail:
+         for (;;)
+@@ -819,7 +819,7 @@
+      * @return the arrayList
+      */
+     private ArrayList<E> toArrayList() {
+-        ArrayList<E> list = new ArrayList<E>();
++        ArrayList<E> list = new ArrayList<>();
+         for (Node<E> p = first(); p != null; p = succ(p)) {
+             E item = p.item;
+             if (item != null)
+@@ -832,7 +832,7 @@
+      * Constructs an empty deque.
+      */
+     public ConcurrentLinkedDeque() {
+-        head = tail = new Node<E>(null);
++        head = tail = new Node<>(null);
+     }
+ 
+     /**
+@@ -849,7 +849,7 @@
+         Node<E> h = null, t = null;
+         for (E e : c) {
+             checkNotNull(e);
+-            Node<E> newNode = new Node<E>(e);
++            Node<E> newNode = new Node<>(e);
+             if (h == null)
+                 h = t = newNode;
+             else {
+@@ -867,10 +867,10 @@
+     private void initHeadTail(Node<E> h, Node<E> t) {
+         if (h == t) {
+             if (h == null)
+-                h = t = new Node<E>(null);
++                h = t = new Node<>(null);
+             else {
+                 // Avoid edge case of a single Node with non-null item.
+-                Node<E> newNode = new Node<E>(null);
++                Node<E> newNode = new Node<>(null);
+                 t.lazySetNext(newNode);
+                 newNode.lazySetPrev(t);
+                 t = newNode;
+@@ -1158,7 +1158,7 @@
+         Node<E> beginningOfTheEnd = null, last = null;
+         for (E e : c) {
+             checkNotNull(e);
+-            Node<E> newNode = new Node<E>(e);
++            Node<E> newNode = new Node<>(e);
+             if (beginningOfTheEnd == null)
+                 beginningOfTheEnd = last = newNode;
+             else {
+@@ -1420,7 +1420,7 @@
+         Object item;
+         while ((item = s.readObject()) != null) {
+             @SuppressWarnings("unchecked")
+-            Node<E> newNode = new Node<E>((E) item);
++            Node<E> newNode = new Node<>((E) item);
+             if (h == null)
+                 h = t = newNode;
+             else {
+@@ -1446,9 +1446,9 @@
+     private static final long headOffset;
+     private static final long tailOffset;
+     static {
+-        PREV_TERMINATOR = new Node<Object>();
++        PREV_TERMINATOR = new Node<>();
+         PREV_TERMINATOR.next = PREV_TERMINATOR;
+-        NEXT_TERMINATOR = new Node<Object>();
++        NEXT_TERMINATOR = new Node<>();
+         NEXT_TERMINATOR.prev = NEXT_TERMINATOR;
+         try {
+             UNSAFE = sun.misc.Unsafe.getUnsafe();
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/ConcurrentLinkedQueue.java
+--- a/src/share/classes/java/util/concurrent/ConcurrentLinkedQueue.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/ConcurrentLinkedQueue.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -250,7 +250,7 @@
+      * Creates a {@code ConcurrentLinkedQueue} that is initially empty.
+      */
+     public ConcurrentLinkedQueue() {
+-        head = tail = new Node<E>(null);
++        head = tail = new Node<>(null);
+     }
+ 
+     /**
+@@ -266,7 +266,7 @@
+         Node<E> h = null, t = null;
+         for (E e : c) {
+             checkNotNull(e);
+-            Node<E> newNode = new Node<E>(e);
++            Node<E> newNode = new Node<>(e);
+             if (h == null)
+                 h = t = newNode;
+             else {
+@@ -275,7 +275,7 @@
+             }
+         }
+         if (h == null)
+-            h = t = new Node<E>(null);
++            h = t = new Node<>(null);
+         head = h;
+         tail = t;
+     }
+@@ -322,7 +322,7 @@
+      */
+     public boolean offer(E e) {
+         checkNotNull(e);
+-        final Node<E> newNode = new Node<E>(e);
++        final Node<E> newNode = new Node<>(e);
+ 
+         for (Node<E> t = tail, p = t;;) {
+             Node<E> q = p.next;
+@@ -520,7 +520,7 @@
+         Node<E> beginningOfTheEnd = null, last = null;
+         for (E e : c) {
+             checkNotNull(e);
+-            Node<E> newNode = new Node<E>(e);
++            Node<E> newNode = new Node<>(e);
+             if (beginningOfTheEnd == null)
+                 beginningOfTheEnd = last = newNode;
+             else {
+@@ -577,7 +577,7 @@
+      */
+     public Object[] toArray() {
+         // Use ArrayList to deal with resizing.
+-        ArrayList<E> al = new ArrayList<E>();
++        ArrayList<E> al = new ArrayList<>();
+         for (Node<E> p = first(); p != null; p = succ(p)) {
+             E item = p.item;
+             if (item != null)
+@@ -638,7 +638,7 @@
+         }
+ 
+         // If won't fit, use ArrayList version
+-        ArrayList<E> al = new ArrayList<E>();
++        ArrayList<E> al = new ArrayList<>();
+         for (Node<E> q = first(); q != null; q = succ(q)) {
+             E item = q.item;
+             if (item != null)
+@@ -778,7 +778,7 @@
+         Object item;
+         while ((item = s.readObject()) != null) {
+             @SuppressWarnings("unchecked")
+-            Node<E> newNode = new Node<E>((E) item);
++            Node<E> newNode = new Node<>((E) item);
+             if (h == null)
+                 h = t = newNode;
+             else {
+@@ -787,7 +787,7 @@
+             }
+         }
+         if (h == null)
+-            h = t = new Node<E>(null);
++            h = t = new Node<>(null);
+         head = h;
+         tail = t;
+     }
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/ConcurrentSkipListMap.java
+--- a/src/share/classes/java/util/concurrent/ConcurrentSkipListMap.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/ConcurrentSkipListMap.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -371,8 +371,8 @@
+         values = null;
+         descendingMap = null;
+         randomSeed = seedGenerator.nextInt() | 0x0100; // ensure nonzero
+-        head = new HeadIndex<K,V>(new Node<K,V>(null, BASE_HEADER, null),
+-                                  null, null, 1);
++        head = new HeadIndex<>(new Node<>(null, BASE_HEADER, null),
++                               null, null, 1);
+     }
+ 
+     /**
+@@ -459,7 +459,7 @@
+          * @return true if successful
+          */
+         boolean appendMarker(Node<K,V> f) {
+-            return casNext(f, new Node<K,V>(f));
++            return casNext(f, new Node<>(f));
+         }
+ 
+         /**
+@@ -505,7 +505,7 @@
+             V v = getValidValue();
+             if (v == null)
+                 return null;
+-            return new AbstractMap.SimpleImmutableEntry<K,V>(key, v);
++            return new AbstractMap.SimpleImmutableEntry<>(key, v);
+         }
+ 
+         // UNSAFE mechanics
+@@ -658,7 +658,7 @@
+         if (key == null)
+             throw new NullPointerException();
+         if (comparator != null)
+-            return new ComparableUsingComparator<K>((K)key, comparator);
++            return new ComparableUsingComparator<>((K)key, comparator);
+         else
+             return (Comparable<? super K>)key;
+     }
+@@ -876,7 +876,7 @@
+                     // else c < 0; fall through
+                 }
+ 
+-                Node<K,V> z = new Node<K,V>(kkey, value, n);
++                Node<K,V> z = new Node<>(kkey, value, n);
+                 if (!b.casNext(n, z))
+                     break;         // restart if lost race to append to b
+                 int level = randomLevel();
+@@ -920,7 +920,7 @@
+         if (level <= max) {
+             Index<K,V> idx = null;
+             for (int i = 1; i <= level; ++i)
+-                idx = new Index<K,V>(z, idx, null);
++                idx = new Index<>(z, idx, null);
+             addIndex(idx, h, level);
+ 
+         } else { // Add a new level
+@@ -936,7 +936,7 @@
+             Index<K,V>[] idxs = (Index<K,V>[])new Index<?,?>[level+1];
+             Index<K,V> idx = null;
+             for (int i = 1; i <= level; ++i)
+-                idxs[i] = idx = new Index<K,V>(z, idx, null);
++                idxs[i] = idx = new Index<>(z, idx, null);
+ 
+             HeadIndex<K,V> oldh;
+             int k;
+@@ -950,7 +950,7 @@
+                 HeadIndex<K,V> newh = oldh;
+                 Node<K,V> oldbase = oldh.node;
+                 for (int j = oldLevel+1; j <= level; ++j)
+-                    newh = new HeadIndex<K,V>(oldbase, newh, idxs[j], j);
++                    newh = new HeadIndex<>(oldbase, newh, idxs[j], j);
+                 if (casHead(oldh, newh)) {
+                     k = oldLevel;
+                     break;
+@@ -1161,7 +1161,7 @@
+             if (!n.appendMarker(f) || !b.casNext(n, f))
+                 findFirst(); // retry
+             clearIndexToFirst();
+-            return new AbstractMap.SimpleImmutableEntry<K,V>(n.key, (V)v);
++            return new AbstractMap.SimpleImmutableEntry<>(n.key, (V)v);
+         }
+     }
+ 
+@@ -1306,7 +1306,7 @@
+                     if (head.right == null)
+                         tryReduceLevel();
+                 }
+-                return new AbstractMap.SimpleImmutableEntry<K,V>(key, (V)v);
++                return new AbstractMap.SimpleImmutableEntry<>(key, (V)v);
+             }
+         }
+     }
+@@ -1462,7 +1462,7 @@
+ 
+         // Track the current rightmost node at each level. Uses an
+         // ArrayList to avoid committing to initial or maximum level.
+-        ArrayList<Index<K,V>> preds = new ArrayList<Index<K,V>>();
++        ArrayList<Index<K,V>> preds = new ArrayList<>();
+ 
+         // initialize
+         for (int i = 0; i <= h.level; ++i)
+@@ -1483,15 +1483,15 @@
+             V v = e.getValue();
+             if (k == null || v == null)
+                 throw new NullPointerException();
+-            Node<K,V> z = new Node<K,V>(k, v, null);
++            Node<K,V> z = new Node<>(k, v, null);
+             basepred.next = z;
+             basepred = z;
+             if (j > 0) {
+                 Index<K,V> idx = null;
+                 for (int i = 1; i <= j; ++i) {
+-                    idx = new Index<K,V>(z, idx, null);
++                    idx = new Index<>(z, idx, null);
+                     if (i > h.level)
+-                        h = new HeadIndex<K,V>(h.node, h, idx, i);
++                        h = new HeadIndex<>(h.node, h, idx, i);
+ 
+                     if (i < preds.size()) {
+                         preds.get(i).right = idx;
+@@ -1551,7 +1551,7 @@
+ 
+         HeadIndex<K,V> h = head;
+         Node<K,V> basepred = h.node;
+-        ArrayList<Index<K,V>> preds = new ArrayList<Index<K,V>>();
++        ArrayList<Index<K,V>> preds = new ArrayList<>();
+         for (int i = 0; i <= h.level; ++i)
+             preds.add(null);
+         Index<K,V> q = h;
+@@ -1571,15 +1571,15 @@
+             V val = (V) v;
+             int j = randomLevel();
+             if (j > h.level) j = h.level + 1;
+-            Node<K,V> z = new Node<K,V>(key, val, null);
++            Node<K,V> z = new Node<>(key, val, null);
+             basepred.next = z;
+             basepred = z;
+             if (j > 0) {
+                 Index<K,V> idx = null;
+                 for (int i = 1; i <= j; ++i) {
+-                    idx = new Index<K,V>(z, idx, null);
++                    idx = new Index<>(z, idx, null);
+                     if (i > h.level)
+-                        h = new HeadIndex<K,V>(h.node, h, idx, i);
++                        h = new HeadIndex<>(h.node, h, idx, i);
+ 
+                     if (i < preds.size()) {
+                         preds.get(i).right = idx;
+@@ -1756,12 +1756,12 @@
+      */
+     public NavigableSet<K> keySet() {
+         KeySet<K> ks = keySet;
+-        return (ks != null) ? ks : (keySet = new KeySet<K>(this));
++        return (ks != null) ? ks : (keySet = new KeySet<>(this));
+     }
+ 
+     public NavigableSet<K> navigableKeySet() {
+         KeySet<K> ks = keySet;
+-        return (ks != null) ? ks : (keySet = new KeySet<K>(this));
++        return (ks != null) ? ks : (keySet = new KeySet<>(this));
+     }
+ 
+     /**
+@@ -1784,7 +1784,7 @@
+      */
+     public Collection<V> values() {
+         Values<V> vs = values;
+-        return (vs != null) ? vs : (values = new Values<V>(this));
++        return (vs != null) ? vs : (values = new Values<>(this));
+     }
+ 
+     /**
+@@ -1813,12 +1813,12 @@
+      */
+     public Set<Map.Entry<K,V>> entrySet() {
+         EntrySet<K,V> es = entrySet;
+-        return (es != null) ? es : (entrySet = new EntrySet<K,V>(this));
++        return (es != null) ? es : (entrySet = new EntrySet<>(this));
+     }
+ 
+     public ConcurrentNavigableMap<K,V> descendingMap() {
+         ConcurrentNavigableMap<K,V> dm = descendingMap;
+-        return (dm != null) ? dm : (descendingMap = new SubMap<K,V>
++        return (dm != null) ? dm : (descendingMap = new SubMap<>
+                                     (this, null, false, null, false, true));
+     }
+ 
+@@ -1981,7 +1981,7 @@
+                                               boolean toInclusive) {
+         if (fromKey == null || toKey == null)
+             throw new NullPointerException();
+-        return new SubMap<K,V>
++        return new SubMap<>
+             (this, fromKey, fromInclusive, toKey, toInclusive, false);
+     }
+ 
+@@ -1994,7 +1994,7 @@
+                                                boolean inclusive) {
+         if (toKey == null)
+             throw new NullPointerException();
+-        return new SubMap<K,V>
++        return new SubMap<>
+             (this, null, false, toKey, inclusive, false);
+     }
+ 
+@@ -2007,7 +2007,7 @@
+                                                boolean inclusive) {
+         if (fromKey == null)
+             throw new NullPointerException();
+-        return new SubMap<K,V>
++        return new SubMap<>
+             (this, fromKey, inclusive, null, false, false);
+     }
+ 
+@@ -2268,7 +2268,7 @@
+             Node<K,V> n = next;
+             V v = nextValue;
+             advance();
+-            return new AbstractMap.SimpleImmutableEntry<K,V>(n.key, v);
++            return new AbstractMap.SimpleImmutableEntry<>(n.key, v);
+         }
+     }
+ 
+@@ -2296,7 +2296,7 @@
+ 
+     static final <E> List<E> toList(Collection<E> c) {
+         // Using size() here would be a pessimization.
+-        List<E> list = new ArrayList<E>();
++        List<E> list = new ArrayList<>();
+         for (E e : c)
+             list.add(e);
+         return list;
+@@ -2355,14 +2355,14 @@
+                                       boolean fromInclusive,
+                                       E toElement,
+                                       boolean toInclusive) {
+-            return new KeySet<E>(m.subMap(fromElement, fromInclusive,
++            return new KeySet<>(m.subMap(fromElement, fromInclusive,
+                                           toElement,   toInclusive));
+         }
+         public NavigableSet<E> headSet(E toElement, boolean inclusive) {
+-            return new KeySet<E>(m.headMap(toElement, inclusive));
++            return new KeySet<>(m.headMap(toElement, inclusive));
+         }
+         public NavigableSet<E> tailSet(E fromElement, boolean inclusive) {
+-            return new KeySet<E>(m.tailMap(fromElement, inclusive));
++            return new KeySet<>(m.tailMap(fromElement, inclusive));
+         }
+         public NavigableSet<E> subSet(E fromElement, E toElement) {
+             return subSet(fromElement, true, toElement, false);
+@@ -2374,7 +2374,7 @@
+             return tailSet(fromElement, true);
+         }
+         public NavigableSet<E> descendingSet() {
+-            return new KeySet<E>(m.descendingMap());
++            return new KeySet<>(m.descendingMap());
+         }
+     }
+ 
+@@ -2642,7 +2642,7 @@
+                     return null;
+                 V v = m.doRemove(k, null);
+                 if (v != null)
+-                    return new AbstractMap.SimpleImmutableEntry<K,V>(k, v);
++                    return new AbstractMap.SimpleImmutableEntry<>(k, v);
+             }
+         }
+ 
+@@ -2656,7 +2656,7 @@
+                     return null;
+                 V v = m.doRemove(k, null);
+                 if (v != null)
+-                    return new AbstractMap.SimpleImmutableEntry<K,V>(k, v);
++                    return new AbstractMap.SimpleImmutableEntry<>(k, v);
+             }
+         }
+ 
+@@ -2681,7 +2681,7 @@
+                 K k = n.key;
+                 V v = n.getValidValue();
+                 if (v != null)
+-                    return new AbstractMap.SimpleImmutableEntry<K,V>(k, v);
++                    return new AbstractMap.SimpleImmutableEntry<>(k, v);
+             }
+         }
+ 
+@@ -2854,8 +2854,8 @@
+                         throw new IllegalArgumentException("key out of range");
+                 }
+             }
+-            return new SubMap<K,V>(m, fromKey, fromInclusive,
+-                                   toKey, toInclusive, isDescending);
++            return new SubMap<>(m, fromKey, fromInclusive,
++                                toKey, toInclusive, isDescending);
+         }
+ 
+         public SubMap<K,V> subMap(K fromKey,
+@@ -2894,8 +2894,8 @@
+         }
+ 
+         public SubMap<K,V> descendingMap() {
+-            return new SubMap<K,V>(m, lo, loInclusive,
+-                                   hi, hiInclusive, !isDescending);
++            return new SubMap<>(m, lo, loInclusive,
++                                hi, hiInclusive, !isDescending);
+         }
+ 
+         /* ----------------  Relational methods -------------- */
+@@ -2960,22 +2960,22 @@
+ 
+         public NavigableSet<K> keySet() {
+             KeySet<K> ks = keySetView;
+-            return (ks != null) ? ks : (keySetView = new KeySet<K>(this));
++            return (ks != null) ? ks : (keySetView = new KeySet<>(this));
+         }
+ 
+         public NavigableSet<K> navigableKeySet() {
+             KeySet<K> ks = keySetView;
+-            return (ks != null) ? ks : (keySetView = new KeySet<K>(this));
++            return (ks != null) ? ks : (keySetView = new KeySet<>(this));
+         }
+ 
+         public Collection<V> values() {
+             Collection<V> vs = valuesView;
+-            return (vs != null) ? vs : (valuesView = new Values<V>(this));
++            return (vs != null) ? vs : (valuesView = new Values<>(this));
+         }
+ 
+         public Set<Map.Entry<K,V>> entrySet() {
+             Set<Map.Entry<K,V>> es = entrySetView;
+-            return (es != null) ? es : (entrySetView = new EntrySet<K,V>(this));
++            return (es != null) ? es : (entrySetView = new EntrySet<>(this));
+         }
+ 
+         public NavigableSet<K> descendingKeySet() {
+@@ -3098,7 +3098,7 @@
+                 Node<K,V> n = next;
+                 V v = nextValue;
+                 advance();
+-                return new AbstractMap.SimpleImmutableEntry<K,V>(n.key, v);
++                return new AbstractMap.SimpleImmutableEntry<>(n.key, v);
+             }
+         }
+     }
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/ConcurrentSkipListSet.java
+--- a/src/share/classes/java/util/concurrent/ConcurrentSkipListSet.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/ConcurrentSkipListSet.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -99,7 +99,7 @@
+      * their {@linkplain Comparable natural ordering}.
+      */
+     public ConcurrentSkipListSet() {
+-        m = new ConcurrentSkipListMap<E,Object>();
++        m = new ConcurrentSkipListMap<>();
+     }
+ 
+     /**
+@@ -111,7 +111,7 @@
+      *        ordering} of the elements will be used.
+      */
+     public ConcurrentSkipListSet(Comparator<? super E> comparator) {
+-        m = new ConcurrentSkipListMap<E,Object>(comparator);
++        m = new ConcurrentSkipListMap<>(comparator);
+     }
+ 
+     /**
+@@ -126,7 +126,7 @@
+      *         of its elements are null
+      */
+     public ConcurrentSkipListSet(Collection<? extends E> c) {
+-        m = new ConcurrentSkipListMap<E,Object>();
++        m = new ConcurrentSkipListMap<>();
+         addAll(c);
+     }
+ 
+@@ -139,7 +139,7 @@
+      *         of its elements are null
+      */
+     public ConcurrentSkipListSet(SortedSet<E> s) {
+-        m = new ConcurrentSkipListMap<E,Object>(s.comparator());
++        m = new ConcurrentSkipListMap<>(s.comparator());
+         addAll(s);
+     }
+ 
+@@ -161,7 +161,7 @@
+             @SuppressWarnings("unchecked")
+             ConcurrentSkipListSet<E> clone =
+                 (ConcurrentSkipListSet<E>) super.clone();
+-            clone.setMap(new ConcurrentSkipListMap<E,Object>(m));
++            clone.setMap(new ConcurrentSkipListMap<>(m));
+             return clone;
+         } catch (CloneNotSupportedException e) {
+             throw new InternalError();
+@@ -403,7 +403,7 @@
+                                   boolean fromInclusive,
+                                   E toElement,
+                                   boolean toInclusive) {
+-        return new ConcurrentSkipListSet<E>
++        return new ConcurrentSkipListSet<>
+             (m.subMap(fromElement, fromInclusive,
+                       toElement,   toInclusive));
+     }
+@@ -414,7 +414,7 @@
+      * @throws IllegalArgumentException {@inheritDoc}
+      */
+     public NavigableSet<E> headSet(E toElement, boolean inclusive) {
+-        return new ConcurrentSkipListSet<E>(m.headMap(toElement, inclusive));
++        return new ConcurrentSkipListSet<>(m.headMap(toElement, inclusive));
+     }
+ 
+     /**
+@@ -423,7 +423,7 @@
+      * @throws IllegalArgumentException {@inheritDoc}
+      */
+     public NavigableSet<E> tailSet(E fromElement, boolean inclusive) {
+-        return new ConcurrentSkipListSet<E>(m.tailMap(fromElement, inclusive));
++        return new ConcurrentSkipListSet<>(m.tailMap(fromElement, inclusive));
+     }
+ 
+     /**
+@@ -467,7 +467,7 @@
+      * @return a reverse order view of this set
+      */
+     public NavigableSet<E> descendingSet() {
+-        return new ConcurrentSkipListSet<E>(m.descendingMap());
++        return new ConcurrentSkipListSet<>(m.descendingMap());
+     }
+ 
+     // Support for resetting map in clone
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/CopyOnWriteArrayList.java
+--- a/src/share/classes/java/util/concurrent/CopyOnWriteArrayList.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/CopyOnWriteArrayList.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -955,7 +955,7 @@
+      * @return an iterator over the elements in this list in proper sequence
+      */
+     public Iterator<E> iterator() {
+-        return new COWIterator<E>(getArray(), 0);
++        return new COWIterator<>(getArray(), 0);
+     }
+ 
+     /**
+@@ -967,7 +967,7 @@
+      * <tt>remove</tt>, <tt>set</tt> or <tt>add</tt> methods.
+      */
+     public ListIterator<E> listIterator() {
+-        return new COWIterator<E>(getArray(), 0);
++        return new COWIterator<>(getArray(), 0);
+     }
+ 
+     /**
+@@ -986,7 +986,7 @@
+         if (index<0 || index>len)
+             throw new IndexOutOfBoundsException("Index: "+index);
+ 
+-        return new COWIterator<E>(elements, index);
++        return new COWIterator<>(elements, index);
+     }
+ 
+     private static class COWIterator<E> implements ListIterator<E> {
+@@ -1081,7 +1081,7 @@
+             int len = elements.length;
+             if (fromIndex < 0 || toIndex > len || fromIndex > toIndex)
+                 throw new IndexOutOfBoundsException();
+-            return new COWSubList<E>(this, fromIndex, toIndex);
++            return new COWSubList<>(this, fromIndex, toIndex);
+         } finally {
+             lock.unlock();
+         }
+@@ -1226,7 +1226,7 @@
+             lock.lock();
+             try {
+                 checkForComodification();
+-                return new COWSubListIterator<E>(l, 0, offset, size);
++                return new COWSubListIterator<>(l, 0, offset, size);
+             } finally {
+                 lock.unlock();
+             }
+@@ -1240,7 +1240,7 @@
+                 if (index<0 || index>size)
+                     throw new IndexOutOfBoundsException("Index: "+index+
+                                                         ", Size: "+size);
+-                return new COWSubListIterator<E>(l, index, offset, size);
++                return new COWSubListIterator<>(l, index, offset, size);
+             } finally {
+                 lock.unlock();
+             }
+@@ -1253,7 +1253,7 @@
+                 checkForComodification();
+                 if (fromIndex<0 || toIndex>size)
+                     throw new IndexOutOfBoundsException();
+-                return new COWSubList<E>(l, fromIndex + offset,
++                return new COWSubList<>(l, fromIndex + offset,
+                                          toIndex + offset);
+             } finally {
+                 lock.unlock();
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/CopyOnWriteArraySet.java
+--- a/src/share/classes/java/util/concurrent/CopyOnWriteArraySet.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/CopyOnWriteArraySet.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -64,7 +64,7 @@
+  *
+  * class X {
+  *   private final CopyOnWriteArraySet<Handler> handlers
+- *     = new CopyOnWriteArraySet<Handler>();
++ *     = new CopyOnWriteArraySet<>();
+  *   public void addHandler(Handler h) { handlers.add(h); }
+  *
+  *   private long internalState;
+@@ -96,7 +96,7 @@
+      * Creates an empty set.
+      */
+     public CopyOnWriteArraySet() {
+-        al = new CopyOnWriteArrayList<E>();
++        al = new CopyOnWriteArrayList<>();
+     }
+ 
+     /**
+@@ -107,7 +107,7 @@
+      * @throws NullPointerException if the specified collection is null
+      */
+     public CopyOnWriteArraySet(Collection<? extends E> c) {
+-        al = new CopyOnWriteArrayList<E>();
++        al = new CopyOnWriteArrayList<>();
+         al.addAllAbsent(c);
+     }
+ 
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/CountedCompleter.java
+--- a/src/share/classes/java/util/concurrent/CountedCompleter.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/CountedCompleter.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -251,7 +251,7 @@
+  *   boolean matches(E e) { ... } // return true if found
+  *
+  *   public static <E> E search(E[] array) {
+- *       return new Searcher<E>(null, array, new AtomicReference<E>(), 0, array.length).invoke();
++ *       return new Searcher<>(null, array, new AtomicReference<>(), 0, array.length).invoke();
+  *   }
+  *}}</pre>
+  *
+@@ -318,7 +318,7 @@
+  *   public E getRawResult() { return result; }
+  *
+  *   public static <E> E mapReduce(E[] array, MyMapper<E> mapper, MyReducer<E> reducer) {
+- *     return new MapReducer<E>(null, array, mapper, reducer,
++ *     return new MapReducer<>(null, array, mapper, reducer,
+  *                              0, array.length).invoke();
+  *   }
+  * }}</pre>
+@@ -379,7 +379,7 @@
+  *   public E getRawResult() { return result; }
+  *
+  *   public static <E> E mapReduce(E[] array, MyMapper<E> mapper, MyReducer<E> reducer) {
+- *     return new MapReducer<E>(null, array, mapper, reducer,
++ *     return new MapReducer<>(null, array, mapper, reducer,
+  *                              0, array.length, null).invoke();
+  *   }
+  * }}</pre>
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/DelayQueue.java
+--- a/src/share/classes/java/util/concurrent/DelayQueue.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/DelayQueue.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -69,7 +69,7 @@
+     implements BlockingQueue<E> {
+ 
+     private transient final ReentrantLock lock = new ReentrantLock();
+-    private final PriorityQueue<E> q = new PriorityQueue<E>();
++    private final PriorityQueue<E> q = new PriorityQueue<>();
+ 
+     /**
+      * Thread designated to wait for the element at the head of
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/Exchanger.java
+--- a/src/share/classes/java/util/concurrent/Exchanger.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/Exchanger.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -54,7 +54,7 @@
+  * filled one to the thread emptying the buffer.
+  * <pre>{@code
+  * class FillAndEmpty {
+- *   Exchanger<DataBuffer> exchanger = new Exchanger<DataBuffer>();
++ *   Exchanger<DataBuffer> exchanger = new Exchanger<>();
+  *   DataBuffer initialEmptyBuffer = ... a made-up type
+  *   DataBuffer initialFullBuffer = ...
+  *
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/Executor.java
+--- a/src/share/classes/java/util/concurrent/Executor.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/Executor.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -81,7 +81,7 @@
+  *
+  *  <pre> {@code
+  * class SerialExecutor implements Executor {
+- *   final Queue<Runnable> tasks = new ArrayDeque<Runnable>();
++ *   final Queue<Runnable> tasks = new ArrayDeque<>();
+  *   final Executor executor;
+  *   Runnable active;
+  *
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/ExecutorCompletionService.java
+--- a/src/share/classes/java/util/concurrent/ExecutorCompletionService.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/ExecutorCompletionService.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -57,7 +57,7 @@
+  *            Collection<Callable<Result>> solvers)
+  *     throws InterruptedException, ExecutionException {
+  *     CompletionService<Result> ecs
+- *         = new ExecutorCompletionService<Result>(e);
++ *         = new ExecutorCompletionService<>(e);
+  *     for (Callable<Result> s : solvers)
+  *         ecs.submit(s);
+  *     int n = solvers.size();
+@@ -77,10 +77,10 @@
+  *            Collection<Callable<Result>> solvers)
+  *     throws InterruptedException {
+  *     CompletionService<Result> ecs
+- *         = new ExecutorCompletionService<Result>(e);
++ *         = new ExecutorCompletionService<>(e);
+  *     int n = solvers.size();
+  *     List<Future<Result>> futures
+- *         = new ArrayList<Future<Result>>(n);
++ *         = new ArrayList<>(n);
+  *     Result result = null;
+  *     try {
+  *         for (Callable<Result> s : solvers)
+@@ -123,14 +123,14 @@
+ 
+     private RunnableFuture<V> newTaskFor(Callable<V> task) {
+         if (aes == null)
+-            return new FutureTask<V>(task);
++            return new FutureTask<>(task);
+         else
+             return aes.newTaskFor(task);
+     }
+ 
+     private RunnableFuture<V> newTaskFor(Runnable task, V result) {
+         if (aes == null)
+-            return new FutureTask<V>(task, result);
++            return new FutureTask<>(task, result);
+         else
+             return aes.newTaskFor(task, result);
+     }
+@@ -149,7 +149,7 @@
+         this.executor = executor;
+         this.aes = (executor instanceof AbstractExecutorService) ?
+             (AbstractExecutorService) executor : null;
+-        this.completionQueue = new LinkedBlockingQueue<Future<V>>();
++        this.completionQueue = new LinkedBlockingQueue<>();
+     }
+ 
+     /**
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/Executors.java
+--- a/src/share/classes/java/util/concurrent/Executors.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/Executors.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -88,7 +88,7 @@
+     public static ExecutorService newFixedThreadPool(int nThreads) {
+         return new ThreadPoolExecutor(nThreads, nThreads,
+                                       0L, TimeUnit.MILLISECONDS,
+-                                      new LinkedBlockingQueue<Runnable>());
++                                      new LinkedBlockingQueue<>());
+     }
+ 
+     /**
+@@ -113,7 +113,7 @@
+     public static ExecutorService newFixedThreadPool(int nThreads, ThreadFactory threadFactory) {
+         return new ThreadPoolExecutor(nThreads, nThreads,
+                                       0L, TimeUnit.MILLISECONDS,
+-                                      new LinkedBlockingQueue<Runnable>(),
++                                      new LinkedBlockingQueue<>(),
+                                       threadFactory);
+     }
+ 
+@@ -134,7 +134,7 @@
+         return new FinalizableDelegatedExecutorService
+             (new ThreadPoolExecutor(1, 1,
+                                     0L, TimeUnit.MILLISECONDS,
+-                                    new LinkedBlockingQueue<Runnable>()));
++                                    new LinkedBlockingQueue<>()));
+     }
+ 
+     /**
+@@ -155,7 +155,7 @@
+         return new FinalizableDelegatedExecutorService
+             (new ThreadPoolExecutor(1, 1,
+                                     0L, TimeUnit.MILLISECONDS,
+-                                    new LinkedBlockingQueue<Runnable>(),
++                                    new LinkedBlockingQueue<>(),
+                                     threadFactory));
+     }
+ 
+@@ -178,7 +178,7 @@
+     public static ExecutorService newCachedThreadPool() {
+         return new ThreadPoolExecutor(0, Integer.MAX_VALUE,
+                                       60L, TimeUnit.SECONDS,
+-                                      new SynchronousQueue<Runnable>());
++                                      new SynchronousQueue<>());
+     }
+ 
+     /**
+@@ -193,7 +193,7 @@
+     public static ExecutorService newCachedThreadPool(ThreadFactory threadFactory) {
+         return new ThreadPoolExecutor(0, Integer.MAX_VALUE,
+                                       60L, TimeUnit.SECONDS,
+-                                      new SynchronousQueue<Runnable>(),
++                                      new SynchronousQueue<>(),
+                                       threadFactory);
+     }
+ 
+@@ -366,7 +366,7 @@
+     public static <T> Callable<T> callable(Runnable task, T result) {
+         if (task == null)
+             throw new NullPointerException();
+-        return new RunnableAdapter<T>(task, result);
++        return new RunnableAdapter<>(task, result);
+     }
+ 
+     /**
+@@ -379,7 +379,7 @@
+     public static Callable<Object> callable(Runnable task) {
+         if (task == null)
+             throw new NullPointerException();
+-        return new RunnableAdapter<Object>(task, null);
++        return new RunnableAdapter<>(task, null);
+     }
+ 
+     /**
+@@ -428,7 +428,7 @@
+     public static <T> Callable<T> privilegedCallable(Callable<T> callable) {
+         if (callable == null)
+             throw new NullPointerException();
+-        return new PrivilegedCallable<T>(callable);
++        return new PrivilegedCallable<>(callable);
+     }
+ 
+     /**
+@@ -452,7 +452,7 @@
+     public static <T> Callable<T> privilegedCallableUsingCurrentClassLoader(Callable<T> callable) {
+         if (callable == null)
+             throw new NullPointerException();
+-        return new PrivilegedCallableUsingCurrentClassLoader<T>(callable);
++        return new PrivilegedCallableUsingCurrentClassLoader<>(callable);
+     }
+ 
+     // Non-public classes supporting the public methods
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/ForkJoinPool.java
+--- a/src/share/classes/java/util/concurrent/ForkJoinPool.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/ForkJoinPool.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -2697,7 +2697,7 @@
+      *         scheduled for execution
+      */
+     public <T> ForkJoinTask<T> submit(Callable<T> task) {
+-        ForkJoinTask<T> job = new ForkJoinTask.AdaptedCallable<T>(task);
++        ForkJoinTask<T> job = new ForkJoinTask.AdaptedCallable<>(task);
+         externalPush(job);
+         return job;
+     }
+@@ -2708,7 +2708,7 @@
+      *         scheduled for execution
+      */
+     public <T> ForkJoinTask<T> submit(Runnable task, T result) {
+-        ForkJoinTask<T> job = new ForkJoinTask.AdaptedRunnable<T>(task, result);
++        ForkJoinTask<T> job = new ForkJoinTask.AdaptedRunnable<>(task, result);
+         externalPush(job);
+         return job;
+     }
+@@ -2738,7 +2738,7 @@
+         // In previous versions of this class, this method constructed
+         // a task to run ForkJoinTask.invokeAll, but now external
+         // invocation of multiple tasks is at least as efficient.
+-        List<ForkJoinTask<T>> fs = new ArrayList<ForkJoinTask<T>>(tasks.size());
++        List<ForkJoinTask<T>> fs = new ArrayList<>(tasks.size());
+         // Workaround needed because method wasn't declared with
+         // wildcards in return type but should have been.
+         @SuppressWarnings({"unchecked", "rawtypes"})
+@@ -2747,7 +2747,7 @@
+         boolean done = false;
+         try {
+             for (Callable<T> t : tasks) {
+-                ForkJoinTask<T> f = new ForkJoinTask.AdaptedCallable<T>(t);
++                ForkJoinTask<T> f = new ForkJoinTask.AdaptedCallable<>(t);
+                 externalPush(f);
+                 fs.add(f);
+             }
+@@ -3300,11 +3300,11 @@
+     // implement RunnableFuture.
+ 
+     protected <T> RunnableFuture<T> newTaskFor(Runnable runnable, T value) {
+-        return new ForkJoinTask.AdaptedRunnable<T>(runnable, value);
++        return new ForkJoinTask.AdaptedRunnable<>(runnable, value);
+     }
+ 
+     protected <T> RunnableFuture<T> newTaskFor(Callable<T> callable) {
+-        return new ForkJoinTask.AdaptedCallable<T>(callable);
++        return new ForkJoinTask.AdaptedCallable<>(callable);
+     }
+ 
+     // Unsafe mechanics
+@@ -3347,7 +3347,7 @@
+         if ((s & (s-1)) != 0)
+             throw new Error("data type scale not a power of two");
+ 
+-        submitters = new ThreadLocal<Submitter>();
++        submitters = new ThreadLocal<>();
+         ForkJoinWorkerThreadFactory fac = defaultForkJoinWorkerThreadFactory =
+             new DefaultForkJoinWorkerThreadFactory();
+         modifyThreadPermission = new RuntimePermission("modifyThread");
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/ForkJoinTask.java
+--- a/src/share/classes/java/util/concurrent/ForkJoinTask.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/ForkJoinTask.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -1441,7 +1441,7 @@
+      * @return the task
+      */
+     public static <T> ForkJoinTask<T> adapt(Runnable runnable, T result) {
+-        return new AdaptedRunnable<T>(runnable, result);
++        return new AdaptedRunnable<>(runnable, result);
+     }
+ 
+     /**
+@@ -1454,7 +1454,7 @@
+      * @return the task
+      */
+     public static <T> ForkJoinTask<T> adapt(Callable<? extends T> callable) {
+-        return new AdaptedCallable<T>(callable);
++        return new AdaptedCallable<>(callable);
+     }
+ 
+     // Serialization support
+@@ -1490,7 +1490,7 @@
+ 
+     static {
+         exceptionTableLock = new ReentrantLock();
+-        exceptionTableRefQueue = new ReferenceQueue<Object>();
++        exceptionTableRefQueue = new ReferenceQueue<>();
+         exceptionTable = new ExceptionNode[EXCEPTION_MAP_CAPACITY];
+         try {
+             U = sun.misc.Unsafe.getUnsafe();
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/FutureTask.java
+--- a/src/share/classes/java/util/concurrent/FutureTask.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/FutureTask.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -145,7 +145,7 @@
+      * @param result the result to return on successful completion. If
+      * you don't need a particular result, consider using
+      * constructions of the form:
+-     * {@code Future<?> f = new FutureTask<Void>(runnable, null)}
++     * {@code Future<?> f = new FutureTask<>(runnable, null)}
+      * @throws NullPointerException if the runnable is null
+      */
+     public FutureTask(Runnable runnable, V result) {
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/LinkedBlockingDeque.java
+--- a/src/share/classes/java/util/concurrent/LinkedBlockingDeque.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/LinkedBlockingDeque.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -197,7 +197,7 @@
+             for (E e : c) {
+                 if (e == null)
+                     throw new NullPointerException();
+-                if (!linkLast(new Node<E>(e)))
++                if (!linkLast(new Node<>(e)))
+                     throw new IllegalStateException("Deque full");
+             }
+         } finally {
+@@ -337,7 +337,7 @@
+      */
+     public boolean offerFirst(E e) {
+         if (e == null) throw new NullPointerException();
+-        Node<E> node = new Node<E>(e);
++        Node<E> node = new Node<>(e);
+         final ReentrantLock lock = this.lock;
+         lock.lock();
+         try {
+@@ -352,7 +352,7 @@
+      */
+     public boolean offerLast(E e) {
+         if (e == null) throw new NullPointerException();
+-        Node<E> node = new Node<E>(e);
++        Node<E> node = new Node<>(e);
+         final ReentrantLock lock = this.lock;
+         lock.lock();
+         try {
+@@ -368,7 +368,7 @@
+      */
+     public void putFirst(E e) throws InterruptedException {
+         if (e == null) throw new NullPointerException();
+-        Node<E> node = new Node<E>(e);
++        Node<E> node = new Node<>(e);
+         final ReentrantLock lock = this.lock;
+         lock.lock();
+         try {
+@@ -385,7 +385,7 @@
+      */
+     public void putLast(E e) throws InterruptedException {
+         if (e == null) throw new NullPointerException();
+-        Node<E> node = new Node<E>(e);
++        Node<E> node = new Node<>(e);
+         final ReentrantLock lock = this.lock;
+         lock.lock();
+         try {
+@@ -403,7 +403,7 @@
+     public boolean offerFirst(E e, long timeout, TimeUnit unit)
+         throws InterruptedException {
+         if (e == null) throw new NullPointerException();
+-        Node<E> node = new Node<E>(e);
++        Node<E> node = new Node<>(e);
+         long nanos = unit.toNanos(timeout);
+         final ReentrantLock lock = this.lock;
+         lock.lockInterruptibly();
+@@ -426,7 +426,7 @@
+     public boolean offerLast(E e, long timeout, TimeUnit unit)
+         throws InterruptedException {
+         if (e == null) throw new NullPointerException();
+-        Node<E> node = new Node<E>(e);
++        Node<E> node = new Node<>(e);
+         long nanos = unit.toNanos(timeout);
+         final ReentrantLock lock = this.lock;
+         lock.lockInterruptibly();
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/LinkedBlockingQueue.java
+--- a/src/share/classes/java/util/concurrent/LinkedBlockingQueue.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/LinkedBlockingQueue.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -257,7 +257,7 @@
+     public LinkedBlockingQueue(int capacity) {
+         if (capacity <= 0) throw new IllegalArgumentException();
+         this.capacity = capacity;
+-        last = head = new Node<E>(null);
++        last = head = new Node<>(null);
+     }
+ 
+     /**
+@@ -281,7 +281,7 @@
+                     throw new NullPointerException();
+                 if (n == capacity)
+                     throw new IllegalStateException("Queue full");
+-                enqueue(new Node<E>(e));
++                enqueue(new Node<>(e));
+                 ++n;
+             }
+             count.set(n);
+@@ -330,7 +330,7 @@
+         // Note: convention in all put/take/etc is to preset local var
+         // holding count negative to indicate failure unless set.
+         int c = -1;
+-        Node<E> node = new Node<E>(e);
++        Node<E> node = new Node<>(e);
+         final ReentrantLock putLock = this.putLock;
+         final AtomicInteger count = this.count;
+         putLock.lockInterruptibly();
+@@ -381,7 +381,7 @@
+                     return false;
+                 nanos = notFull.awaitNanos(nanos);
+             }
+-            enqueue(new Node<E>(e));
++            enqueue(new Node<>(e));
+             c = count.getAndIncrement();
+             if (c + 1 < capacity)
+                 notFull.signal();
+@@ -410,7 +410,7 @@
+         if (count.get() == capacity)
+             return false;
+         int c = -1;
+-        Node<E> node = new Node<E>(e);
++        Node<E> node = new Node<>(e);
+         final ReentrantLock putLock = this.putLock;
+         putLock.lock();
+         try {
+@@ -890,7 +890,7 @@
+         s.defaultReadObject();
+ 
+         count.set(0);
+-        last = head = new Node<E>(null);
++        last = head = new Node<>(null);
+ 
+         // Read in all elements and place in queue
+         for (;;) {
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/Phaser.java
+--- a/src/share/classes/java/util/concurrent/Phaser.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/Phaser.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -551,8 +551,8 @@
+         }
+         else {
+             this.root = this;
+-            this.evenQ = new AtomicReference<QNode>();
+-            this.oddQ = new AtomicReference<QNode>();
++            this.evenQ = new AtomicReference<>();
++            this.oddQ = new AtomicReference<>();
+         }
+         this.state = (parties == 0) ? (long)EMPTY :
+             ((long)phase << PHASE_SHIFT) |
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/PriorityBlockingQueue.java
+--- a/src/share/classes/java/util/concurrent/PriorityBlockingQueue.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/PriorityBlockingQueue.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -912,7 +912,7 @@
+         lock.lock();
+         try {
+             // avoid zero capacity argument
+-            q = new PriorityQueue<E>(Math.max(size, 1), comparator);
++            q = new PriorityQueue<>(Math.max(size, 1), comparator);
+             q.addAll(this);
+             s.defaultWriteObject();
+         } finally {
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/ScheduledThreadPoolExecutor.java
+--- a/src/share/classes/java/util/concurrent/ScheduledThreadPoolExecutor.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/ScheduledThreadPoolExecutor.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -105,12 +105,12 @@
+  *
+  *   protected <V> RunnableScheduledFuture<V> decorateTask(
+  *                Runnable r, RunnableScheduledFuture<V> task) {
+- *       return new CustomTask<V>(r, task);
++ *       return new CustomTask<>(r, task);
+  *   }
+  *
+  *   protected <V> RunnableScheduledFuture<V> decorateTask(
+  *                Callable<V> c, RunnableScheduledFuture<V> task) {
+- *       return new CustomTask<V>(c, task);
++ *       return new CustomTask<>(c, task);
+  *   }
+  *   // ... add constructors, etc.
+  * }}</pre>
+@@ -526,8 +526,8 @@
+         if (command == null || unit == null)
+             throw new NullPointerException();
+         RunnableScheduledFuture<?> t = decorateTask(command,
+-            new ScheduledFutureTask<Void>(command, null,
+-                                          triggerTime(delay, unit)));
++            new ScheduledFutureTask<>(command, null,
++                                      triggerTime(delay, unit)));
+         delayedExecute(t);
+         return t;
+     }
+@@ -542,8 +542,8 @@
+         if (callable == null || unit == null)
+             throw new NullPointerException();
+         RunnableScheduledFuture<V> t = decorateTask(callable,
+-            new ScheduledFutureTask<V>(callable,
+-                                       triggerTime(delay, unit)));
++            new ScheduledFutureTask<>(callable,
++                                      triggerTime(delay, unit)));
+         delayedExecute(t);
+         return t;
+     }
+@@ -562,10 +562,10 @@
+         if (period <= 0)
+             throw new IllegalArgumentException();
+         ScheduledFutureTask<Void> sft =
+-            new ScheduledFutureTask<Void>(command,
+-                                          null,
+-                                          triggerTime(initialDelay, unit),
+-                                          unit.toNanos(period));
++            new ScheduledFutureTask<>(command,
++                                      null,
++                                      triggerTime(initialDelay, unit),
++                                      unit.toNanos(period));
+         RunnableScheduledFuture<Void> t = decorateTask(command, sft);
+         sft.outerTask = t;
+         delayedExecute(t);
+@@ -586,10 +586,10 @@
+         if (delay <= 0)
+             throw new IllegalArgumentException();
+         ScheduledFutureTask<Void> sft =
+-            new ScheduledFutureTask<Void>(command,
+-                                          null,
+-                                          triggerTime(initialDelay, unit),
+-                                          unit.toNanos(-delay));
++            new ScheduledFutureTask<>(command,
++                                      null,
++                                      triggerTime(initialDelay, unit),
++                                      unit.toNanos(-delay));
+         RunnableScheduledFuture<Void> t = decorateTask(command, sft);
+         sft.outerTask = t;
+         delayedExecute(t);
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/SynchronousQueue.java
+--- a/src/share/classes/java/util/concurrent/SynchronousQueue.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/SynchronousQueue.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -860,7 +860,7 @@
+      *        access; otherwise the order is unspecified.
+      */
+     public SynchronousQueue(boolean fair) {
+-        transferer = fair ? new TransferQueue<E>() : new TransferStack<E>();
++        transferer = fair ? new TransferQueue<>() : new TransferStack<>();
+     }
+ 
+     /**
+@@ -1070,7 +1070,7 @@
+     // Replicated from a previous version of Collections
+     private static class EmptyIterator<E> implements Iterator<E> {
+         static final EmptyIterator<Object> EMPTY_ITERATOR
+-            = new EmptyIterator<Object>();
++            = new EmptyIterator<>();
+ 
+         public boolean hasNext() { return false; }
+         public E next() { throw new NoSuchElementException(); }
+@@ -1183,9 +1183,9 @@
+         throws java.io.IOException, ClassNotFoundException {
+         s.defaultReadObject();
+         if (waitingProducers instanceof FifoWaitQueue)
+-            transferer = new TransferQueue<E>();
++            transferer = new TransferQueue<>();
+         else
+-            transferer = new TransferStack<E>();
++            transferer = new TransferStack<>();
+     }
+ 
+     // Unsafe mechanics
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/ThreadLocalRandom.java
+--- a/src/share/classes/java/util/concurrent/ThreadLocalRandom.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/ThreadLocalRandom.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -130,7 +130,7 @@
+ 
+     /** Rarely-used holder for the second of a pair of Gaussians */
+     private static final ThreadLocal<Double> nextLocalGaussian =
+-        new ThreadLocal<Double>();
++        new ThreadLocal<>();
+ 
+     /*
+      * Field used only during singleton initialization
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/ThreadPoolExecutor.java
+--- a/src/share/classes/java/util/concurrent/ThreadPoolExecutor.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/ThreadPoolExecutor.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -458,7 +458,7 @@
+      * Set containing all worker threads in pool. Accessed only when
+      * holding mainLock.
+      */
+-    private final HashSet<Worker> workers = new HashSet<Worker>();
++    private final HashSet<Worker> workers = new HashSet<>();
+ 
+     /**
+      * Wait condition to support awaitTermination
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/atomic/AtomicIntegerFieldUpdater.java
+--- a/src/share/classes/java/util/concurrent/atomic/AtomicIntegerFieldUpdater.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/atomic/AtomicIntegerFieldUpdater.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -78,7 +78,7 @@
+      * access control
+      */
+     public static <U> AtomicIntegerFieldUpdater<U> newUpdater(Class<U> tclass, String fieldName) {
+-        return new AtomicIntegerFieldUpdaterImpl<U>(tclass, fieldName);
++        return new AtomicIntegerFieldUpdaterImpl<>(tclass, fieldName);
+     }
+ 
+     /**
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/atomic/AtomicLongFieldUpdater.java
+--- a/src/share/classes/java/util/concurrent/atomic/AtomicLongFieldUpdater.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/atomic/AtomicLongFieldUpdater.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -79,9 +79,9 @@
+      */
+     public static <U> AtomicLongFieldUpdater<U> newUpdater(Class<U> tclass, String fieldName) {
+         if (AtomicLong.VM_SUPPORTS_LONG_CAS)
+-            return new CASUpdater<U>(tclass, fieldName);
++            return new CASUpdater<>(tclass, fieldName);
+         else
+-            return new LockedUpdater<U>(tclass, fieldName);
++            return new LockedUpdater<>(tclass, fieldName);
+     }
+ 
+     /**
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/atomic/AtomicMarkableReference.java
+--- a/src/share/classes/java/util/concurrent/atomic/AtomicMarkableReference.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/atomic/AtomicMarkableReference.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -57,7 +57,7 @@
+             this.mark = mark;
+         }
+         static <T> Pair<T> of(T reference, boolean mark) {
+-            return new Pair<T>(reference, mark);
++            return new Pair<>(reference, mark);
+         }
+     }
+ 
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/atomic/AtomicReferenceFieldUpdater.java
+--- a/src/share/classes/java/util/concurrent/atomic/AtomicReferenceFieldUpdater.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/atomic/AtomicReferenceFieldUpdater.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -97,9 +97,9 @@
+      * access control
+      */
+     public static <U, W> AtomicReferenceFieldUpdater<U,W> newUpdater(Class<U> tclass, Class<W> vclass, String fieldName) {
+-        return new AtomicReferenceFieldUpdaterImpl<U,W>(tclass,
+-                                                        vclass,
+-                                                        fieldName);
++        return new AtomicReferenceFieldUpdaterImpl<>(tclass,
++                                                     vclass,
++                                                     fieldName);
+     }
+ 
+     /**
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/atomic/AtomicStampedReference.java
+--- a/src/share/classes/java/util/concurrent/atomic/AtomicStampedReference.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/atomic/AtomicStampedReference.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -57,7 +57,7 @@
+             this.stamp = stamp;
+         }
+         static <T> Pair<T> of(T reference, int stamp) {
+-            return new Pair<T>(reference, stamp);
++            return new Pair<>(reference, stamp);
+         }
+     }
+ 
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.java
+--- a/src/share/classes/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -1330,7 +1330,7 @@
+      * @return the collection of threads
+      */
+     public final Collection<Thread> getQueuedThreads() {
+-        ArrayList<Thread> list = new ArrayList<Thread>();
++        ArrayList<Thread> list = new ArrayList<>();
+         for (Node p = tail; p != null; p = p.prev) {
+             Thread t = p.thread;
+             if (t != null)
+@@ -1348,7 +1348,7 @@
+      * @return the collection of threads
+      */
+     public final Collection<Thread> getExclusiveQueuedThreads() {
+-        ArrayList<Thread> list = new ArrayList<Thread>();
++        ArrayList<Thread> list = new ArrayList<>();
+         for (Node p = tail; p != null; p = p.prev) {
+             if (!p.isShared()) {
+                 Thread t = p.thread;
+@@ -1368,7 +1368,7 @@
+      * @return the collection of threads
+      */
+     public final Collection<Thread> getSharedQueuedThreads() {
+-        ArrayList<Thread> list = new ArrayList<Thread>();
++        ArrayList<Thread> list = new ArrayList<>();
+         for (Node p = tail; p != null; p = p.prev) {
+             if (p.isShared()) {
+                 Thread t = p.thread;
+@@ -2015,7 +2015,7 @@
+         protected final Collection<Thread> getWaitingThreads() {
+             if (!isHeldExclusively())
+                 throw new IllegalMonitorStateException();
+-            ArrayList<Thread> list = new ArrayList<Thread>();
++            ArrayList<Thread> list = new ArrayList<>();
+             for (Node w = firstWaiter; w != null; w = w.nextWaiter) {
+                 if (w.waitStatus == Node.CONDITION) {
+                     Thread t = w.thread;
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/locks/AbstractQueuedSynchronizer.java
+--- a/src/share/classes/java/util/concurrent/locks/AbstractQueuedSynchronizer.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/locks/AbstractQueuedSynchronizer.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -1552,7 +1552,7 @@
+      * @return the collection of threads
+      */
+     public final Collection<Thread> getQueuedThreads() {
+-        ArrayList<Thread> list = new ArrayList<Thread>();
++        ArrayList<Thread> list = new ArrayList<>();
+         for (Node p = tail; p != null; p = p.prev) {
+             Thread t = p.thread;
+             if (t != null)
+@@ -1570,7 +1570,7 @@
+      * @return the collection of threads
+      */
+     public final Collection<Thread> getExclusiveQueuedThreads() {
+-        ArrayList<Thread> list = new ArrayList<Thread>();
++        ArrayList<Thread> list = new ArrayList<>();
+         for (Node p = tail; p != null; p = p.prev) {
+             if (!p.isShared()) {
+                 Thread t = p.thread;
+@@ -1590,7 +1590,7 @@
+      * @return the collection of threads
+      */
+     public final Collection<Thread> getSharedQueuedThreads() {
+-        ArrayList<Thread> list = new ArrayList<Thread>();
++        ArrayList<Thread> list = new ArrayList<>();
+         for (Node p = tail; p != null; p = p.prev) {
+             if (p.isShared()) {
+                 Thread t = p.thread;
+@@ -2235,7 +2235,7 @@
+         protected final Collection<Thread> getWaitingThreads() {
+             if (!isHeldExclusively())
+                 throw new IllegalMonitorStateException();
+-            ArrayList<Thread> list = new ArrayList<Thread>();
++            ArrayList<Thread> list = new ArrayList<>();
+             for (Node w = firstWaiter; w != null; w = w.nextWaiter) {
+                 if (w.waitStatus == Node.CONDITION) {
+                     Thread t = w.thread;
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/locks/LockSupport.java
+--- a/src/share/classes/java/util/concurrent/locks/LockSupport.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/locks/LockSupport.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -91,7 +91,7 @@
+  * class FIFOMutex {
+  *   private final AtomicBoolean locked = new AtomicBoolean(false);
+  *   private final Queue<Thread> waiters
+- *     = new ConcurrentLinkedQueue<Thread>();
++ *     = new ConcurrentLinkedQueue<>();
+  *
+  *   public void lock() {
+  *     boolean wasInterrupted = false;
+diff -r 8d8a35ac7d40 src/share/classes/java/util/concurrent/locks/ReentrantReadWriteLock.java
+--- a/src/share/classes/java/util/concurrent/locks/ReentrantReadWriteLock.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/concurrent/locks/ReentrantReadWriteLock.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -177,7 +177,7 @@
+  *
+  *  <pre> {@code
+  * class RWDictionary {
+- *   private final Map<String, Data> m = new TreeMap<String, Data>();
++ *   private final Map<String, Data> m = new TreeMap<>();
+  *   private final ReentrantReadWriteLock rwl = new ReentrantReadWriteLock();
+  *   private final Lock r = rwl.readLock();
+  *   private final Lock w = rwl.writeLock();
+diff -r 8d8a35ac7d40 src/share/classes/java/util/jar/JarFile.java
+--- a/src/share/classes/java/util/jar/JarFile.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/jar/JarFile.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -780,6 +780,6 @@
+         if (jv != null) {
+             return jv.getManifestDigests();
+         }
+-        return new ArrayList<Object>();
++        return new ArrayList<>();
+     }
+ }
+diff -r 8d8a35ac7d40 src/share/classes/java/util/logging/Logger.java
+--- a/src/share/classes/java/util/logging/Logger.java	Fri Feb 22 09:58:36 2013 -0500
++++ b/src/share/classes/java/util/logging/Logger.java	Sat Feb 23 22:06:59 2013 +0100
+@@ -1722,7 +1722,7 @@
+                 // we didn't have a previous parent
+                 ref = manager.new LoggerWeakRef(this);
+             }
+-            ref.setParentRef(new WeakReference<Logger>(parent));
++            ref.setParentRef(new WeakReference<>(parent));
+             parent.kids.add(ref);
+ 
+             // As a result of the reparenting, the effective level
