@@ -1,0 +1,12 @@
+diff -r 0678af55d3db src/share/classes/javax/swing/event/TreeModelEvent.java
+--- a/src/share/classes/javax/swing/event/TreeModelEvent.java	Tue Jun 05 17:11:26 2012 +0800
++++ b/src/share/classes/javax/swing/event/TreeModelEvent.java	Tue Jun 05 19:59:25 2012 +0100
+@@ -291,7 +291,7 @@
+      * @return a String representation of this object
+      */
+     public String toString() {
+-        StringBuffer   retBuffer = new StringBuffer();
++        StringBuilder retBuffer = new StringBuilder();
+ 
+         retBuffer.append(getClass().getName() + " " +
+                          Integer.toString(hashCode()));

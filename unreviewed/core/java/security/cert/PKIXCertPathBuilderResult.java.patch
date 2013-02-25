@@ -1,0 +1,12 @@
+diff -r 0678af55d3db src/share/classes/java/security/cert/PKIXCertPathBuilderResult.java
+--- a/src/share/classes/java/security/cert/PKIXCertPathBuilderResult.java	Tue Jun 05 17:11:26 2012 +0800
++++ b/src/share/classes/java/security/cert/PKIXCertPathBuilderResult.java	Tue Jun 05 19:59:11 2012 +0100
+@@ -107,7 +107,7 @@
+      *         <code>PKIXCertPathBuilderResult</code>
+      */
+     public String toString() {
+-        StringBuffer sb = new StringBuffer();
++        StringBuilder sb = new StringBuilder();
+         sb.append("PKIXCertPathBuilderResult: [\n");
+         sb.append("  Certification Path: " + certPath + "\n");
+         sb.append("  Trust Anchor: " + getTrustAnchor().toString() + "\n");

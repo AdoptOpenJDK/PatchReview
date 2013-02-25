@@ -1,0 +1,12 @@
+diff -r 0678af55d3db src/share/classes/java/security/cert/CollectionCertStoreParameters.java
+--- a/src/share/classes/java/security/cert/CollectionCertStoreParameters.java	Tue Jun 05 17:11:26 2012 +0800
++++ b/src/share/classes/java/security/cert/CollectionCertStoreParameters.java	Tue Jun 05 19:59:09 2012 +0100
+@@ -132,7 +132,7 @@
+      * @return a formatted string describing the parameters
+      */
+     public String toString() {
+-        StringBuffer sb = new StringBuffer();
++        StringBuilder sb = new StringBuilder();
+         sb.append("CollectionCertStoreParameters: [\n");
+         sb.append("  collection: " + coll + "\n");
+         sb.append("]");

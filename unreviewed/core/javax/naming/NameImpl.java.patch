@@ -1,0 +1,12 @@
+diff -r 0678af55d3db src/share/classes/javax/naming/NameImpl.java
+--- a/src/share/classes/javax/naming/NameImpl.java	Tue Jun 05 17:11:26 2012 +0800
++++ b/src/share/classes/javax/naming/NameImpl.java	Tue Jun 05 19:59:18 2012 +0100
+@@ -449,7 +449,7 @@
+     }
+ 
+     public String toString() {
+-        StringBuffer answer = new StringBuffer();
++        StringBuilder answer = new StringBuilder();
+         String comp;
+         boolean compsAllEmpty = true;
+         int size = components.size();

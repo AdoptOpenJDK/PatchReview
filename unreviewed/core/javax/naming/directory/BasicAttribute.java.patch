@@ -1,0 +1,12 @@
+diff -r 0678af55d3db src/share/classes/javax/naming/directory/BasicAttribute.java
+--- a/src/share/classes/javax/naming/directory/BasicAttribute.java	Tue Jun 05 17:11:26 2012 +0800
++++ b/src/share/classes/javax/naming/directory/BasicAttribute.java	Tue Jun 05 19:59:19 2012 +0100
+@@ -211,7 +211,7 @@
+       * @return The non-null string representation of this attribute.
+       */
+     public String toString() {
+-        StringBuffer answer = new StringBuffer(attrID + ": ");
++        StringBuilder answer = new StringBuilder(attrID + ": ");
+         if (values.size() == 0) {
+             answer.append("No values");
+         } else {

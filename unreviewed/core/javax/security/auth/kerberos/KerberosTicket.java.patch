@@ -1,0 +1,12 @@
+diff -r 0678af55d3db src/share/classes/javax/security/auth/kerberos/KerberosTicket.java
+--- a/src/share/classes/javax/security/auth/kerberos/KerberosTicket.java	Tue Jun 05 17:11:26 2012 +0800
++++ b/src/share/classes/javax/security/auth/kerberos/KerberosTicket.java	Tue Jun 05 19:59:22 2012 +0100
+@@ -636,7 +636,7 @@
+     public String toString() {
+         if (destroyed)
+             throw new IllegalStateException("This ticket is no longer valid");
+-        StringBuffer caddrBuf = new StringBuffer();
++        StringBuilder caddrBuf = new StringBuilder();
+         if (clientAddresses != null) {
+             for (int i = 0; i < clientAddresses.length; i++) {
+                 caddrBuf.append("clientAddresses[" + i + "] = " +

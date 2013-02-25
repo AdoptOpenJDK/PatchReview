@@ -1,0 +1,12 @@
+diff -r 0678af55d3db src/share/classes/javax/print/attribute/SetOfIntegerSyntax.java
+--- a/src/share/classes/javax/print/attribute/SetOfIntegerSyntax.java	Tue Jun 05 17:11:26 2012 +0800
++++ b/src/share/classes/javax/print/attribute/SetOfIntegerSyntax.java	Tue Jun 05 19:59:21 2012 +0100
+@@ -540,7 +540,7 @@
+      * <CODE>"<I>i</I>-<I>j</I>"</CODE> otherwise.
+      */
+     public String toString() {
+-        StringBuffer result = new StringBuffer();
++        StringBuilder result = new StringBuilder();
+         int n = members.length;
+         for (int i = 0; i < n; i++) {
+             if (i > 0) {

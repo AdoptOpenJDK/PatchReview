@@ -1,0 +1,12 @@
+diff -r 0678af55d3db src/share/classes/javax/naming/RefAddr.java
+--- a/src/share/classes/javax/naming/RefAddr.java	Tue Jun 05 17:11:26 2012 +0800
++++ b/src/share/classes/javax/naming/RefAddr.java	Tue Jun 05 19:59:18 2012 +0100
+@@ -138,7 +138,7 @@
+       * @return The non-null string representation of this address.
+       */
+     public String toString(){
+-        StringBuffer str = new StringBuffer("Type: " + addrType + "\n");
++        StringBuilder str = new StringBuilder("Type: " + addrType + "\n");
+ 
+         str.append("Content: " + getContent() + "\n");
+         return (str.toString());

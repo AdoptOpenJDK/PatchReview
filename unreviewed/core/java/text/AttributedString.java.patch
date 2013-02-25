@@ -1,0 +1,17 @@
+diff -r 0678af55d3db src/share/classes/java/text/AttributedString.java
+--- a/src/share/classes/java/text/AttributedString.java	Tue Jun 05 17:11:26 2012 +0800
++++ b/src/share/classes/java/text/AttributedString.java	Tue Jun 05 19:59:14 2012 +0100
+@@ -243,10 +243,11 @@
+             throw new IllegalArgumentException("Invalid substring range");
+ 
+         // Copy the given string
+-        StringBuffer textBuffer = new StringBuffer();
++        StringBuilder textBuffer = new StringBuilder();
+         text.setIndex(beginIndex);
+-        for (char c = text.current(); text.getIndex() < endIndex; c = text.next())
++        for (char c = text.current(); text.getIndex() < endIndex; c = text.next()) {
+             textBuffer.append(c);
++        }
+         this.text = textBuffer.toString();
+ 
+         if (beginIndex == endIndex)

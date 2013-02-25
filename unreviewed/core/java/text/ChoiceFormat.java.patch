@@ -1,0 +1,12 @@
+diff -r 0678af55d3db src/share/classes/java/text/ChoiceFormat.java
+--- a/src/share/classes/java/text/ChoiceFormat.java	Tue Jun 05 17:11:26 2012 +0800
++++ b/src/share/classes/java/text/ChoiceFormat.java	Tue Jun 05 19:59:15 2012 +0100
+@@ -257,7 +257,7 @@
+      * Gets the pattern.
+      */
+     public String toPattern() {
+-        StringBuffer result = new StringBuffer();
++        StringBuilder result = new StringBuilder();
+         for (int i = 0; i < choiceLimits.length; ++i) {
+             if (i != 0) {
+                 result.append('|');

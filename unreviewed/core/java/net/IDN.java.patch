@@ -1,0 +1,21 @@
+diff -r 0678af55d3db src/share/classes/java/net/IDN.java
+--- a/src/share/classes/java/net/IDN.java	Tue Jun 05 17:11:26 2012 +0800
++++ b/src/share/classes/java/net/IDN.java	Tue Jun 05 19:59:04 2012 +0100
+@@ -111,7 +111,7 @@
+     public static String toASCII(String input, int flag)
+     {
+         int p = 0, q = 0;
+-        StringBuffer out = new StringBuffer();
++        StringBuilder out = new StringBuilder();
+ 
+         while (p < input.length()) {
+             q = searchDots(input, p);
+@@ -165,7 +165,7 @@
+      */
+     public static String toUnicode(String input, int flag) {
+         int p = 0, q = 0;
+-        StringBuffer out = new StringBuffer();
++        StringBuilder out = new StringBuilder();
+ 
+         while (p < input.length()) {
+             q = searchDots(input, p);

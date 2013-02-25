@@ -1,0 +1,12 @@
+diff -r 0678af55d3db src/share/classes/java/net/URISyntaxException.java
+--- a/src/share/classes/java/net/URISyntaxException.java	Tue Jun 05 17:11:26 2012 +0800
++++ b/src/share/classes/java/net/URISyntaxException.java	Tue Jun 05 19:59:06 2012 +0100
+@@ -121,7 +121,7 @@
+      * @return  A string describing the parse error
+      */
+     public String getMessage() {
+-        StringBuffer sb = new StringBuffer();
++    	StringBuilder sb = new StringBuilder();
+         sb.append(getReason());
+         if (index > -1) {
+             sb.append(" at index ");
