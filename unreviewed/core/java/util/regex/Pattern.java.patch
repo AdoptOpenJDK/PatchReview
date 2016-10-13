@@ -1,0 +1,35 @@
+diff -r fc575c78f5d3 src/share/classes/java/util/regex/Pattern.java
+--- a/src/share/classes/java/util/regex/Pattern.java	Sun Jun 10 10:29:27 2012 +0100
++++ b/src/share/classes/java/util/regex/Pattern.java	Wed Jun 20 22:43:44 2012 +0100
+@@ -2026,6 +2026,7 @@
+         }
+     }
+ 
++    @SuppressWarnings("fallthrough")
+     /**
+      * Parsing of sequences between alternations.
+      */
+@@ -2140,6 +2141,7 @@
+         return head;
+     }
+ 
++    @SuppressWarnings("fallthrough")
+     /**
+      * Parse and add a new Single or Slice.
+      */
+@@ -2978,6 +2980,7 @@
+         return head;
+     }
+ 
++    @SuppressWarnings("fallthrough")
+     /**
+      * Parses inlined match flags and set them appropriately.
+      */
+@@ -3019,6 +3022,7 @@
+         }
+     }
+ 
++    @SuppressWarnings("fallthrough")
+     /**
+      * Parses the second part of inlined match flags and turns off
+      * flags appropriately.
